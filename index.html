@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The LevelUp AI Builder Cohort — Become an AI Generalist</title>
+<meta name="description" content="Live 6-month weekend cohort. Learn from top mentors, build practical AI skills, and ship real work. 40 seats per cohort.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#090909;
+  --ink:#E8EFEA;
+  --ink-70:rgba(232,239,234,.7);
+  --ink-60:rgba(232,239,234,.66);
+  --ink-50:rgba(232,239,234,.56);
+  --ink-35:rgba(232,239,234,.45);
+  --blue:#0054FF;
+  --blue-text:#4D8AFF;
+  --blue-soft:rgba(0,84,255,.12);
+  --card:#0E0E0E;
+  --surface:#141414;
+  --surface-2:#1A1A1A;
+  --line:rgba(232,239,234,.1);
+  --green:#93FF35;
+  --red:#FF3535;
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Geist",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono","JetBrains Mono",monospace;
+  --pixel:"VT323",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.35;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--blue);color:#fff}
+
+/* ---------- type system (from odyssey.ml, inverted) ---------- */
+.eyebrow{font-family:var(--pixel);font-size:20px;line-height:1;color:var(--blue-text);text-transform:uppercase;letter-spacing:.05em;display:block}
+h1,.h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.6vw,68px);line-height:1.05;letter-spacing:-.03em;color:var(--ink)}
+h2,.h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,48px);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+h3,.h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.lede{font-size:17px;color:var(--ink-60);max-width:620px}
+p{color:var(--ink-60)}
+em{font-style:italic}
+.sm{font-size:13px;color:var(--ink-50)}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:0;line-height:1.5}
+
+/* ---------- primitives ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:110px 0}
+.sec-head{max-width:720px;margin-bottom:64px}
+.sec-head .eyebrow{margin-bottom:18px}
+.sec-head h2{margin-bottom:18px}
+.hairline{border:0;border-top:1px solid var(--line)}
+.hatch{height:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(232,239,234,.05) 10px 11px)}
+
+.btn{font-family:var(--pixel);font-size:20px;line-height:1;text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:10px;padding:13px 20px 12px;border-radius:2px;border:1px solid transparent;cursor:pointer;transition:filter .15s ease,background .15s ease}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{filter:brightness(1.12)}
+.btn-ghost{background:var(--surface-2);color:var(--ink)}
+.btn-ghost:hover{background:#262626}
+.btn .arw{font-family:var(--pixel)}
+
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:0;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);border-radius:2px;color:var(--ink-60);background:var(--card)}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(9,9,9,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo img{height:30px;width:auto}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:14px;color:var(--ink-50);transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-cta .btn{font-size:18px;padding:10px 16px 9px}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 0;text-align:center;position:relative;min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:flex-start;background:#000}
+.hero .eyebrow{margin-bottom:26px}
+.hero h1{max-width:900px;margin:0 auto 26px}
+.hero h1 .accent{font-style:italic;color:var(--blue)}
+.hero .lede{margin:0 auto 40px;max-width:640px}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+
+/* ---------- why now / stats ---------- */
+#why-now{background:#000}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:56px 0 72px}
+.stat{background:var(--card);padding:34px 30px}
+.stat .num{font-family:var(--serif);font-size:clamp(40px,4.6vw,54px);line-height:1;letter-spacing:-.02em;margin-bottom:12px}
+.stat .num em{color:var(--blue-text);font-style:normal}
+.stat p{font-size:14px;color:var(--ink-60)}
+.stat .src{font-family:var(--mono);font-size:11px;color:var(--ink-50);margin-top:14px;display:block}
+
+/* leverage ladder */
+.ladder{max-width:1140px;margin:0 auto}
+.ladder-title{text-align:center;margin-bottom:36px}
+.rung{margin:0 auto 10px;border-radius:2px;padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:14px;border:1px solid var(--line);background:var(--surface)}
+.rung .r-name{font-family:var(--pixel);font-size:19px;text-transform:uppercase;letter-spacing:.04em;line-height:1;white-space:nowrap}
+.rung .r-note{font-family:var(--mono);font-size:11.5px;color:var(--ink-50);text-align:right}
+.rung-1{width:38%;background:var(--blue);border-color:var(--blue)}
+.rung-1 .r-name,.rung-1 .r-note{color:#fff}
+.rung-2{width:58%}
+.rung-3{width:78%}
+.rung-4{width:100%}
+.ladder-you{font-family:var(--pixel);font-size:18px;color:var(--blue-text);text-align:center;margin-bottom:14px;letter-spacing:.05em}
+.ladder-src{font-family:var(--mono);font-size:11px;color:var(--ink-50);text-align:center;margin-top:26px}
+.ladder-close{max-width:620px;margin:64px auto 0;text-align:center;font-size:17px;color:var(--ink-70)}
+.ladder-close strong{color:var(--ink);font-weight:500}
+
+
+/* ladder scene (girl climbing floating steps) */
+.ladder-scene{position:relative;max-width:1240px;margin:52px auto 0}
+.ladder-scene img{-webkit-mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,#000 48%,rgba(0,0,0,.55) 68%,transparent 90%);mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,#000 48%,rgba(0,0,0,.55) 68%,transparent 90%)}
+.ladder-scene img{width:100%;height:auto;display:block}
+.lad-tag{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;white-space:nowrap}
+.lad-tag .t-name{font-family:var(--pixel);font-size:clamp(13px,1.7vw,19px);line-height:1;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);background:rgba(14,14,14,.92);border:1px solid var(--line);border-radius:2px;padding:9px 13px 8px}
+.lad-tag .t-note{font-family:var(--mono);font-size:clamp(9px,1.05vw,11.5px);color:var(--ink-50)}
+.lad-tag.hot .t-name{background:var(--blue);border-color:var(--blue);color:#fff}
+.lad-tag.hot .t-note{color:var(--blue-text)}
+.lad-you{position:absolute;transform:translate(-50%,-50%);font-family:var(--pixel);font-size:clamp(12px,1.5vw,17px);color:var(--blue-text);letter-spacing:.05em;white-space:nowrap}
+@media(max-width:640px){.lad-tag .t-note{display:none}}
+
+/* ---------- pillars ---------- */
+.pillars{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.pillar{display:grid;grid-template-columns:110px 1fr 1.1fr;gap:34px;padding:38px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.pillar .no{font-family:var(--pixel);font-size:22px;color:var(--ink-35)}
+.pillar:hover .no{color:var(--blue)}
+.pillar h3{font-size:clamp(24px,2.6vw,32px)}
+.pillar .body p{margin-bottom:12px}
+.pillar .build{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.pillar .build b{color:var(--blue-text);font-weight:500}
+
+/* ---------- personas ---------- */
+.personas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.persona{background:var(--card);padding:36px 32px}
+.persona .p-arrow{font-family:var(--pixel);font-size:18px;color:var(--blue-text);display:block;margin-bottom:16px;letter-spacing:.04em}
+.persona h3{font-size:clamp(24px,2.4vw,30px);margin-bottom:22px}
+.ba{display:flex;flex-direction:column;gap:12px}
+.ba .row{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline}
+.ba .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-35)}
+.ba .tag.after{color:var(--blue-text)}
+.ba p{font-size:14.5px}
+
+/* ---------- roadmap ---------- */
+.journey{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:64px}
+.journey .jstep{font-family:var(--mono);font-size:12px;padding:8px 12px;border:1px solid var(--line);border-radius:2px;color:var(--ink-60);background:var(--card)}
+.journey .jarr{color:var(--ink-35);align-self:center;font-family:var(--mono);font-size:12px}
+.months{border-top:1px solid var(--line)}
+.month{display:grid;grid-template-columns:150px 1fr;gap:36px;padding:42px 0;border-bottom:1px solid var(--line)}
+.month .m-no{font-family:var(--pixel);font-size:21px;color:var(--blue-text);letter-spacing:.04em}
+.month h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:20px}
+.lbw{display:flex;flex-direction:column;gap:10px}
+.lbw .row{display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:baseline}
+.lbw .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase}
+.lbw .row.build .tag{color:var(--blue-text)}
+.lbw p{font-size:14.5px}
+.lbw .row.build p{color:var(--ink);}
+
+/* ---------- what you'll build ---------- */
+.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.build-card{background:var(--card);padding:32px 28px;min-height:230px;display:flex;flex-direction:column}
+.build-card h3{font-size:clamp(22px,2.2vw,27px);margin-bottom:18px}
+.build-card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.build-card li{font-size:14px;color:var(--ink-60);padding-left:16px;position:relative}
+.build-card li::before{content:"▪";position:absolute;left:0;color:var(--blue-text);font-size:10px;top:4px}
+
+/* ---------- tools ---------- */
+.tools-band{padding:90px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.tool-row{display:flex;align-items:center;gap:0;margin-top:42px}
+.tool-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-50);white-space:nowrap;padding-right:26px;text-transform:uppercase}
+.marquee{overflow:hidden;flex:1;position:relative;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-in{display:flex;gap:0;width:max-content;animation:scroll 36s linear infinite}
+.marquee-in.rev{animation-direction:reverse}
+.marquee:hover .marquee-in{animation-play-state:paused}
+.tico{flex:none;display:inline-flex;align-items:center;justify-content:center;margin:0 21px}
+.tico img{height:46px;width:auto;max-width:110px;object-fit:contain;display:block;border-radius:2px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- mentors ---------- */
+.mentors{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.mentor{background:var(--card);padding:24px 20px}
+.mentor .ph{aspect-ratio:4/5;background:repeating-linear-gradient(-45deg,transparent 0 9px,rgba(232,239,234,.06) 9px 10px),var(--surface);border:1px solid var(--line);border-radius:2px;margin-bottom:18px;display:flex;align-items:center;justify-content:center}
+.mentor .ph span{font-family:var(--pixel);font-size:17px;color:var(--ink-35);letter-spacing:.06em}
+.mentor .owns{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase;display:block;margin-bottom:7px}
+.mentor h3{font-size:20px;font-family:var(--sans);font-weight:500;letter-spacing:-.02em}
+.mentor-note{margin-top:22px}
+
+/* ---------- loop ---------- */
+.loop{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.loop-step{background:var(--card);padding:34px 28px}
+.loop-step .no{font-family:var(--pixel);font-size:20px;color:var(--blue-text);display:block;margin-bottom:16px}
+.loop-step h3{font-size:clamp(24px,2.4vw,30px);margin-bottom:14px}
+.loop-step p{font-size:14.5px}
+
+/* ---------- depth / tiers ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.tier{border:1px solid var(--line);border-radius:2px;padding:36px 30px;display:flex;flex-direction:column;background:var(--card);position:relative}
+.tier.hot{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.tier .tag-pop{position:absolute;top:-11px;left:28px;background:var(--blue);color:#fff;font-family:var(--pixel);font-size:15px;letter-spacing:.06em;padding:4px 10px 3px;border-radius:2px;text-transform:uppercase}
+.tier .t-len{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase;margin-bottom:12px}
+.tier h3{margin-bottom:14px}
+.tier p{font-size:14.5px;margin-bottom:8px}
+.depth-note{margin-top:34px;max-width:560px}
+
+/* ---------- why levelup ---------- */
+.big-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+.big-stat{background:var(--card);padding:36px 30px;text-align:center}
+.big-stat .num{font-family:var(--serif);font-size:clamp(38px,4.4vw,56px);line-height:1;margin-bottom:10px}
+.big-stat p{font-size:13px;color:var(--ink-50)}
+
+/* ---------- investment ---------- */
+.invest{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:start}
+.price{font-family:var(--serif);font-size:clamp(56px,7vw,84px);line-height:1;letter-spacing:-.02em;margin:22px 0 8px}
+.price-sub{font-family:var(--mono);font-size:12.5px;color:var(--ink-50);margin-bottom:30px}
+.included{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.included li{padding:13px 0 13px 24px;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ink-70);position:relative}
+.included li::before{content:"▪";position:absolute;left:2px;top:16px;color:var(--blue-text);font-size:11px}
+.guarantee{border:1px solid var(--line);border-radius:2px;padding:26px 26px;background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(232,239,234,.04) 10px 11px),var(--surface);margin-top:28px}
+.guarantee .g-tag{font-family:var(--pixel);font-size:18px;color:var(--blue-text);letter-spacing:.05em;display:block;margin-bottom:10px;text-transform:uppercase}
+.guarantee p{font-size:14.5px}
+.also{font-size:14px;color:var(--ink-60);margin-top:26px}
+.seats-line{font-family:var(--mono);font-size:12px;color:var(--ink-50);margin-top:18px}
+
+/* ---------- faq ---------- */
+.faq{max-width:780px}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 2px;font-family:var(--serif);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary .plus{font-family:var(--pixel);font-size:24px;color:var(--blue-text);transition:transform .2s;flex-shrink:0}
+details[open] .plus{transform:rotate(45deg)}
+details .ans{padding:0 2px 26px;max-width:640px}
+
+/* ---------- final cta / footer ---------- */
+.final{text-align:center;padding:130px 0}
+.final .eyebrow{margin-bottom:24px}
+.final h2{font-size:clamp(40px,5.6vw,60px);max-width:820px;margin:0 auto 20px}
+.final .lede{margin:0 auto 40px}
+footer{border-top:1px solid var(--line);padding:54px 0 46px}
+.foot-in{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.foot-in img{height:26px;width:auto;margin-bottom:14px}
+.foot-col{display:flex;flex-direction:column;gap:9px}
+.foot-col .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase;margin-bottom:5px}
+.foot-col a{font-size:13.5px;color:var(--ink-60)}
+.foot-col a:hover{color:var(--ink)}
+.foot-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid var(--line)}
+.foot-base span{font-family:var(--mono);font-size:11px;color:var(--ink-50)}
+
+
+/* ---------- ambient blue glows ---------- */
+.has-glow{position:relative;overflow:hidden}
+#apply.has-glow{overflow:visible}
+.bg-clip{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.has-glow>.wrap{position:relative;z-index:1}
+.hero>.wrap{z-index:5}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.5;will-change:transform;z-index:0}
+.glow.g1{width:620px;height:620px;background:radial-gradient(circle,rgba(0,84,255,.32),transparent 66%);animation:drift1 44s ease-in-out infinite alternate}
+.glow.g2{width:460px;height:460px;background:radial-gradient(circle,rgba(77,138,255,.2),transparent 66%);animation:drift2 56s ease-in-out infinite alternate}
+.glow.g3{width:520px;height:520px;background:radial-gradient(circle,rgba(0,84,255,.24),transparent 66%);animation:drift1 62s ease-in-out infinite alternate-reverse}
+@keyframes drift1{from{transform:translate(-6%,4%) scale(1)}to{transform:translate(9%,-7%) scale(1.18)}}
+@keyframes drift2{from{transform:translate(7%,-5%) scale(1.06)}to{transform:translate(-9%,9%) scale(.9)}}
+@media (prefers-reduced-motion:reduce){.glow,.marquee-in{animation:none!important}}
+
+/* ---------- orbit hero ---------- */
+.orbit-stage{position:relative;max-width:1160px;width:100%;margin:-58px auto 0}
+.orbit-stage img{width:100%;height:auto;display:block}
+.ob-base{position:relative;z-index:1;filter:drop-shadow(0 34px 70px rgba(0,84,255,.16))}
+.ob-cut{position:absolute;inset:0;z-index:3;pointer-events:none}
+.ob-icons{position:absolute;inset:0;pointer-events:none}
+.ob-ic{position:absolute;left:0;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:9px;background:rgba(14,14,14,.94);border:1px solid rgba(232,239,234,.16);display:flex;align-items:center;justify-content:center;font-family:var(--pixel);font-size:15px;line-height:1;color:var(--ink);letter-spacing:.03em;box-shadow:0 0 20px rgba(0,84,255,.28);will-change:transform,opacity}
+@media(max-width:640px){.ob-ic{width:34px;height:34px;margin:-17px 0 0 -17px;font-size:12px;border-radius:7px}.orbit-stage{margin-top:-16px}.hero{padding-top:64px}}
+
+
+/* ---------- apply: stacking scroll cards ---------- */
+.stack{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.stack-card{position:sticky;top:110px;height:clamp(320px,46svh,420px);background:var(--card);border:1px solid var(--line);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:36px 28px;text-align:center;will-change:transform,filter;overflow:hidden;box-shadow:0 -18px 44px rgba(0,0,0,.45)}
+.stack-card .s-idx{font-family:var(--pixel);font-size:17px;color:var(--blue-text);letter-spacing:.06em;text-transform:uppercase}
+.stack-card .pill{font-family:var(--mono);font-size:12px;color:var(--ink-60);border:1px solid var(--line);border-radius:999px;padding:9px 18px;background:rgba(232,239,234,.03)}
+.stack-card h3{font-size:clamp(22px,2.9vw,34px);max-width:640px;line-height:1.16}
+@media(max-width:640px){.stack-card{top:84px;height:clamp(280px,44svh,360px);padding:26px 18px;}}
+
+/* ---------- ambient pattern library (blue accents) ---------- */
+.bg-el{position:absolute;inset:0;z-index:0;pointer-events:none}
+.bg-grid{background-image:linear-gradient(rgba(0,84,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,84,255,.07) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(80% 75% at 50% 38%,#000 25%,transparent 100%);mask-image:radial-gradient(80% 75% at 50% 38%,#000 25%,transparent 100%);animation:gridpan 46s linear infinite}
+@keyframes gridpan{to{background-position:54px 54px}}
+.bg-scan{background:linear-gradient(180deg,transparent,rgba(0,84,255,.085),transparent);background-repeat:no-repeat;background-size:100% 280px;background-position:0 -280px;animation:scan 12s linear infinite}
+@keyframes scan{to{background-position:0 calc(100% + 280px)}}
+.bg-beam{background:linear-gradient(115deg,transparent 40%,rgba(0,84,255,.075) 50%,transparent 60%);background-size:240% 100%;background-position:0% 0;animation:beam 15s ease-in-out infinite alternate}
+@keyframes beam{to{background-position:100% 0}}
+.bg-wave{top:auto;bottom:4%;height:44%;width:100%;opacity:.9}
+.bg-wave path{stroke-dasharray:7 9;animation:dashdrift 22s linear infinite}
+.bg-wave path.w2{animation-duration:34s;animation-direction:reverse}
+@keyframes dashdrift{to{stroke-dashoffset:-320}}
+@media (prefers-reduced-motion:reduce){.bg-grid,.bg-scan,.bg-beam,.bg-wave path{animation:none!important}}
+
+
+/* ---------- light breather bands ---------- */
+section.light{
+  background:#F7F7F4;
+  --ink:#090909;
+  --ink-70:rgba(9,9,9,.72);
+  --ink-60:rgba(9,9,9,.62);
+  --ink-50:rgba(9,9,9,.52);
+  --ink-35:rgba(9,9,9,.52);
+  --blue-text:#0044D4;
+  --card:#FFFFFF;
+  --surface:#EFEFEC;
+  --surface-2:#E9E9E6;
+  --line:rgba(9,9,9,.12);
+}
+section.light .glow{opacity:.22}
+section.light .bg-grid{background-image:linear-gradient(rgba(0,84,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,84,255,.08) 1px,transparent 1px)}
+section.light .guarantee{background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(9,9,9,.035) 10px 11px),var(--surface)}
+section.light ::selection{background:var(--blue);color:#fff}
+section.light .btn-ghost:hover{background:#DFDFDC}
+section.light p{color:rgba(9,9,9,.66)}
+section.light .bg-scan{background:linear-gradient(180deg,transparent,rgba(0,84,255,.05),transparent);background-repeat:no-repeat;background-size:100% 280px}
+section.light .bg-beam{background:linear-gradient(115deg,transparent 40%,rgba(0,84,255,.05) 50%,transparent 60%);background-size:240% 100%}
+
+
+/* ---------- film grain ---------- */
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+
+/* ---------- global center alignment ---------- */
+.sec-head{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head .lede{margin-left:auto;margin-right:auto}
+.pillar{grid-template-columns:1fr;text-align:center;gap:12px}
+.pillar .body{max-width:640px;margin:0 auto}
+.pillar .no{margin-bottom:2px}
+.month{grid-template-columns:1fr;text-align:center;gap:16px}
+.lbw{max-width:620px;margin:0 auto;text-align:left}
+.persona,.build-card,.loop-step,.tier,.stat,.mentor,.big-stat{text-align:center}
+.ba{max-width:440px;margin:0 auto;text-align:left}
+.build-card ul{display:inline-flex;flex-direction:column;text-align:left}
+.journey{justify-content:center}
+.mentor-note,.depth-note{text-align:center;margin-left:auto;margin-right:auto}
+.invest{grid-template-columns:1fr;max-width:760px;margin:0 auto;text-align:center;gap:44px}
+.included{display:inline-flex;flex-direction:column;text-align:left;width:100%;max-width:560px}
+.guarantee{text-align:center}
+.faq{margin:0 auto}
+summary{justify-content:center;position:relative;text-align:center;padding-right:44px}
+summary .plus{position:absolute;right:6px;top:50%;transform:translateY(-50%)}
+details[open] .plus{transform:translateY(-50%) rotate(45deg)}
+details .ans{margin:0 auto;text-align:center}
+.tool-label{text-align:right}
+
+
+/* ---------- hero video ---------- */
+.hero-video{position:relative;width:100vw;margin:-64px calc(50% - 50vw) 0;aspect-ratio:16/9;overflow:hidden}
+.hero-video video{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%)}
+@media(max-width:900px){.hero-video{aspect-ratio:16/11;margin-top:-40px}}
+@media(max-width:640px){.hero-video{margin-top:0;aspect-ratio:4/3}}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .stats{grid-template-columns:1fr}
+  .pillar{grid-template-columns:60px 1fr;grid-template-rows:auto auto}
+  .pillar .body{grid-column:2}
+  .personas{grid-template-columns:1fr}
+  .build-grid{grid-template-columns:1fr 1fr}
+  .mentors{grid-template-columns:1fr 1fr}
+  .loop{grid-template-columns:1fr 1fr}
+  .tiers{grid-template-columns:1fr}
+  .big-stats{grid-template-columns:1fr 1fr}
+  .invest{grid-template-columns:1fr;gap:44px}
+  .step{grid-template-columns:60px 1fr;grid-template-rows:auto auto}
+  .step p{grid-column:2}
+  .month{grid-template-columns:1fr;gap:14px}
+}
+@media(max-width:640px){
+  section{padding:64px 0}
+  .wrap{padding:0 20px}
+  .sec-head{margin-bottom:40px}
+  h1,.h1{font-size:clamp(38px,11vw,46px)}
+  h2,.h2{font-size:clamp(28px,8vw,34px)}
+  .nav-links{display:none}
+  .nav-logo img{height:24px}
+  .nav-cta .btn{font-size:16px;padding:9px 13px 8px}
+  .build-grid{grid-template-columns:1fr}
+  .mentors{grid-template-columns:1fr 1fr}
+  .loop{grid-template-columns:1fr}
+  .big-stats{grid-template-columns:1fr 1fr}
+  .big-stat{padding:26px 18px}
+  .stat{padding:26px 22px}
+  .persona{padding:28px 22px}
+  .loop-step{padding:26px 22px}
+  .tier{padding:28px 22px}
+  .month{padding:34px 0}
+  .pillar{grid-template-columns:44px 1fr;gap:18px;padding:30px 0}
+  .journey .jstep{font-size:10.5px;padding:6px 9px}
+  .tico{margin:0 13px}.tico img{height:34px;max-width:82px}
+  .tools-band{padding:64px 0}
+  .price{font-size:clamp(44px,13vw,60px)}
+  .invest{gap:36px}
+  summary{font-size:clamp(18px,5.4vw,22px);padding:18px 2px}
+  .lad-tag .t-name{font-size:11px;padding:6px 9px 5px}
+  .lad-you{font-size:11px}
+  .ladder-close{font-size:15px;margin-top:44px}
+  .glow{filter:blur(60px);opacity:.38}
+  .glow.g1{width:360px;height:360px}.glow.g2{width:280px;height:280px}.glow.g3{width:320px;height:320px}
+  .hero{padding-top:64px}
+  .hero .lede{font-size:15.5px}
+  .hero-ctas .btn{font-size:18px}
+  .foot-in{gap:28px}
+  .final{padding:88px 0}
+  .final h2{font-size:clamp(30px,9vw,40px)}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <div class="wrap nav-in">
+    <a href="#top" class="nav-logo"><img src="levelup-logo-white-trimmed.png" alt="LevelUp Learning"></a>
+    <div class="nav-links">
+      <a href="#why-now">Why Now</a>
+      <a href="#learn">The Stack</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#mentors">Mentors</a>
+      <a href="#investment">Investment</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#apply">Request Invite</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ 1 · HERO ══════════════ -->
+<header class="hero has-glow" id="top">
+  <div class="glow g1" style="top:-160px;left:6%"></div>
+  <div class="glow g2" style="top:30%;right:2%"></div>
+  <div class="wrap">
+    <span class="eyebrow">Live Cohort · AI Generalist Program</span>
+    <h1>Transform your career by becoming an <span class="accent">AI&nbsp;Generalist</span>.</h1>
+    <p class="lede">Live online cohort. Learn from top mentors, build practical AI skills, and ship real work. Become the person who can use AI across content, operations, and product.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a>
+      <a class="btn btn-ghost" href="#roadmap">See the 6-Month Roadmap</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><span class="dot"></span>NEXT COHORT · APPLICATIONS OPEN</span>
+      <span class="chip">40 SEATS PER COHORT</span>
+      <span class="chip">6 MONTHS · WEEKENDS ONLY</span>
+    </div>
+    <div class="hero-video rv">
+      <video src="l3ai_hero_orbit_v3.mp4" autoplay muted loop playsinline aria-label="An AI builder at work, tools orbiting around her"></video>
+    </div>
+  </div>
+</header>
+
+<div class="hatch"></div>
+<!-- ══════════════ 2 · WHY NOW ══════════════ -->
+<section id="why-now" class="has-glow">
+  <div class="glow g3" style="top:10%;right:-140px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Why Now</span>
+      <h2>Everyone can use AI. Only the people who build with it get results.</h2>
+      <p class="lede">Using AI means chatting with it. Building with it means turning it into a product, a system, or an automation — something that runs on its own and produces results, for your customers or your team.</p>
+    </div>
+
+    <div class="stats rv">
+      <div class="stat">
+        <div class="num">88% <em>→</em> 6%</div>
+        <p>Companies use AI, but only 6% see real bottom-line impact</p>
+        <span class="src">McKinsey, 2025</span>
+      </div>
+      <div class="stat">
+        <div class="num">95%</div>
+        <p>Of company AI pilots deliver no measurable return</p>
+        <span class="src">MIT, 2025</span>
+      </div>
+      <div class="stat">
+        <div class="num"><em>+</em>56%</div>
+        <p>More pay for people with AI skills</p>
+        <span class="src">PwC, 2025</span>
+      </div>
+    </div>
+
+    <div class="ladder rv">
+      <div class="ladder-title">
+        <h3>The leverage ladder</h3>
+      </div>
+      <div class="ladder-scene">
+        <img src="l3ai_ladder_steps.png" alt="From chatting with AI to building and shipping — climbing the leverage ladder">
+        <span class="lad-you" style="left:79%;top:16%">&#9660; YOU, AFTER THIS COHORT</span>
+        <div class="lad-tag hot" style="left:79%;top:27%"><span class="t-name">Build &amp; Ship</span><span class="t-note">under 20M &middot; real impact</span></div>
+        <div class="lad-tag" style="left:64%;top:79%"><span class="t-name">Automate with it</span><span class="t-note">~few M &middot; getting rare</span></div>
+        <div class="lad-tag" style="left:42%;top:88%"><span class="t-name">Pay for it</span><span class="t-note">~50M &middot; still just using</span></div>
+        <div class="lad-tag" style="left:20%;top:94%"><span class="t-name">Just chat with it</span><span class="t-note">~1.3B &middot; the loud, crowded base</span></div>
+      </div>
+      <p class="ladder-src">Sources: ~16% of the world uses AI (Microsoft, 2025) · ~50M pay (OpenAI, 2026) · under 20M build, via GitHub Copilot's user base (2025)</p>
+      <p class="ladder-close">Everyone uses AI. Most even pay for it. But the people who build with it — who turn it into an automation, a system, a product — are the only ones who move real results and real money. <strong>That is the step this cohort takes you to.</strong></p>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- ══════════════ 3 · WHAT YOU'LL LEARN ══════════════ -->
+<section id="learn" class="has-glow light">
+  <div class="bg-el bg-scan"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">What You'll Learn</span>
+      <h2>AI isn't one skill. It's a stack, and you'll learn every layer.</h2>
+      <p class="lede">Here is the whole map at a glance. First you learn to use AI properly. Then you learn to turn that into real products. You build it up one layer at a time.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar rv">
+        <span class="no">01</span>
+        <h3>AI Fundamentals</h3>
+        <div class="body">
+          <p>Get reliable, useful work out of any AI tool, and understand how it actually works.</p>
+          <p class="build"><b>YOU'LL BUILD →</b> a prompt and research setup you reuse for everything</p>
+        </div>
+      </div>
+      <div class="pillar rv">
+        <span class="no">02</span>
+        <h3>Generative AI</h3>
+        <div class="body">
+          <p>Make images, video, voice, and content with AI, at a professional level.</p>
+          <p class="build"><b>YOU'LL BUILD →</b> a full content and brand kit</p>
+        </div>
+      </div>
+      <div class="pillar rv">
+        <span class="no">03</span>
+        <h3>Automation &amp; Agents</h3>
+        <div class="body">
+          <p>Connect your tools so the routine work runs without you, and build your first agents.</p>
+          <p class="build"><b>YOU'LL BUILD →</b> live automations and a working agent</p>
+        </div>
+      </div>
+      <div class="pillar rv">
+        <span class="no">04</span>
+        <h3>Building Products</h3>
+        <div class="body">
+          <p>Turn an idea into a working app on your own data, with no code needed.</p>
+          <p class="build"><b>YOU'LL BUILD →</b> a real MVP of your own idea</p>
+        </div>
+      </div>
+      <div class="pillar rv">
+        <span class="no">05</span>
+        <h3>Shipping to Production</h3>
+        <div class="body">
+          <p>Make it reliable and safe, then take it live for real users.</p>
+          <p class="build"><b>YOU'LL BUILD →</b> a deployed product people actually use</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 4 · WHO THIS IS FOR ══════════════ -->
+<section id="who" class="has-glow light">
+  <div class="glow g2" style="bottom:-140px;left:-120px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Who This Is For</span>
+      <h2>If you'd rather build than wait, you're in the right place.</h2>
+      <p class="lede">Different starting points, same finish line. You walk out able to build.</p>
+    </div>
+
+    <div class="personas rv">
+      <div class="persona">
+        <span class="p-arrow">→ becomes a 0-to-1 AI builder</span>
+        <h3>The Founder or Business Owner</h3>
+        <div class="ba">
+          <div class="row"><span class="tag">BEFORE</span><p>Every idea needs a developer, a budget, or another hire.</p></div>
+          <div class="row"><span class="tag after">AFTER</span><p>Builds the MVP, the tools, and the systems themselves.</p></div>
+        </div>
+      </div>
+      <div class="persona">
+        <span class="p-arrow">→ becomes the AI builder on their team</span>
+        <h3>The Operator or Professional</h3>
+        <div class="ba">
+          <div class="row"><span class="tag">BEFORE</span><p>Uses ChatGPT, but has never built anything with it.</p></div>
+          <div class="row"><span class="tag after">AFTER</span><p>Leads AI at work, and ships agents and tools that save real hours.</p></div>
+        </div>
+      </div>
+      <div class="persona">
+        <span class="p-arrow">→ becomes an AI growth builder</span>
+        <h3>The Marketer</h3>
+        <div class="ba">
+          <div class="row"><span class="tag">BEFORE</span><p>Making content by hand, one piece at a time.</p></div>
+          <div class="row"><span class="tag after">AFTER</span><p>Runs a content engine, with agents executing the campaigns.</p></div>
+        </div>
+      </div>
+      <div class="persona">
+        <span class="p-arrow">→ becomes an AI data builder</span>
+        <h3>The Analyst or Generalist</h3>
+        <div class="ba">
+          <div class="row"><span class="tag">BEFORE</span><p>Pulling reports and answering the same questions by hand.</p></div>
+          <div class="row"><span class="tag after">AFTER</span><p>Builds AI tools that analyse and answer on their own.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- ══════════════ 5 · ROADMAP ══════════════ -->
+<section id="roadmap" class="has-glow">
+  <div class="glow g2" style="top:22%;left:-160px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How It Works</span>
+      <h2>6 months. Something real built every single weekend.</h2>
+      <p class="lede">No theory dumps, and nothing taught once and forgotten. Every month you unlock a new skill, build with it that weekend, and carry it into the next.</p>
+    </div>
+
+    <div class="journey rv">
+      <span class="jstep">M1 Fundamentals &amp; first builds</span><span class="jarr">→</span>
+      <span class="jstep">M2 Video, social &amp; automation</span><span class="jarr">→</span>
+      <span class="jstep">M3 Agents &amp; no-code apps</span><span class="jarr">→</span>
+      <span class="jstep">M4 Build your MVP</span><span class="jarr">→</span>
+      <span class="jstep">M5 Production</span><span class="jarr">→</span>
+      <span class="jstep">M6 Deploy &amp; ship</span>
+    </div>
+
+    <div class="months">
+      <div class="month rv">
+        <span class="m-no">MONTH 01</span>
+        <div>
+          <h3>Speak AI fluently.</h3>
+          <div class="lbw">
+            <div class="row"><span class="tag">Learn</span><p>How AI really works, prompting that holds up at work, research, and image generation.</p></div>
+            <div class="row build"><span class="tag">Build</span><p>A reusable prompt system and a brand and image kit.</p></div>
+            <div class="row"><span class="tag">Why</span><p>You get a real win in week one, before doubt sets in.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="month rv">
+        <span class="m-no">MONTH 02</span>
+        <div>
+          <h3>Create and automate.</h3>
+          <div class="lbw">
+            <div class="row"><span class="tag">Learn</span><p>AI video and voice, a content engine, and automation with Make, Zapier and n8n.</p></div>
+            <div class="row build"><span class="tag">Build</span><p>An AI video, a content engine, and your first automations.</p></div>
+            <div class="row"><span class="tag">Why</span><p>Your first taste of work that runs without you.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="month rv">
+        <span class="m-no">MONTH 03</span>
+        <div>
+          <h3>First agent, first app.</h3>
+          <div class="lbw">
+            <div class="row"><span class="tag">Learn</span><p>What an agent really is, how to make it reliable, and how to build apps with no code.</p></div>
+            <div class="row build"><span class="tag">Build</span><p>A working agent and a no-code app.</p></div>
+            <div class="row"><span class="tag">Why</span><p>This is where you stop using AI and start building it.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="month rv">
+        <span class="m-no">MONTH 04</span>
+        <div>
+          <h3>Turn your idea into an MVP.</h3>
+          <div class="lbw">
+            <div class="row"><span class="tag">Learn</span><p>Scoping a product, building with AI coding tools, connecting your own data, and going to market.</p></div>
+            <div class="row build"><span class="tag">Build</span><p>A working MVP on real data, with your first users.</p></div>
+            <div class="row"><span class="tag">Why</span><p>Everything so far becomes one real thing that is yours.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="month rv">
+        <span class="m-no">MONTH 05</span>
+        <div>
+          <h3>Works on my screen, to production.</h3>
+          <div class="lbw">
+            <div class="row"><span class="tag">Learn</span><p>Multi-agent systems, scale, safety, and what app stores need.</p></div>
+            <div class="row build"><span class="tag">Build</span><p>A production-grade system with guardrails.</p></div>
+            <div class="row"><span class="tag">Why</span><p>This is the depth the short programs skip.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="month rv">
+        <span class="m-no">MONTH 06</span>
+        <div>
+          <h3>Take it live.</h3>
+          <div class="lbw">
+            <div class="row"><span class="tag">Learn</span><p>Testing, deployment, monitoring, and a senior review of your build.</p></div>
+            <div class="row build"><span class="tag">Build</span><p>A deployed product with a live link, shown at Demo Day.</p></div>
+            <div class="row"><span class="tag">Why</span><p>You finish with something real people can open and use.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 6 · WHAT YOU'LL BE ABLE TO BUILD ══════════════ -->
+<section id="able" class="has-glow">
+  <div class="bg-el bg-grid"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">What You'll Be Able To Build</span>
+      <h2>Pick any part of a business. You'll be able to build for it.</h2>
+      <p class="lede">Most programs hand you a generic project. This one makes you able to build whatever your work actually needs. Every one of these is something you can build inside the cohort.</p>
+    </div>
+
+    <div class="build-grid rv">
+      <div class="build-card">
+        <h3>Customer Support</h3>
+        <ul>
+          <li>A support chatbot trained on your own docs</li>
+          <li>A voice agent that answers calls</li>
+          <li>Auto-triage and reply drafting</li>
+        </ul>
+      </div>
+      <div class="build-card">
+        <h3>Marketing</h3>
+        <ul>
+          <li>A content engine that runs your socials</li>
+          <li>Ad creative and a full brand kit</li>
+          <li>A campaign agent that executes for you</li>
+        </ul>
+      </div>
+      <div class="build-card">
+        <h3>Sales</h3>
+        <ul>
+          <li>Your own working CRM</li>
+          <li>A lead-generation and outreach agent</li>
+          <li>Follow-ups that send themselves</li>
+        </ul>
+      </div>
+      <div class="build-card">
+        <h3>Operations</h3>
+        <ul>
+          <li>Automations across your tools</li>
+          <li>Internal tools and dashboards</li>
+          <li>An agent that handles the busywork</li>
+        </ul>
+      </div>
+      <div class="build-card">
+        <h3>Product &amp; Data</h3>
+        <ul>
+          <li>Your own AI app on your own data</li>
+          <li>An assistant that answers from your files</li>
+          <li>A product taken all the way live</li>
+        </ul>
+      </div>
+      <div class="build-card">
+        <h3>Whatever you run</h3>
+        <ul>
+          <li>The same skills, pointed at your problem</li>
+          <li>Built with you by working mentors</li>
+          <li>Yours to keep and ship</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 7 · TOOLS ══════════════ -->
+<div class="tools-band">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:10px">
+      <span class="eyebrow">The Tools</span>
+      <h2>The tools you'll actually use.</h2>
+      <p class="lede">You won't just hear about these. You'll build with them until they're second nature.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tool-row rv">
+      <span class="tool-label">Use &amp; Create</span>
+      <div class="marquee"><div class="marquee-in"><span class="tico"><img src="tools section/_web/Claude.png" alt="Claude" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI.png" alt="OpenAI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini.png" alt="Google Gemini" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini-Deep-Research.png" alt="Google Gemini Deep Research" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-AI-Studio.png" alt="Google AI Studio" loading="lazy"></span><span class="tico"><img src="tools section/_web/Microsoft-Copilot.png" alt="Microsoft Copilot" loading="lazy"></span><span class="tico"><img src="tools section/_web/Mistral-AI.png" alt="Mistral AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Midjourney.png" alt="Midjourney" loading="lazy"></span><span class="tico"><img src="tools section/_web/Flux-1.png" alt="Flux 1" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stable-Diffusion-SDXL.png" alt="Stable Diffusion SDXL" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stability-AI.png" alt="Stability AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Leonardo-AI.png" alt="Leonardo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Playground-AI.png" alt="Playground AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Civitai.png" alt="Civitai" loading="lazy"></span><span class="tico"><img src="tools section/_web/ComfyUI.png" alt="ComfyUI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Runway.png" alt="Runway" loading="lazy"></span><span class="tico"><img src="tools section/_web/Kling-AI.png" alt="Kling AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hailuo-AI.png" alt="Hailuo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Luma-AI.png" alt="Luma AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/HeyGen.png" alt="HeyGen" loading="lazy"></span><span class="tico"><img src="tools section/_web/ElevenLabs.png" alt="ElevenLabs" loading="lazy"></span><span class="tico"><img src="tools section/_web/NotebookLM.png" alt="NotebookLM" loading="lazy"></span><span class="tico"><img src="tools section/_web/Gamma.png" alt="Gamma" loading="lazy"></span><span class="tico"><img src="tools section/_web/Pitch.png" alt="Pitch" loading="lazy"></span><span class="tico"><img src="tools section/_web/Claude.png" alt="Claude" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI.png" alt="OpenAI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini.png" alt="Google Gemini" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini-Deep-Research.png" alt="Google Gemini Deep Research" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-AI-Studio.png" alt="Google AI Studio" loading="lazy"></span><span class="tico"><img src="tools section/_web/Microsoft-Copilot.png" alt="Microsoft Copilot" loading="lazy"></span><span class="tico"><img src="tools section/_web/Mistral-AI.png" alt="Mistral AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Midjourney.png" alt="Midjourney" loading="lazy"></span><span class="tico"><img src="tools section/_web/Flux-1.png" alt="Flux 1" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stable-Diffusion-SDXL.png" alt="Stable Diffusion SDXL" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stability-AI.png" alt="Stability AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Leonardo-AI.png" alt="Leonardo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Playground-AI.png" alt="Playground AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Civitai.png" alt="Civitai" loading="lazy"></span><span class="tico"><img src="tools section/_web/ComfyUI.png" alt="ComfyUI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Runway.png" alt="Runway" loading="lazy"></span><span class="tico"><img src="tools section/_web/Kling-AI.png" alt="Kling AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hailuo-AI.png" alt="Hailuo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Luma-AI.png" alt="Luma AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/HeyGen.png" alt="HeyGen" loading="lazy"></span><span class="tico"><img src="tools section/_web/ElevenLabs.png" alt="ElevenLabs" loading="lazy"></span><span class="tico"><img src="tools section/_web/NotebookLM.png" alt="NotebookLM" loading="lazy"></span><span class="tico"><img src="tools section/_web/Gamma.png" alt="Gamma" loading="lazy"></span><span class="tico"><img src="tools section/_web/Pitch.png" alt="Pitch" loading="lazy"></span></div></div>
+    </div>
+    <div class="tool-row rv">
+      <span class="tool-label">Build &amp; Ship</span>
+      <div class="marquee"><div class="marquee-in rev"><span class="tico"><img src="tools section/_web/Cursor.png" alt="Cursor" loading="lazy"></span><span class="tico"><img src="tools section/_web/v0-Vercel.png" alt="v0 Vercel" loading="lazy"></span><span class="tico"><img src="tools section/_web/GPT-4-OpenAI-Playground.png" alt="GPT 4 OpenAI Playground" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI-API.png" alt="OpenAI API" loading="lazy"></span><span class="tico"><img src="tools section/_web/LangChain.png" alt="LangChain" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face.png" alt="Hugging Face" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face-Hub.png" alt="Hugging Face Hub" loading="lazy"></span><span class="tico"><img src="tools section/_web/Supabase.png" alt="Supabase" loading="lazy"></span><span class="tico"><img src="tools section/_web/n8n.png" alt="n8n" loading="lazy"></span><span class="tico"><img src="tools section/_web/Make.png" alt="Make" loading="lazy"></span><span class="tico"><img src="tools section/_web/Zapier.png" alt="Zapier" loading="lazy"></span><span class="tico"><img src="tools section/_web/Relevance-AI.png" alt="Relevance AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Vapi.png" alt="Vapi" loading="lazy"></span><span class="tico"><img src="tools section/_web/Postman.png" alt="Postman" loading="lazy"></span><span class="tico"><img src="tools section/_web/NextAuth.png" alt="NextAuth" loading="lazy"></span><span class="tico"><img src="tools section/_web/Bubble.png" alt="Bubble" loading="lazy"></span><span class="tico"><img src="tools section/_web/Fireflies.png" alt="Fireflies" loading="lazy"></span><span class="tico"><img src="tools section/_web/Humata.png" alt="Humata" loading="lazy"></span><span class="tico"><img src="tools section/_web/Frase.png" alt="Frase" loading="lazy"></span><span class="tico"><img src="tools section/_web/Surfer.png" alt="Surfer" loading="lazy"></span><span class="tico"><img src="tools section/_web/Rows.png" alt="Rows" loading="lazy"></span><span class="tico"><img src="tools section/_web/Agentive-AI.png" alt="Agentive AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Cursor.png" alt="Cursor" loading="lazy"></span><span class="tico"><img src="tools section/_web/v0-Vercel.png" alt="v0 Vercel" loading="lazy"></span><span class="tico"><img src="tools section/_web/GPT-4-OpenAI-Playground.png" alt="GPT 4 OpenAI Playground" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI-API.png" alt="OpenAI API" loading="lazy"></span><span class="tico"><img src="tools section/_web/LangChain.png" alt="LangChain" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face.png" alt="Hugging Face" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face-Hub.png" alt="Hugging Face Hub" loading="lazy"></span><span class="tico"><img src="tools section/_web/Supabase.png" alt="Supabase" loading="lazy"></span><span class="tico"><img src="tools section/_web/n8n.png" alt="n8n" loading="lazy"></span><span class="tico"><img src="tools section/_web/Make.png" alt="Make" loading="lazy"></span><span class="tico"><img src="tools section/_web/Zapier.png" alt="Zapier" loading="lazy"></span><span class="tico"><img src="tools section/_web/Relevance-AI.png" alt="Relevance AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Vapi.png" alt="Vapi" loading="lazy"></span><span class="tico"><img src="tools section/_web/Postman.png" alt="Postman" loading="lazy"></span><span class="tico"><img src="tools section/_web/NextAuth.png" alt="NextAuth" loading="lazy"></span><span class="tico"><img src="tools section/_web/Bubble.png" alt="Bubble" loading="lazy"></span><span class="tico"><img src="tools section/_web/Fireflies.png" alt="Fireflies" loading="lazy"></span><span class="tico"><img src="tools section/_web/Humata.png" alt="Humata" loading="lazy"></span><span class="tico"><img src="tools section/_web/Frase.png" alt="Frase" loading="lazy"></span><span class="tico"><img src="tools section/_web/Surfer.png" alt="Surfer" loading="lazy"></span><span class="tico"><img src="tools section/_web/Rows.png" alt="Rows" loading="lazy"></span><span class="tico"><img src="tools section/_web/Agentive-AI.png" alt="Agentive AI" loading="lazy"></span></div></div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════ 8 · MENTORS ══════════════ -->
+<section id="mentors" class="has-glow">
+  <div class="bg-el bg-beam"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Who Teaches You</span>
+      <h2>You learn from people who build with AI for a living.</h2>
+      <p class="lede">Not rotating strangers or anonymous TAs. The same mentors are with you all six months, and each one owns a part of the stack. They build this in the real world, then teach you to do the same.</p>
+    </div>
+
+    <div class="mentors rv">
+      <div class="mentor">
+        <div class="ph"><span>TBA</span></div>
+        <span class="owns">Owns the pillar</span>
+        <h3>AI Fundamentals</h3>
+      </div>
+      <div class="mentor">
+        <div class="ph"><span>TBA</span></div>
+        <span class="owns">Owns the pillar</span>
+        <h3>Generative AI</h3>
+      </div>
+      <div class="mentor">
+        <div class="ph"><span>TBA</span></div>
+        <span class="owns">Owns the pillar</span>
+        <h3>Automation &amp; Agents</h3>
+      </div>
+      <div class="mentor">
+        <div class="ph"><span>TBA</span></div>
+        <span class="owns">Owns the pillar</span>
+        <h3>Building Products</h3>
+      </div>
+      <div class="mentor">
+        <div class="ph"><span>TBA</span></div>
+        <span class="owns">Owns the pillar</span>
+        <h3>Shipping to Production</h3>
+      </div>
+    </div>
+    <p class="sm mentor-note rv">Full mentor lineup announced at cohort kickoff.</p>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- ══════════════ 9 · HOW YOU'LL LEARN ══════════════ -->
+<section id="loop" class="has-glow light">
+  <svg class="bg-el bg-wave" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150" fill="none" stroke="rgba(0,84,255,.18)" stroke-width="1.5"/>
+    <path class="w2" d="M0,190 C240,110 480,270 720,190 C960,110 1200,270 1440,190" fill="none" stroke="rgba(77,138,255,.09)" stroke-width="1.5"/>
+  </svg>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How You'll Learn</span>
+      <h2>Every week runs on the same simple loop.</h2>
+    </div>
+
+    <div class="loop rv">
+      <div class="loop-step">
+        <span class="no">01</span>
+        <h3>Learn</h3>
+        <p>Live weekend sessions where mentors teach it and build it in front of you.</p>
+      </div>
+      <div class="loop-step">
+        <span class="no">02</span>
+        <h3>Build</h3>
+        <p>You build the same thing on your own project, not a throwaway exercise.</p>
+      </div>
+      <div class="loop-step">
+        <span class="no">03</span>
+        <h3>Apply</h3>
+        <p>You put it to work in your real job or business, and get feedback on it.</p>
+      </div>
+      <div class="loop-step">
+        <span class="no">04</span>
+        <h3>Grow</h3>
+        <p>You keep building with the community, for life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 10 · CHOOSE YOUR DEPTH ══════════════ -->
+<section id="depth" class="has-glow light">
+  <div class="glow g3" style="bottom:-120px;right:-100px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Choose Your Depth</span>
+      <h2>Start with the full journey. Step off when it fits.</h2>
+      <p class="lede">The cohort is one curriculum with three ways through it. Most people take the full six months, from zero to a product that is live. If you already build, you can start deeper. If you only need the foundation, take just that. Same room, same mentors. You choose how far you go.</p>
+    </div>
+
+    <div class="tiers rv">
+      <div class="tier hot">
+        <span class="tag-pop">Most Popular</span>
+        <span class="t-len">The full 6 months</span>
+        <h3>Mastery</h3>
+        <p>Zero to a deployed product. What most people come for.</p>
+      </div>
+      <div class="tier">
+        <span class="t-len">The first 4 months</span>
+        <h3>Foundations</h3>
+        <p>The foundation and your first real MVP.</p>
+      </div>
+      <div class="tier">
+        <span class="t-len">The back 3 months</span>
+        <h3>Pro</h3>
+        <p>Skip the basics, go straight to production and launch.</p>
+      </div>
+    </div>
+    <p class="depth-note sm rv">Not sure which is you? We help you pick inside your application, so you never pay for what you already know.</p>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- ══════════════ 11 · WHY LEVELUP ══════════════ -->
+<section id="why-levelup" class="has-glow">
+  <div class="glow g1" style="top:-180px;left:50%;margin-left:-310px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Why LevelUp</span>
+      <h2>Built by one of India's largest learning communities.</h2>
+      <p class="lede">This is not a first-timer running a cohort off a slide deck. LevelUp has trained tens of thousands of people and built one of the largest creator and filmmaking communities in the country. This is that same machine, now pointed at the most valuable skill of the decade.</p>
+    </div>
+
+    <!-- NOTE: confirm these numbers are current before publishing -->
+    <div class="big-stats rv">
+      <div class="big-stat"><div class="num">3L+</div><p>in the community</p></div>
+      <div class="big-stat"><div class="num">49,000+</div><p>learners trained</p></div>
+      <div class="big-stat"><div class="num">821+</div><p>cities</p></div>
+      <div class="big-stat"><div class="num">40</div><p>capped per cohort</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 12 · HOW TO APPLY ══════════════ -->
+<section id="apply" class="has-glow">
+  <div class="bg-clip">
+    <div class="bg-el bg-grid"></div>
+    <div class="glow g3" style="top:6%;right:-160px"></div>
+  </div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How To Apply</span>
+      <h2>We take 40 builders per cohort. Here's how you get in.</h2>
+      <p class="lede">The application is a filter, on purpose. It keeps the room full of people who will actually build.</p>
+    </div>
+
+    <div class="stack">
+      <div class="stack-card">
+        <span class="s-idx">Step 01</span>
+        <span class="pill">Request your invite</span>
+        <h3>Fill the short application.<br>We read every one.</h3>
+      </div>
+      <div class="stack-card">
+        <span class="s-idx">Step 02</span>
+        <span class="pill">Pay a refundable fee</span>
+        <h3>It filters out the casual.<br>You get it back if we say no.</h3>
+      </div>
+      <div class="stack-card">
+        <span class="s-idx">Step 03</span>
+        <span class="pill">Sit for an interview</span>
+        <h3>A short call on fit, intent,<br>and which depth suits you.</h3>
+      </div>
+      <div class="stack-card">
+        <span class="s-idx">Step 04</span>
+        <span class="pill">Decision in 24 to 48 hours</span>
+        <h3>Either you're in.<br>Or we tell you why not.</h3>
+      </div>
+      <div class="stack-card">
+        <span class="s-idx">Step 05</span>
+        <span class="pill">Confirm your seat</span>
+        <h3>Lock your place and your path<br>for the cohort.</h3>
+      </div>
+    </div>
+
+    <div style="margin-top:44px" class="rv">
+      <a class="btn btn-primary" href="#">Request an Invite <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- ══════════════ 13 · THE INVESTMENT ══════════════ -->
+<section id="investment" class="has-glow light">
+  <div class="bg-el bg-beam"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The Investment</span>
+      <h2>Invest in becoming a builder. Not another course.</h2>
+    </div>
+
+    <div class="invest">
+      <div class="rv">
+        <span class="mono" style="color:var(--ink-35)">MASTERY · FULL 6 MONTHS</span>
+        <div class="price">₹1,25,000</div>
+        <p class="price-sub">ALL IN · NO-COST EMI AND FLEXIBLE PLANS AVAILABLE</p>
+        <p class="also">Also available: <strong style="color:var(--ink);font-weight:500">Foundations</strong> or <strong style="color:var(--ink);font-weight:500">Pro</strong> at ₹75,000 each. Most people take the full journey.</p>
+        <div class="guarantee">
+          <span class="g-tag">The Halfway Guarantee</span>
+          <p>Reach the halfway point and feel it isn't what we promised? We refund you. The price is right here — no sales call needed.</p>
+        </div>
+        <p class="seats-line">40 SEATS · NEXT COHORT DATES SHARED WHEN YOU APPLY</p>
+      </div>
+      <div class="rv">
+        <span class="mono" style="color:var(--ink-35);display:block;margin-bottom:14px">WHAT'S INCLUDED</span>
+        <ul class="included">
+          <li>6 months of live weekend classes, capped at 40</li>
+          <li>Mentors who build with AI for a living</li>
+          <li>20+ real builds across every part of a business</li>
+          <li>One product taken all the way live</li>
+          <li>A portfolio that proves you can build</li>
+          <li>Lifetime access to the builder community</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 14 · FAQ ══════════════ -->
+<section id="faq" class="has-glow">
+  <div class="bg-el bg-scan" style="animation-duration:17s"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Questions</span>
+      <h2>The things people ask first.</h2>
+    </div>
+
+    <div class="faq rv">
+      <details>
+        <summary>I'm not technical. Can I really build? <span class="plus">+</span></summary>
+        <p class="ans">Yes, that is exactly who this is for. The first four months use no-code and AI tools, no coding needed. You only touch real code in the deeper months, and even then we walk you in.</p>
+      </details>
+      <details>
+        <summary>What if I only want the first half? <span class="plus">+</span></summary>
+        <p class="ans">You can take just Foundations, the first four months, and walk out with a real MVP. Most people go the full six because that is where you ship something live. We help you choose when you apply.</p>
+      </details>
+      <details>
+        <summary>Is this actually live, or recorded? <span class="plus">+</span></summary>
+        <p class="ans">Live. Capped at 40, with mentors, on weekends. We do not sell recordings as live. Everything is recorded for catch-up, but the building happens together.</p>
+      </details>
+      <details>
+        <summary>I run a business. Will this fit my schedule? <span class="plus">+</span></summary>
+        <p class="ans">It is built for working people. Classes are on weekends, with optional weekday help if you get stuck. Plan for about 8 to 10 hours a week, including your own building.</p>
+      </details>
+      <details>
+        <summary>Do I need an idea to start? <span class="plus">+</span></summary>
+        <p class="ans">No. Some people arrive with one, some find it in the first month. Either way you build on something real to you.</p>
+      </details>
+      <details>
+        <summary>Is the application fee really refundable? <span class="plus">+</span></summary>
+        <p class="ans">Yes. It is there to filter out people who won't show up. If we don't take you, you get it back.</p>
+      </details>
+      <details>
+        <summary>What do I actually walk away with? <span class="plus">+</span></summary>
+        <p class="ans">Working AI builds across marketing, sales, support, operations and product, a portfolio that proves it, and one product you took all the way live, shown at Demo Day.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- ══════════════ 15 · FINAL CTA ══════════════ -->
+<section class="final has-glow">
+  <svg class="bg-el bg-wave" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150" fill="none" stroke="rgba(0,84,255,.18)" stroke-width="1.5"/>
+    <path class="w2" d="M0,190 C240,110 480,270 720,190 C960,110 1200,270 1440,190" fill="none" stroke="rgba(77,138,255,.09)" stroke-width="1.5"/>
+  </svg>
+  <div class="glow g1" style="top:-60px;left:50%;transform:translateX(-50%)"></div>
+  <div class="wrap">
+    <span class="eyebrow rv">40 Seats · Live for 6 Months</span>
+    <h2 class="rv">Enough people just use AI. Become one who can <em style="color:var(--blue)">build</em> with it.</h2>
+    <p class="lede rv">40 seats. Live for 6 months. Request your invite.</p>
+    <div class="rv" style="margin-top:36px">
+      <a class="btn btn-primary" href="#apply">Request an Invite <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <img src="levelup-logo-white-trimmed.png" alt="LevelUp Learning">
+        <p class="sm" style="max-width:280px">A creative education ecosystem for serious learners. Now pointed at the most valuable skill of the decade.</p>
+      </div>
+      <div class="foot-col">
+        <span class="t">Program</span>
+        <a href="#learn">The Stack</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#depth">Choose Your Depth</a>
+        <a href="#investment">Investment</a>
+      </div>
+      <div class="foot-col">
+        <span class="t">Apply</span>
+        <a href="#apply">How to Apply</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:admin@leveluplearning.in">Contact</a>
+      </div>
+      <div class="foot-col">
+        <span class="t">LevelUp</span>
+        <a href="https://www.leveluplearning.in/" target="_blank" rel="noopener">leveluplearning.in</a>
+        <a href="https://www.instagram.com/leveluplearning.in/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@leveluplearning_in/" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/levelup-learning/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 LEVELUP LEARNING. ALL RIGHTS RESERVED.</span>
+      <span>THE AI BUILDER COHORT</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---- orbit hero: placeholder icons on an elliptical path between baseplate and cutout ----
+(function(){
+  const stage=document.getElementById('orbitStage'), wrap=document.getElementById('obIcons');
+  if(!stage||!wrap) return;
+  const LABELS=['AI','GPT','CL','MJ','N8N','ZAP','V0','DB'];  // placeholders — swap for logo PNGs later
+  const els=LABELS.map(t=>{const d=document.createElement('div');d.className='ob-ic';d.textContent=t;wrap.appendChild(d);return d;});
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CX=.5, CY=.36, RX=.28, RY=.135, SPEED=2*Math.PI/26000; // ring around her, ≈ 26s/rev
+  function frame(now){
+    const w=stage.clientWidth, h=stage.clientHeight;
+    els.forEach((el,i)=>{
+      const a=now*SPEED + i*2*Math.PI/els.length;
+      const x=CX*w + RX*w*Math.cos(a);
+      const y=CY*h + RY*h*Math.sin(a);
+      const depth=Math.sin(a);                    // -1 back … +1 front
+      const sc=.66 + .44*(depth+1)/2;
+      el.style.transform=`translate(${x}px,${y}px) scale(${sc})`;
+      el.style.opacity=(.45+.55*(depth+1)/2).toFixed(2);
+      el.style.zIndex=depth>0?4:2;                // cutout sits at 3
+    });
+    if(!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+// ---- hero glow parallax (subtle) ----
+(function(){
+  const hero=document.querySelector('.hero');
+  if(!hero||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const glows=hero.querySelectorAll('.glow');
+  hero.addEventListener('mousemove',e=>{
+    const r=hero.getBoundingClientRect();
+    const dx=(e.clientX-r.left)/r.width-.5, dy=(e.clientY-r.top)/r.height-.5;
+    glows.forEach((g,i)=>{g.style.translate=`${dx*(i+1)*14}px ${dy*(i+1)*10}px`;});
+  },{passive:true});
+})();
+// ---- stacking cards: scale/dim the card being covered ----
+(function(){
+  const cards=[...document.querySelectorAll('.stack-card')];
+  if(!cards.length) return;
+  const topOff=()=>innerWidth<=640?84:110;
+  function upd(){
+    const t=topOff();
+    for(let i=0;i<cards.length-1;i++){
+      const h=cards[i].offsetHeight;
+      const nt=cards[i+1].getBoundingClientRect().top;
+      const p=Math.min(1,Math.max(0,1-(nt-t)/(h+24)));
+      cards[i].style.transform=`scale(${1-p*.05})`;
+      cards[i].style.filter=`brightness(${1-p*.4})`;
+    }
+    requestAnimationFrame(upd);
+  }
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(upd);
+})();
+// reveal on scroll
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+
+
+
+</body>
+</html>
