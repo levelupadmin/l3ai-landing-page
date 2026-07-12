@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The LevelUp AI Builder Cohort — Become an AI Generalist</title>
 <meta name="description" content="Live 6-month weekend cohort. Learn from top mentors, build practical AI skills, and ship real work. 40 seats per cohort.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +31,8 @@
   --pixel:"VT323",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.35;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.35;letter-spacing:-.02em;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--blue);color:#fff}
@@ -77,6 +77,16 @@ nav{position:sticky;top:0;z-index:50;background:rgba(9,9,9,.82);backdrop-filter:
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{display:flex;align-items:center;gap:16px}
 .nav-cta .btn{font-size:18px;padding:10px 16px 9px}
+.nav-burger{display:none;background:none;border:1px solid var(--line);border-radius:2px;width:42px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0}
+.nav-burger span{display:block;width:16px;height:1.5px;background:var(--ink);transition:transform .2s,opacity .2s}
+nav.open .nav-burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+nav.open .nav-burger span:nth-child(2){opacity:0}
+nav.open .nav-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-mobile{display:none}
+nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.nav-mobile a{font-size:15px;color:var(--ink-60);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav-mobile a:last-child{border-bottom:0}
+.nav-mobile a:active,.nav-mobile a:hover{color:var(--ink)}
 
 /* ---------- hero ---------- */
 .hero{padding:84px 0 0;text-align:center;position:relative;min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:flex-start;background:#000}
@@ -253,7 +263,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 46px}
 
 
 /* ---------- ambient blue glows ---------- */
-.has-glow{position:relative;overflow:hidden}
+.has-glow{position:relative;overflow:hidden;contain:paint}
 #apply.has-glow{overflow:visible}
 .bg-clip{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
 .has-glow>.wrap{position:relative;z-index:1}
@@ -384,8 +394,10 @@ details .ans{margin:0 auto;text-align:center}
   h1,.h1{font-size:clamp(38px,11vw,46px)}
   h2,.h2{font-size:clamp(28px,8vw,34px)}
   .nav-links{display:none}
+  .nav-burger{display:flex}
   .nav-logo img{height:24px}
   .nav-cta .btn{font-size:16px;padding:9px 13px 8px}
+  .lad-you{white-space:normal;max-width:36vw;font-size:10px;line-height:1.4;text-align:center}
   .build-grid{grid-template-columns:1fr}
   .mentors{grid-template-columns:1fr 1fr}
   .loop{grid-template-columns:1fr}
@@ -433,7 +445,16 @@ details .ans{margin:0 auto;text-align:center}
     </div>
     <div class="nav-cta">
       <a class="btn btn-primary" href="#apply">Request Invite</a>
+      <button class="nav-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
+  </div>
+  <div class="nav-mobile wrap">
+    <a href="#why-now">Why Now</a>
+    <a href="#learn">The Stack</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#mentors">Mentors</a>
+    <a href="#investment">Investment</a>
+    <a href="#faq">FAQ</a>
   </div>
 </nav>
 
@@ -1126,6 +1147,20 @@ details .ans{margin:0 auto;text-align:center}
     if(!reduced) requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+})();
+// ---- mobile nav toggle ----
+(function(){
+  const nav=document.querySelector('nav'), burger=document.querySelector('.nav-burger');
+  if(!nav||!burger) return;
+  burger.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  nav.querySelectorAll('.nav-mobile a').forEach(a=>a.addEventListener('click',()=>{
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }));
 })();
 // ---- hero glow parallax (subtle) ----
 (function(){
