@@ -69,7 +69,7 @@ em{font-style:italic}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 section{padding:96px 0}
 section[id],header[id]{scroll-margin-top:76px}
-#who,#able,#depth{padding-top:64px}
+#who,#able,#how{padding-top:64px}
 .sec-head{max-width:720px;margin-bottom:56px}
 .sec-head .eyebrow{margin-bottom:14px}
 .sec-head h2{margin-bottom:18px}
@@ -119,14 +119,6 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
 .hero-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
 
-/* ---------- why now / stats ---------- */
-#why-now{background:#000}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:56px 0 72px}
-.stat{background:var(--card);padding:34px 30px}
-.stat .num{font-family:var(--serif);font-size:clamp(40px,4.6vw,54px);line-height:1;letter-spacing:-.02em;margin-bottom:12px}
-.stat .num em{color:var(--ink-50);font-style:normal}
-.stat p{font-size:14px;color:var(--ink-60)}
-.stat .src{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);margin-top:14px;display:block}
 
 /* leverage ladder */
 .ladder{max-width:1140px;margin:0 auto}
@@ -177,20 +169,6 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .ba .tag.after{color:var(--ink)}
 .ba p{font-size:14.5px}
 
-/* ---------- roadmap ---------- */
-.journey{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:64px}
-.journey .jstep{font-family:var(--mono);font-size:12px;padding:8px 12px;border:1px solid var(--line);border-radius:2px;color:var(--ink-60);background:var(--card)}
-.journey .jarr{color:var(--ink-35);align-self:center;font-family:var(--mono);font-size:12px}
-.months{border-top:1px solid var(--line)}
-.month{display:grid;grid-template-columns:150px 1fr;gap:36px;padding:36px 0;border-bottom:1px solid var(--line)}
-.month .m-no{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-35);line-height:1.4}
-.month h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:20px}
-.lbw{display:flex;flex-direction:column;gap:10px}
-.lbw .row{display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:baseline}
-.lbw .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase}
-.lbw .row.build .tag{color:var(--ink)}
-.lbw p{font-size:14.5px}
-.lbw .row.build p{color:var(--ink);}
 
 /* ---------- what you'll build ---------- */
 .build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -212,14 +190,6 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .tico img{height:46px;width:auto;max-width:110px;object-fit:contain;display:block;border-radius:2px}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
-/* ---------- mentors ---------- */
-.mentors{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.mentor{background:var(--card);padding:24px 20px}
-.mentor .ph{aspect-ratio:4/5;background:repeating-linear-gradient(-45deg,transparent 0 9px,rgba(232,239,234,.06) 9px 10px),var(--surface);border:1px solid var(--line);border-radius:2px;margin-bottom:18px;display:flex;align-items:center;justify-content:center}
-.mentor .ph span{font-family:var(--pixel);font-size:17px;color:var(--ink-35);letter-spacing:.06em}
-.mentor .owns{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase;display:block;margin-bottom:7px}
-.mentor h3{font-size:20px;font-family:var(--sans);font-weight:500;letter-spacing:-.02em}
-.mentor-note{margin-top:22px}
 
 /* ---------- loop ---------- */
 .loop{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -234,19 +204,16 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .tier.hot{border-color:var(--blue-line);background:linear-gradient(var(--blue-tint),var(--blue-tint)),var(--card)}
 .tier .tag-pop{position:absolute;top:-12px;left:28px;background:var(--blue);color:#fff;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;padding:5px 10px;border-radius:2px;text-transform:uppercase}
 .tier .t-len{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase;margin-bottom:12px}
-.tier h3{margin-bottom:14px}
+.tier h3{margin-bottom:10px}
+.tier .t-price{font-family:var(--serif);font-size:clamp(30px,3vw,40px);line-height:1;letter-spacing:-.02em;color:var(--ink);margin-bottom:14px}
 .tier p{font-size:14.5px;margin-bottom:8px}
+.tools-lede{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);text-align:center;margin-top:72px}
+.cred-line{text-align:center;font-size:14px;color:var(--ink-60);margin-top:22px}
+.cred-line strong{color:var(--ink);font-weight:500}
 .depth-note{margin-top:34px;max-width:560px}
 
-/* ---------- why levelup ---------- */
-.big-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
-.big-stat{background:var(--card);padding:36px 30px;text-align:center}
-.big-stat .num{font-family:var(--serif);font-size:clamp(38px,4.4vw,56px);line-height:1;margin-bottom:10px}
-.big-stat p{font-size:13px;color:var(--ink-50)}
 
 /* ---------- investment ---------- */
-.invest{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:start}
-.price{font-family:var(--serif);font-size:clamp(56px,7vw,84px);line-height:1;letter-spacing:-.02em;margin:22px 0 8px}
 .price-sub{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);margin-bottom:30px}
 .included{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .included li{padding:13px 0 13px 24px;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ink-70);position:relative}
@@ -254,7 +221,6 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .guarantee{border:1px solid var(--line);border-radius:2px;padding:26px 26px;background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(232,239,234,.04) 10px 11px),var(--surface);margin-top:28px}
 .guarantee .g-tag{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.08em;color:var(--ink-35);display:block;margin-bottom:10px;text-transform:uppercase}
 .guarantee p{font-size:14.5px}
-.also{font-size:14px;color:var(--ink-60);margin-top:26px}
 .seats-line{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);margin-top:18px}
 
 /* ---------- faq ---------- */
@@ -419,7 +385,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
 }
 @media(max-width:640px){
   section{padding:56px 0}
-  #who,#able,#depth{padding-top:40px}
+  #who,#able,#how{padding-top:40px}
   .wrap{padding:0 20px}
   .sec-head{margin-bottom:40px}
   h1,.h1{font-size:clamp(38px,11vw,48px)}
@@ -467,10 +433,10 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   <div class="wrap nav-in">
     <a href="#top" class="nav-logo"><img src="levelup-logo-white-trimmed.png" alt="LevelUp Learning"></a>
     <div class="nav-links">
-      <a href="#why-now">Why Now</a>
-      <a href="#learn">The Stack</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#mentors">Mentors</a>
+      <a href="#why-now">Why now</a>
+      <a href="#who">Who it's for</a>
+      <a href="#learn">The climb</a>
+      <a href="#how">How it runs</a>
       <a href="#investment">Investment</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -480,10 +446,10 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
   </div>
   <div class="nav-mobile wrap">
-    <a href="#why-now">Why Now</a>
-    <a href="#learn">The Stack</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#mentors">Mentors</a>
+    <a href="#why-now">Why now</a>
+    <a href="#who">Who it's for</a>
+    <a href="#learn">The climb</a>
+    <a href="#how">How it runs</a>
     <a href="#investment">Investment</a>
     <a href="#faq">FAQ</a>
   </div>
@@ -499,7 +465,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     <p class="lede">Live online cohort. Learn from top mentors, build practical AI skills, and ship real work. Become the person who can use AI across content, operations, and product.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#apply">Request an invite <span class="arw">→</span></a>
-      <a class="btn btn-ghost" href="#roadmap">See the 6-month roadmap <span class="arw">→</span></a>
+      <a class="btn btn-ghost" href="#learn">See the 6-month climb <span class="arw">→</span></a>
     </div>
     <div class="hero-chips">
       <span class="chip chip--live"><span class="dot"></span>NEXT COHORT · APPLICATIONS OPEN</span>
@@ -523,23 +489,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <p class="lede">Using AI means chatting with it. Building with it means turning it into a product, a system, or an automation — something that runs on its own and produces results, for your customers or your team.</p>
     </div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="num"><span data-count="88" data-suffix="%">88%</span> <em>→</em> <span data-count="6" data-suffix="%">6%</span></div>
-        <p>Companies use AI, but only 6% see real bottom-line impact</p>
-        <span class="src">McKinsey, 2025</span>
-      </div>
-      <div class="stat">
-        <div class="num"><span data-count="95" data-suffix="%">95%</span></div>
-        <p>Of company AI pilots deliver no measurable return</p>
-        <span class="src">MIT, 2025</span>
-      </div>
-      <div class="stat">
-        <div class="num"><em>+</em><span data-count="56" data-suffix="%">56%</span></div>
-        <p>More pay for people with AI skills</p>
-        <span class="src">PwC, 2025</span>
-      </div>
-    </div>
 
     <div class="ladder rv">
       <div class="ladder-title">
@@ -556,79 +505,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
   </div>
 </section>
-
 <div class="hatch"></div>
-
-<!-- ══════════════ 3 · WHAT YOU'LL LEARN ══════════════ -->
-<section id="learn" class="has-glow light">
-  <div class="bg-el bg-scan"></div>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">What you'll learn</span>
-      <h2>AI isn't one skill. It's a stack, and you'll learn every layer.</h2>
-      <p class="lede">Here is the whole map at a glance. First you learn to use AI properly. Then you learn to turn that into real products. You build it up one layer at a time.</p>
-    </div>
-
-    <div class="pillars">
-      <div class="pillar rv">
-        <figure class="pillar-media"><img src="img/pillar-01.jpg" alt="An open notebook with a constellation of light rising off the page" loading="lazy" decoding="async" width="1200" height="896"></figure>
-        <div class="pillar-text">
-          <span class="no">01</span>
-          <h3>AI Fundamentals</h3>
-          <div class="body">
-            <p>Get reliable, useful work out of any AI tool, and understand how it actually works.</p>
-            <p class="build"><b>You'll build →</b> a prompt and research setup you reuse for everything</p>
-          </div>
-        </div>
-      </div>
-      <div class="pillar rv">
-        <figure class="pillar-media"><img src="img/pillar-02.jpg" alt="A white flower dissolving into luminous stardust" loading="lazy" decoding="async" width="1200" height="896"></figure>
-        <div class="pillar-text">
-          <span class="no">02</span>
-          <h3>Generative AI</h3>
-          <div class="body">
-            <p>Make images, video, voice, and content with AI, at a professional level.</p>
-            <p class="build"><b>You'll build →</b> a full content and brand kit</p>
-          </div>
-        </div>
-      </div>
-      <div class="pillar rv">
-        <figure class="pillar-media"><img src="img/pillar-03.jpg" alt="A brass orrery with self-luminous planets turning on their own" loading="lazy" decoding="async" width="1200" height="896"></figure>
-        <div class="pillar-text">
-          <span class="no">03</span>
-          <h3>Automation &amp; Agents</h3>
-          <div class="body">
-            <p>Connect your tools so the routine work runs without you, and build your first agents.</p>
-            <p class="build"><b>You'll build →</b> live automations and a working agent</p>
-          </div>
-        </div>
-      </div>
-      <div class="pillar rv">
-        <figure class="pillar-media"><img src="img/pillar-04.jpg" alt="Hands assembling a glowing glass cube" loading="lazy" decoding="async" width="1200" height="896"></figure>
-        <div class="pillar-text">
-          <span class="no">04</span>
-          <h3>Building Products</h3>
-          <div class="body">
-            <p>Turn an idea into a working app on your own data, with no code needed.</p>
-            <p class="build"><b>You'll build →</b> a real MVP of your own idea</p>
-          </div>
-        </div>
-      </div>
-      <div class="pillar rv">
-        <figure class="pillar-media"><img src="img/pillar-05.jpg" alt="A glowing paper plane lifting off a desk trailing stardust" loading="lazy" decoding="async" width="1200" height="896"></figure>
-        <div class="pillar-text">
-          <span class="no">05</span>
-          <h3>Shipping to Production</h3>
-          <div class="body">
-            <p>Make it reliable and safe, then take it live for real users.</p>
-            <p class="build"><b>You'll build →</b> a deployed product people actually use</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════════ 4 · WHO THIS IS FOR ══════════════ -->
 <section id="who" class="has-glow light">
   <div class="glow g2" style="bottom:-140px;left:-120px"></div>
@@ -677,92 +554,81 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
   </div>
 </section>
-
 <div class="hatch"></div>
-
-<!-- ══════════════ 5 · ROADMAP ══════════════ -->
-<section id="roadmap" class="has-glow">
-  <div class="glow g2" style="top:22%;left:-160px"></div>
+<!-- ══════════════ 3 · THE 6-MONTH CLIMB ══════════════ -->
+<section id="learn" class="has-glow light">
+  <div class="bg-el bg-scan"></div>
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">How it works</span>
-      <h2>6 months. Something real built every single weekend.</h2>
-      <p class="lede">No theory dumps, and nothing taught once and forgotten. Every month you unlock a new skill, build with it that weekend, and carry it into the next.</p>
+      <span class="eyebrow">The 6-month climb</span>
+      <h2>AI isn't one skill. It's a stack — and you climb it in six months.</h2>
+      <p class="lede">One layer at a time: first you learn to use AI properly, then to create with it, automate with it, build with it, and ship it. Something real built every single weekend.</p>
     </div>
 
-    <div class="journey">
-      <span class="jstep">M1 Fundamentals &amp; first builds</span><span class="jarr">→</span>
-      <span class="jstep">M2 Video, social &amp; automation</span><span class="jarr">→</span>
-      <span class="jstep">M3 Agents &amp; no-code apps</span><span class="jarr">→</span>
-      <span class="jstep">M4 Build your MVP</span><span class="jarr">→</span>
-      <span class="jstep">M5 Production</span><span class="jarr">→</span>
-      <span class="jstep">M6 Deploy &amp; ship</span>
-    </div>
-
-    <div class="months">
-      <div class="month rv">
-        <span class="m-no">MONTH 01</span>
-        <div>
+    <div class="pillars">
+      <div class="pillar rv">
+        <figure class="pillar-media"><img src="img/pillar-01.jpg" alt="An open notebook with a constellation of light rising off the page" loading="lazy" decoding="async" width="1200" height="896"></figure>
+        <div class="pillar-text">
+          <span class="no">Month 01 · Fundamentals</span>
           <h3>Speak AI fluently.</h3>
-          <div class="lbw">
-            <div class="row"><span class="tag">Learn</span><p>How AI really works, prompting that holds up at work, research, and image generation.</p></div>
-            <div class="row build"><span class="tag">Build</span><p>A reusable prompt system and a brand and image kit.</p></div>
-            <div class="row"><span class="tag">Why</span><p>You get a real win in week one, before doubt sets in.</p></div>
+          <div class="body">
+            <p>How AI really works, prompting that holds up at work, research, and image generation — a real win in week one, before doubt sets in.</p>
+            <p class="build"><b>You'll build →</b> a reusable prompt system and a brand &amp; image kit</p>
           </div>
         </div>
       </div>
-      <div class="month rv">
-        <span class="m-no">MONTH 02</span>
-        <div>
+      <div class="pillar rv">
+        <figure class="pillar-media"><img src="img/pillar-02.jpg" alt="A white flower dissolving into luminous stardust" loading="lazy" decoding="async" width="1200" height="896"></figure>
+        <div class="pillar-text">
+          <span class="no">Month 02 · Generative AI</span>
           <h3>Create and automate.</h3>
-          <div class="lbw">
-            <div class="row"><span class="tag">Learn</span><p>AI video and voice, a content engine, and automation with Make, Zapier and n8n.</p></div>
-            <div class="row build"><span class="tag">Build</span><p>An AI video, a content engine, and your first automations.</p></div>
-            <div class="row"><span class="tag">Why</span><p>Your first taste of work that runs without you.</p></div>
+          <div class="body">
+            <p>AI video and voice, a content engine, and your first automations with Make, Zapier and n8n — the first taste of work that runs without you.</p>
+            <p class="build"><b>You'll build →</b> an AI video, a content engine, and your first automations</p>
           </div>
         </div>
       </div>
-      <div class="month rv">
-        <span class="m-no">MONTH 03</span>
-        <div>
+      <div class="pillar rv">
+        <figure class="pillar-media"><img src="img/pillar-03.jpg" alt="A brass orrery with self-luminous planets turning on their own" loading="lazy" decoding="async" width="1200" height="896"></figure>
+        <div class="pillar-text">
+          <span class="no">Month 03 · Agents</span>
           <h3>First agent, first app.</h3>
-          <div class="lbw">
-            <div class="row"><span class="tag">Learn</span><p>What an agent really is, how to make it reliable, and how to build apps with no code.</p></div>
-            <div class="row build"><span class="tag">Build</span><p>A working agent and a no-code app.</p></div>
-            <div class="row"><span class="tag">Why</span><p>This is where you stop using AI and start building it.</p></div>
+          <div class="body">
+            <p>What an agent really is, how to make it reliable, and how to build apps with no code. This is where you stop using AI and start building it.</p>
+            <p class="build"><b>You'll build →</b> a working agent and a no-code app</p>
           </div>
         </div>
       </div>
-      <div class="month rv">
-        <span class="m-no">MONTH 04</span>
-        <div>
+      <div class="pillar rv">
+        <figure class="pillar-media"><img src="img/pillar-04.jpg" alt="Hands assembling a glowing glass cube" loading="lazy" decoding="async" width="1200" height="896"></figure>
+        <div class="pillar-text">
+          <span class="no">Month 04 · Products</span>
           <h3>Turn your idea into an MVP.</h3>
-          <div class="lbw">
-            <div class="row"><span class="tag">Learn</span><p>Scoping a product, building with AI coding tools, connecting your own data, and going to market.</p></div>
-            <div class="row build"><span class="tag">Build</span><p>A working MVP on real data, with your first users.</p></div>
-            <div class="row"><span class="tag">Why</span><p>Everything so far becomes one real thing that is yours.</p></div>
+          <div class="body">
+            <p>Scoping a product, building with AI coding tools, connecting your own data, and going to market — everything so far becomes one real thing that is yours.</p>
+            <p class="build"><b>You'll build →</b> a working MVP on real data, with your first users</p>
           </div>
         </div>
       </div>
-      <div class="month rv">
-        <span class="m-no">MONTH 05</span>
-        <div>
-          <h3>Works on my screen, to production.</h3>
-          <div class="lbw">
-            <div class="row"><span class="tag">Learn</span><p>Multi-agent systems, scale, safety, and what app stores need.</p></div>
-            <div class="row build"><span class="tag">Build</span><p>A production-grade system with guardrails.</p></div>
-            <div class="row"><span class="tag">Why</span><p>This is the depth the short programs skip.</p></div>
+      <div class="pillar rv">
+        <figure class="pillar-media"><img src="img/pillar-06.jpg" alt="A glowing glass cube held steady inside a brass gimbal cage" loading="lazy" decoding="async" width="1200" height="896"></figure>
+        <div class="pillar-text">
+          <span class="no">Month 05 · Production</span>
+          <h3>From &ldquo;works on my screen&rdquo; to production.</h3>
+          <div class="body">
+            <p>Multi-agent systems, scale, safety, and what app stores need. This is the depth the short programs skip.</p>
+            <p class="build"><b>You'll build →</b> a production-grade system with guardrails</p>
           </div>
         </div>
       </div>
-      <div class="month rv">
-        <span class="m-no">MONTH 06</span>
-        <div>
+      <div class="pillar rv">
+        <figure class="pillar-media"><img src="img/pillar-05.jpg" alt="A glowing paper plane lifting off a desk trailing stardust" loading="lazy" decoding="async" width="1200" height="896"></figure>
+        <div class="pillar-text">
+          <span class="no">Month 06 · Launch</span>
           <h3>Take it live.</h3>
-          <div class="lbw">
-            <div class="row"><span class="tag">Learn</span><p>Testing, deployment, monitoring, and a senior review of your build.</p></div>
-            <div class="row build"><span class="tag">Build</span><p>A deployed product with a live link, shown at Demo Day.</p></div>
-            <div class="row"><span class="tag">Why</span><p>You finish with something real people can open and use.</p></div>
+          <div class="body">
+            <p>Testing, deployment, monitoring, and a senior review of your build. You finish with something real people can open and use, shown at Demo Day.</p>
+            <p class="build"><b>You'll build →</b> a deployed product with a live link</p>
           </div>
         </div>
       </div>
@@ -831,18 +697,8 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       </div>
     </div>
   </div>
-</section>
-
-<!-- ══════════════ 7 · TOOLS ══════════════ -->
-<div class="tools-band">
   <div class="wrap">
-    <div class="sec-head rv" style="margin-bottom:10px">
-      <span class="eyebrow">The tools</span>
-      <h2>The tools you'll actually use.</h2>
-      <p class="lede">You won't just hear about these. You'll build with them until they're second nature.</p>
-    </div>
-  </div>
-  <div class="wrap">
+    <p class="tools-lede rv">You'll build with the tools companies actually use — until they're second nature</p>
     <div class="tool-row rv">
       <span class="tool-label">Use &amp; Create</span>
       <div class="marquee" aria-hidden="true"><div class="marquee-in"><span class="tico"><img src="tools section/_web/Claude.png" alt="Claude" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI.png" alt="OpenAI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini.png" alt="Google Gemini" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini-Deep-Research.png" alt="Google Gemini Deep Research" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-AI-Studio.png" alt="Google AI Studio" loading="lazy"></span><span class="tico"><img src="tools section/_web/Microsoft-Copilot.png" alt="Microsoft Copilot" loading="lazy"></span><span class="tico"><img src="tools section/_web/Mistral-AI.png" alt="Mistral AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Midjourney.png" alt="Midjourney" loading="lazy"></span><span class="tico"><img src="tools section/_web/Flux-1.png" alt="Flux 1" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stable-Diffusion-SDXL.png" alt="Stable Diffusion SDXL" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stability-AI.png" alt="Stability AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Leonardo-AI.png" alt="Leonardo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Playground-AI.png" alt="Playground AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Civitai.png" alt="Civitai" loading="lazy"></span><span class="tico"><img src="tools section/_web/ComfyUI.png" alt="ComfyUI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Runway.png" alt="Runway" loading="lazy"></span><span class="tico"><img src="tools section/_web/Kling-AI.png" alt="Kling AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hailuo-AI.png" alt="Hailuo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Luma-AI.png" alt="Luma AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/HeyGen.png" alt="HeyGen" loading="lazy"></span><span class="tico"><img src="tools section/_web/ElevenLabs.png" alt="ElevenLabs" loading="lazy"></span><span class="tico"><img src="tools section/_web/NotebookLM.png" alt="NotebookLM" loading="lazy"></span><span class="tico"><img src="tools section/_web/Gamma.png" alt="Gamma" loading="lazy"></span><span class="tico"><img src="tools section/_web/Pitch.png" alt="Pitch" loading="lazy"></span><span class="tico"><img src="tools section/_web/Claude.png" alt="Claude" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI.png" alt="OpenAI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini.png" alt="Google Gemini" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini-Deep-Research.png" alt="Google Gemini Deep Research" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-AI-Studio.png" alt="Google AI Studio" loading="lazy"></span><span class="tico"><img src="tools section/_web/Microsoft-Copilot.png" alt="Microsoft Copilot" loading="lazy"></span><span class="tico"><img src="tools section/_web/Mistral-AI.png" alt="Mistral AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Midjourney.png" alt="Midjourney" loading="lazy"></span><span class="tico"><img src="tools section/_web/Flux-1.png" alt="Flux 1" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stable-Diffusion-SDXL.png" alt="Stable Diffusion SDXL" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stability-AI.png" alt="Stability AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Leonardo-AI.png" alt="Leonardo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Playground-AI.png" alt="Playground AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Civitai.png" alt="Civitai" loading="lazy"></span><span class="tico"><img src="tools section/_web/ComfyUI.png" alt="ComfyUI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Runway.png" alt="Runway" loading="lazy"></span><span class="tico"><img src="tools section/_web/Kling-AI.png" alt="Kling AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hailuo-AI.png" alt="Hailuo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Luma-AI.png" alt="Luma AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/HeyGen.png" alt="HeyGen" loading="lazy"></span><span class="tico"><img src="tools section/_web/ElevenLabs.png" alt="ElevenLabs" loading="lazy"></span><span class="tico"><img src="tools section/_web/NotebookLM.png" alt="NotebookLM" loading="lazy"></span><span class="tico"><img src="tools section/_web/Gamma.png" alt="Gamma" loading="lazy"></span><span class="tico"><img src="tools section/_web/Pitch.png" alt="Pitch" loading="lazy"></span></div></div>
@@ -852,140 +708,38 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <div class="marquee" aria-hidden="true"><div class="marquee-in rev"><span class="tico"><img src="tools section/_web/Cursor.png" alt="Cursor" loading="lazy"></span><span class="tico"><img src="tools section/_web/v0-Vercel.png" alt="v0 Vercel" loading="lazy"></span><span class="tico"><img src="tools section/_web/GPT-4-OpenAI-Playground.png" alt="GPT 4 OpenAI Playground" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI-API.png" alt="OpenAI API" loading="lazy"></span><span class="tico"><img src="tools section/_web/LangChain.png" alt="LangChain" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face.png" alt="Hugging Face" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face-Hub.png" alt="Hugging Face Hub" loading="lazy"></span><span class="tico"><img src="tools section/_web/Supabase.png" alt="Supabase" loading="lazy"></span><span class="tico"><img src="tools section/_web/n8n.png" alt="n8n" loading="lazy"></span><span class="tico"><img src="tools section/_web/Make.png" alt="Make" loading="lazy"></span><span class="tico"><img src="tools section/_web/Zapier.png" alt="Zapier" loading="lazy"></span><span class="tico"><img src="tools section/_web/Relevance-AI.png" alt="Relevance AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Vapi.png" alt="Vapi" loading="lazy"></span><span class="tico"><img src="tools section/_web/Postman.png" alt="Postman" loading="lazy"></span><span class="tico"><img src="tools section/_web/NextAuth.png" alt="NextAuth" loading="lazy"></span><span class="tico"><img src="tools section/_web/Bubble.png" alt="Bubble" loading="lazy"></span><span class="tico"><img src="tools section/_web/Fireflies.png" alt="Fireflies" loading="lazy"></span><span class="tico"><img src="tools section/_web/Humata.png" alt="Humata" loading="lazy"></span><span class="tico"><img src="tools section/_web/Frase.png" alt="Frase" loading="lazy"></span><span class="tico"><img src="tools section/_web/Surfer.png" alt="Surfer" loading="lazy"></span><span class="tico"><img src="tools section/_web/Rows.png" alt="Rows" loading="lazy"></span><span class="tico"><img src="tools section/_web/Agentive-AI.png" alt="Agentive AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Cursor.png" alt="Cursor" loading="lazy"></span><span class="tico"><img src="tools section/_web/v0-Vercel.png" alt="v0 Vercel" loading="lazy"></span><span class="tico"><img src="tools section/_web/GPT-4-OpenAI-Playground.png" alt="GPT 4 OpenAI Playground" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI-API.png" alt="OpenAI API" loading="lazy"></span><span class="tico"><img src="tools section/_web/LangChain.png" alt="LangChain" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face.png" alt="Hugging Face" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face-Hub.png" alt="Hugging Face Hub" loading="lazy"></span><span class="tico"><img src="tools section/_web/Supabase.png" alt="Supabase" loading="lazy"></span><span class="tico"><img src="tools section/_web/n8n.png" alt="n8n" loading="lazy"></span><span class="tico"><img src="tools section/_web/Make.png" alt="Make" loading="lazy"></span><span class="tico"><img src="tools section/_web/Zapier.png" alt="Zapier" loading="lazy"></span><span class="tico"><img src="tools section/_web/Relevance-AI.png" alt="Relevance AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Vapi.png" alt="Vapi" loading="lazy"></span><span class="tico"><img src="tools section/_web/Postman.png" alt="Postman" loading="lazy"></span><span class="tico"><img src="tools section/_web/NextAuth.png" alt="NextAuth" loading="lazy"></span><span class="tico"><img src="tools section/_web/Bubble.png" alt="Bubble" loading="lazy"></span><span class="tico"><img src="tools section/_web/Fireflies.png" alt="Fireflies" loading="lazy"></span><span class="tico"><img src="tools section/_web/Humata.png" alt="Humata" loading="lazy"></span><span class="tico"><img src="tools section/_web/Frase.png" alt="Frase" loading="lazy"></span><span class="tico"><img src="tools section/_web/Surfer.png" alt="Surfer" loading="lazy"></span><span class="tico"><img src="tools section/_web/Rows.png" alt="Rows" loading="lazy"></span><span class="tico"><img src="tools section/_web/Agentive-AI.png" alt="Agentive AI" loading="lazy"></span></div></div>
     </div>
   </div>
-</div>
-<!-- ══════════════ 8 · MENTORS ══════════════ -->
-<section id="mentors" class="has-glow">
-  <div class="bg-el bg-beam"></div>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Who teaches you</span>
-      <h2>You learn from people who build with AI for a living.</h2>
-      <p class="lede">Not rotating strangers or anonymous TAs. The same mentors are with you all six months, and each one owns a part of the stack. They build this in the real world, then teach you to do the same.</p>
-    </div>
-
-    <div class="mentors">
-      <div class="mentor">
-        <div class="ph"><span>TBA</span></div>
-        <span class="owns">Owns the pillar</span>
-        <h3>AI Fundamentals</h3>
-      </div>
-      <div class="mentor">
-        <div class="ph"><span>TBA</span></div>
-        <span class="owns">Owns the pillar</span>
-        <h3>Generative AI</h3>
-      </div>
-      <div class="mentor">
-        <div class="ph"><span>TBA</span></div>
-        <span class="owns">Owns the pillar</span>
-        <h3>Automation &amp; Agents</h3>
-      </div>
-      <div class="mentor">
-        <div class="ph"><span>TBA</span></div>
-        <span class="owns">Owns the pillar</span>
-        <h3>Building Products</h3>
-      </div>
-      <div class="mentor">
-        <div class="ph"><span>TBA</span></div>
-        <span class="owns">Owns the pillar</span>
-        <h3>Shipping to Production</h3>
-      </div>
-    </div>
-    <p class="sm mentor-note rv">Full mentor lineup announced at cohort kickoff.</p>
-  </div>
 </section>
-
 <div class="hatch"></div>
-
-<!-- ══════════════ 9 · HOW YOU'LL LEARN ══════════════ -->
-<section id="loop" class="has-glow light">
-  <svg class="bg-el bg-wave" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150" fill="none" stroke="rgba(0,84,255,.18)" stroke-width="1.5"/>
-    <path class="w2" d="M0,190 C240,110 480,270 720,190 C960,110 1200,270 1440,190" fill="none" stroke="rgba(77,138,255,.09)" stroke-width="1.5"/>
-  </svg>
+<!-- ══════════════ 5 · HOW IT RUNS ══════════════ -->
+<section id="how" class="has-glow">
+  <div class="glow g2" style="top:18%;right:-120px"></div>
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">How you'll learn</span>
-      <h2>Every week runs on the same simple loop.</h2>
+      <span class="eyebrow">How it runs</span>
+      <h2>Six months. One room. One weekly rhythm.</h2>
     </div>
-
     <div class="loop">
       <div class="loop-step">
-        <span class="no">01</span>
-        <h3>Learn</h3>
-        <p>Live weekend sessions where mentors teach it and build it in front of you.</p>
+        <span class="no">Live weekends</span>
+        <h3>Same mentors, all six months.</h3>
+        <p>Live weekend sessions with one mentor team throughout — each owns a layer of the stack and builds it in front of you. Full lineup announced at cohort kickoff.</p>
       </div>
       <div class="loop-step">
-        <span class="no">02</span>
-        <h3>Build</h3>
-        <p>You build the same thing on your own project, not a throwaway exercise.</p>
+        <span class="no">The weekly loop</span>
+        <h3>Learn it. Build it. Use it.</h3>
+        <p>Watch it built live, build the same thing on your own project, then put it to work in your real job or business that week — with feedback.</p>
       </div>
       <div class="loop-step">
-        <span class="no">03</span>
-        <h3>Apply</h3>
-        <p>You put it to work in your real job or business, and get feedback on it.</p>
+        <span class="no">Your depth</span>
+        <h3>One curriculum, three ways through.</h3>
+        <p>Mastery is the full six months. Foundations is the first four. Pro skips the basics for production and launch. We help you pick inside your application.</p>
       </div>
       <div class="loop-step">
-        <span class="no">04</span>
-        <h3>Grow</h3>
-        <p>You keep building with the community, for life.</p>
+        <span class="no">For life</span>
+        <h3>The room stays open.</h3>
+        <p>You keep building with the community after Demo Day — lifetime access, alumni builds, and the next cohorts behind you.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══════════════ 10 · CHOOSE YOUR DEPTH ══════════════ -->
-<section id="depth" class="has-glow light">
-  <div class="glow g3" style="bottom:-120px;right:-100px"></div>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Choose your depth</span>
-      <h2>Start with the full journey. Step off when it fits.</h2>
-      <p class="lede">The cohort is one curriculum with three ways through it. Most people take the full six months, from zero to a product that is live. If you already build, you can start deeper. If you only need the foundation, take just that. Same room, same mentors. You choose how far you go.</p>
-    </div>
-
-    <div class="tiers">
-      <div class="tier hot">
-        <span class="tag-pop">Most Popular</span>
-        <span class="t-len">The full 6 months</span>
-        <h3>Mastery</h3>
-        <p>Zero to a deployed product. What most people come for.</p>
-      </div>
-      <div class="tier">
-        <span class="t-len">The first 4 months</span>
-        <h3>Foundations</h3>
-        <p>The foundation and your first real MVP.</p>
-      </div>
-      <div class="tier">
-        <span class="t-len">The back 3 months</span>
-        <h3>Pro</h3>
-        <p>Skip the basics, go straight to production and launch.</p>
-      </div>
-    </div>
-    <p class="depth-note sm rv">Not sure which is you? We help you pick inside your application, so you never pay for what you already know.</p>
-  </div>
-</section>
-
-<div class="hatch"></div>
-
-<!-- ══════════════ 11 · WHY LEVELUP ══════════════ -->
-<section id="why-levelup" class="has-glow">
-  <div class="glow g1" style="top:-180px;left:50%;margin-left:-310px"></div>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Why LevelUp</span>
-      <h2>Built by one of India's largest learning communities.</h2>
-      <p class="lede">This is not a first-timer running a cohort off a slide deck. LevelUp has trained tens of thousands of people and built one of the largest creator and filmmaking communities in the country. This is that same machine, now pointed at the most valuable skill of the decade.</p>
-    </div>
-
-    <!-- NOTE: confirm these numbers are current before publishing -->
-    <div class="big-stats">
-      <div class="big-stat"><div class="num"><span data-count="3" data-suffix="L+">3L+</span></div><p>in the community</p></div>
-      <div class="big-stat"><div class="num"><span data-count="49000" data-suffix="+" data-locale="en-IN">49,000+</span></div><p>learners trained</p></div>
-      <div class="big-stat"><div class="num"><span data-count="821" data-suffix="+">821+</span></div><p>cities</p></div>
-      <div class="big-stat"><div class="num"><span data-count="40">40</span></div><p>capped per cohort</p></div>
-    </div>
-
-    <figure class="media-band rv"><img src="img/band-community.jpg" alt="A dark auditorium full of faces lit by laptop screens like a star field" loading="lazy" decoding="async" width="1584" height="672"></figure>
   </div>
 </section>
 
@@ -1035,42 +789,60 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
   </div>
 </section>
-
 <div class="hatch"></div>
-
-<!-- ══════════════ 13 · THE INVESTMENT ══════════════ -->
+<!-- ══════════════ 7 · THE INVESTMENT ══════════════ -->
 <section id="investment" class="has-glow light">
   <div class="bg-el bg-beam"></div>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">The investment</span>
       <h2>Invest in becoming a builder. Not another course.</h2>
+      <p class="lede">Same room, same mentors, same community for life — you choose how far you go.</p>
     </div>
 
-    <div class="invest">
-      <div class="rv">
-        <span class="mono" style="color:var(--ink-35)">MASTERY · FULL 6 MONTHS</span>
-        <div class="price">₹1,25,000</div>
-        <p class="price-sub">All in · no-cost EMI and flexible plans available</p>
-        <p class="also">Also available: <strong style="color:var(--ink);font-weight:500">Foundations</strong> or <strong style="color:var(--ink);font-weight:500">Pro</strong> at ₹75,000 each. Most people take the full journey.</p>
-        <div class="guarantee">
-          <span class="g-tag">The Halfway Guarantee</span>
-          <p>Reach the halfway point and feel it isn't what we promised? We refund you. The price is right here — no sales call needed.</p>
-        </div>
-        <p class="seats-line">40 seats · next cohort dates shared when you apply</p>
+    <div class="tiers">
+      <div class="tier hot">
+        <span class="tag-pop">Most popular</span>
+        <span class="t-len">The full 6 months</span>
+        <h3>Mastery</h3>
+        <div class="t-price">₹1,25,000</div>
+        <p>Zero to a deployed product. What most people come for.</p>
       </div>
-      <div class="rv">
-        <span class="mono" style="color:var(--ink-35);display:block;margin-bottom:14px">WHAT'S INCLUDED</span>
-        <ul class="included">
-          <li>6 months of live weekend classes, capped at 40</li>
-          <li>Mentors who build with AI for a living</li>
-          <li>20+ real builds across every part of a business</li>
-          <li>One product taken all the way live</li>
-          <li>A portfolio that proves you can build</li>
-          <li>Lifetime access to the builder community</li>
-        </ul>
+      <div class="tier">
+        <span class="t-len">The first 4 months</span>
+        <h3>Foundations</h3>
+        <div class="t-price">₹75,000</div>
+        <p>The foundation and your first real MVP.</p>
+      </div>
+      <div class="tier">
+        <span class="t-len">The back 3 months</span>
+        <h3>Pro</h3>
+        <div class="t-price">₹75,000</div>
+        <p>Skip the basics — go straight to production and launch.</p>
       </div>
     </div>
+    <p class="price-sub rv" style="text-align:center;margin:22px 0 0">All in · no-cost EMI and flexible plans available</p>
+
+    <div class="guarantee rv" style="max-width:560px;margin:36px auto 0">
+      <span class="g-tag">The halfway guarantee</span>
+      <p>Reach the halfway point and feel it isn't what we promised? We refund you. The price is right here — no sales call needed.</p>
+    </div>
+
+    <div class="rv" style="text-align:center;margin-top:44px">
+      <span class="mono" style="color:var(--ink-35);display:block;margin-bottom:14px">What's included</span>
+      <ul class="included">
+        <li>6 months of live weekend classes, capped at 40</li>
+        <li>Mentors who build with AI for a living</li>
+        <li>20+ real builds across every part of a business</li>
+        <li>One product taken all the way live</li>
+        <li>A portfolio that proves you can build</li>
+        <li>Lifetime access to the builder community</li>
+      </ul>
+      <p class="seats-line">40 seats · next cohort dates shared when you apply</p>
+    </div>
+
+    <figure class="media-band rv"><img src="img/band-community.jpg" alt="A dark auditorium full of faces lit by laptop screens like a star field" loading="lazy" decoding="async" width="1584" height="672"></figure>
+    <p class="cred-line rv">Built by <strong>LevelUp</strong> — one of India's largest learning communities. 49,000+ learners trained across 821+ cities.</p>
   </div>
 </section>
 
@@ -1089,10 +861,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         <p class="ans">Yes, that is exactly who this is for. The first four months use no-code and AI tools, no coding needed. You only touch real code in the deeper months, and even then we walk you in.</p>
       </details>
       <details>
-        <summary>What if I only want the first half? <span class="plus">+</span></summary>
-        <p class="ans">You can take just Foundations, the first four months, and walk out with a real MVP. Most people go the full six because that is where you ship something live. We help you choose when you apply.</p>
-      </details>
-      <details>
         <summary>Is this actually live, or recorded? <span class="plus">+</span></summary>
         <p class="ans">Live. Capped at 40, with mentors, on weekends. We do not sell recordings as live. Everything is recorded for catch-up, but the building happens together.</p>
       </details>
@@ -1108,16 +876,10 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         <summary>Is the application fee really refundable? <span class="plus">+</span></summary>
         <p class="ans">Yes. It is there to filter out people who won't show up. If we don't take you, you get it back.</p>
       </details>
-      <details>
-        <summary>What do I actually walk away with? <span class="plus">+</span></summary>
-        <p class="ans">Working AI builds across marketing, sales, support, operations and product, a portfolio that proves it, and one product you took all the way live, shown at Demo Day.</p>
-      </details>
     </div>
   </div>
 </section>
-
 <div class="hatch"></div>
-
 <!-- ══════════════ 15 · FINAL CTA ══════════════ -->
 <section class="final has-glow">
   <div class="final-bg" aria-hidden="true"><img src="img/bg-final-cta.jpg" alt="" loading="lazy" decoding="async" width="1584" height="672"></div>
@@ -1141,9 +903,9 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       </div>
       <div class="foot-col">
         <span class="t">Program</span>
-        <a href="#learn">The Stack</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#depth">Choose Your Depth</a>
+        <a href="#learn">The climb</a>
+        <a href="#able">What you'll build</a>
+        <a href="#how">How it runs</a>
         <a href="#investment">Investment</a>
       </div>
       <div class="foot-col">
