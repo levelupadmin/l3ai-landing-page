@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>The LevelUp AI Builder Cohort — Become an AI Generalist</title>
-<meta name="description" content="Live 6-month weekend cohort. Learn from top mentors, build practical AI skills, and ship real work. 40 seats per cohort.">
+<title>The LevelUp AI Builder Cohort — Build Your Own AI Product in 24 Weeks</title>
+<meta name="description" content="A live, weekend-led cohort built around your own project. Go from AI user to AI builder in 24 weeks — agents, automations, and a deployed product with a live URL.">
 <link rel="canonical" href="https://l3ai-landing-page.vercel.app/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="The LevelUp AI Builder Cohort — Become an AI Generalist">
-<meta property="og:description" content="Live 6-month weekend cohort. Learn from top mentors, build practical AI skills, and ship real work. 40 seats per cohort.">
+<meta property="og:title" content="The LevelUp AI Builder Cohort — Build Your Own AI Product in 24 Weeks">
+<meta property="og:description" content="A live, weekend-led cohort built around your own project. Go from AI user to AI builder in 24 weeks — agents, automations, and a deployed product with a live URL.">
 <meta property="og:url" content="https://l3ai-landing-page.vercel.app/">
 <meta property="og:image" content="https://l3ai-landing-page.vercel.app/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The LevelUp AI Builder Cohort — Become an AI Generalist">
-<meta name="twitter:description" content="Live 6-month weekend cohort. Learn from top mentors, build practical AI skills, and ship real work.">
+<meta name="twitter:title" content="The LevelUp AI Builder Cohort — Build Your Own AI Product in 24 Weeks">
+<meta name="twitter:description" content="A live, weekend-led cohort: from AI user to AI builder in 24 weeks.">
 <meta name="twitter:image" content="https://l3ai-landing-page.vercel.app/og-image.jpg">
 <meta name="theme-color" content="#090909">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%230054FF'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%23fff' text-anchor='middle' font-style='italic'%3EL3%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Fragment+Mono&family=Jersey+15&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Fragment+Mono&family=Jersey+15&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:'Oliveira';src:url('fonts/oliveira.woff2') format('woff2');font-display:swap}
 :root{
@@ -28,7 +28,7 @@
   --ink-70:rgba(232,239,234,.7);
   --ink-60:rgba(232,239,234,.66);
   --ink-50:rgba(232,239,234,.56);
-  --ink-35:rgba(232,239,234,.58);
+  --ink-35:rgba(232,239,234,.48);
   --blue:#0054FF;
   --blue-text:#0054FF;
   --blue-soft:rgba(0,84,255,.12);
@@ -46,14 +46,15 @@
   --serif:"Instrument Serif",Georgia,serif;
   --serif-px:"Oliveira","Instrument Serif",Georgia,serif;
   --sans:"Geist",-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --mono:"Fragment Mono","Geist Mono",monospace;
-  --pixel:"Jersey 15","VT323",monospace;
+  --mono:"Fragment Mono",monospace;
+  --pixel:"Jersey 15",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
+.skip{position:absolute;left:-9999px}.skip:focus{position:fixed;top:8px;left:8px;z-index:100;background:var(--blue);color:#fff;padding:10px 16px;border-radius:2px}
 ::selection{background:var(--blue);color:#fff}
 
 /* ---------- type system (from odyssey.ml, inverted) ---------- */
@@ -131,8 +132,6 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 
 
 /* leverage ladder */
-.ladder{max-width:1140px;margin:0 auto}
-.ladder-title{text-align:center;margin-bottom:36px}
 .ladder-close strong{color:var(--ink);font-weight:500}
 
 
@@ -179,7 +178,7 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .marquee{overflow:hidden;flex:1;position:relative;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .marquee-in{display:flex;gap:0;width:max-content;animation:scroll 36s linear infinite}
 .marquee-in.rev{animation-direction:reverse}
-.marquee:hover .marquee-in{animation-play-state:paused}
+.marquee:hover .marquee-in,.marquee:focus-within .marquee-in{animation-play-state:paused}
 .tico{flex:none;display:inline-flex;align-items:center;justify-content:center;margin:0 21px}
 .tico img{height:46px;width:auto;max-width:110px;object-fit:contain;display:block;border-radius:2px}
 @keyframes scroll{to{transform:translateX(-50%)}}
@@ -196,32 +195,21 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
 .tier{border:1px solid var(--line);border-radius:2px;padding:36px 30px;display:flex;flex-direction:column;background:var(--card);position:relative}
 .tier.hot{border-color:var(--blue-line);background:linear-gradient(var(--blue-tint),var(--blue-tint)),var(--card)}
-.tier .tag-pop{position:absolute;top:-12px;left:28px;background:var(--blue);color:#fff;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;padding:5px 10px;border-radius:2px;text-transform:uppercase}
+.tier .tag-pop{position:absolute;top:-12px;left:28px;background:var(--blue);color:#fff;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.08em;padding:5px 10px;border-radius:2px;text-transform:uppercase}
 .tier .t-len{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-35);text-transform:uppercase;margin-bottom:12px}
 .tier h3{margin-bottom:10px}
-.tier .t-price{font-family:var(--serif);font-size:clamp(30px,3vw,40px);line-height:1;letter-spacing:-.02em;color:var(--ink);margin-bottom:14px}
+.tier .t-price{font-family:var(--serif-px);font-size:clamp(30px,3vw,40px);line-height:1;letter-spacing:-.02em;color:var(--ink);margin-bottom:14px}
 .tier p{font-size:14.5px;margin-bottom:8px}
 .tools-lede{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);text-align:center;margin-top:72px}
-.cred-line{text-align:center;font-size:14px;color:var(--ink-60);margin-top:22px}
-.cred-line strong{color:var(--ink);font-weight:500}
-.depth-note{margin-top:34px;max-width:560px}
 
 
 /* ---------- investment ---------- */
-.price-sub{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);margin-bottom:30px}
-.included{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.included li{padding:13px 0 13px 24px;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ink-70);position:relative}
-.included li::before{content:"▪";position:absolute;left:2px;top:16px;color:var(--ink-35);font-size:11px}
-.guarantee{border:1px solid var(--line);border-radius:2px;padding:26px 26px;background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(232,239,234,.04) 10px 11px),var(--surface);margin-top:28px}
-.guarantee .g-tag{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.08em;color:var(--ink-35);display:block;margin-bottom:10px;text-transform:uppercase}
-.guarantee p{font-size:14.5px}
-.seats-line{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);margin-top:18px}
 
 /* ---------- faq ---------- */
 .faq{max-width:780px}
 details{border-bottom:1px solid var(--line)}
 details:first-of-type{border-top:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 2px;font-family:var(--serif);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;color:var(--ink)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 2px;font-family:var(--serif-px);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;color:var(--ink)}
 summary::-webkit-details-marker{display:none}
 summary .plus{font-family:var(--sans);font-size:22px;font-weight:300;color:var(--ink-35);transition:transform .22s var(--ease-out);flex-shrink:0}
 details[open] .plus{color:var(--ink)}
@@ -253,21 +241,17 @@ footer{border-top:1px solid var(--line);padding:54px 0 46px}
 
 /* ---------- ambient blue glows ---------- */
 .has-glow{position:relative;overflow:hidden}
-#apply.has-glow{overflow:visible}
+#apply{overflow:visible;contain:none}
 .bg-clip{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
 .has-glow>.wrap{position:relative;z-index:1}
 .hero>.wrap{z-index:5}
 .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.5;will-change:transform;z-index:0}
-.glow.g1{width:620px;height:620px;background:radial-gradient(circle,rgba(0,84,255,.32),transparent 66%);animation:drift1 44s ease-in-out infinite alternate}
-.glow.g2{width:460px;height:460px;background:radial-gradient(circle,rgba(77,138,255,.2),transparent 66%);animation:drift2 56s ease-in-out infinite alternate}
 .glow.g3{width:520px;height:520px;background:radial-gradient(circle,rgba(0,84,255,.24),transparent 66%);animation:drift1 62s ease-in-out infinite alternate-reverse}
 @keyframes drift1{from{transform:translate(-6%,4%) scale(1)}to{transform:translate(9%,-7%) scale(1.18)}}
-@keyframes drift2{from{transform:translate(7%,-5%) scale(1.06)}to{transform:translate(-9%,9%) scale(.9)}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .glow,.marquee-in,.chip .dot{animation:none!important}
   .rv{opacity:1!important;transform:none!important;transition:none!important}
-  .hero-bg video{opacity:1!important;transition:none}
 }
 
 /* ---------- apply: stacking scroll cards ---------- */
@@ -299,8 +283,9 @@ section.light{
   --ink:#090909;
   --ink-70:rgba(9,9,9,.72);
   --ink-60:rgba(9,9,9,.62);
+  --ink-50:rgba(9,9,9,.62);
   --ink-50:rgba(9,9,9,.52);
-  --ink-35:rgba(9,9,9,.62);
+  --ink-35:rgba(9,9,9,.5);
   --blue-text:#0054FF;
   --card:#FFFFFF;
   --surface:#EFEFEC;
@@ -331,8 +316,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;o
 .ba{max-width:440px;margin:0 auto;text-align:left}
 .build-card ul{display:inline-flex;flex-direction:column;text-align:left}
 .journey{justify-content:center}
-.mentor-note,.depth-note{text-align:center;margin-left:auto;margin-right:auto}
-.invest{grid-template-columns:1fr;max-width:760px;margin:0 auto;text-align:center;gap:44px}
+.mentor-note,.invest{grid-template-columns:1fr;max-width:760px;margin:0 auto;text-align:center;gap:44px}
 .included{display:inline-flex;flex-direction:column;text-align:left;width:100%;max-width:560px}
 .guarantee{text-align:center}
 .faq{margin:0 auto}
@@ -370,7 +354,7 @@ details .ans{margin:0 auto;text-align:center}
 .gap-close{max-width:620px;margin:48px auto 0;text-align:center;font-size:16px;color:var(--ink-70)}
 .gap-close strong{color:var(--ink);font-weight:500}
 .gap-src{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-35);margin-top:40px}
-.who-close{text-align:center;font-family:var(--pixel);font-size:19px;color:var(--ink);margin-top:44px}
+.who-close{text-align:center;font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);margin-top:44px}
 .curr{max-width:880px;margin:0 auto}
 .curr details{border-bottom:1px solid var(--line)}
 .curr details:first-of-type{border-top:1px solid var(--line)}
@@ -383,7 +367,8 @@ details .ans{margin:0 auto;text-align:center}
 .curr .m-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-35);display:block;margin:16px 0 4px}
 .curr .m-list{font-size:13.5px;color:var(--ink-60)}
 .curr .m-build{font-size:13.5px;color:var(--ink)}
-@media(max-width:640px){.curr summary{flex-wrap:wrap;gap:8px}.curr .m-body{margin-left:0}.curr .m-flag{display:none}}
+@media(max-width:820px){.curr .m-flag{display:none}}
+@media(max-width:640px){.curr summary{flex-wrap:wrap;gap:8px}.curr .m-body{margin-left:0}}
 .proofstrip{margin-top:56px;text-align:center}
 .proof-lead{font-size:15px;color:var(--ink-60);margin-bottom:26px}
 .proofs{display:flex;justify-content:center;gap:44px;flex-wrap:wrap}
@@ -453,6 +438,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   .nav-burger{display:flex}
   .nav-logo img{height:24px}
   .nav-cta .btn{font-size:16px;padding:8px 12px 7px}
+  .hero-ctas .btn{white-space:normal;text-align:center;line-height:1.2;max-width:100%}
   .build-grid{grid-template-columns:1fr}
   .mentors{grid-template-columns:1fr 1fr}
   .loop{grid-template-columns:1fr}
@@ -471,7 +457,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   .invest{gap:36px}
   summary{font-size:clamp(18px,5.4vw,22px);padding:18px 2px}
   .glow{filter:blur(60px);opacity:.38}
-  .glow.g1{width:360px;height:360px}.glow.g2{width:280px;height:280px}.glow.g3{width:320px;height:320px}
+  .glow.g3{width:320px;height:320px}
   .hero{padding-top:56px;padding-bottom:52vh}
   .hero .lede{font-size:15.5px}
   .foot-in{gap:28px}
@@ -482,6 +468,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+<a class="skip" href="#gap">Skip to content</a>
 
 <!-- ══════════════ NAV ══════════════ -->
 <nav>
@@ -496,11 +483,11 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a>
-      <button class="nav-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a>
+      <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="nav-mobile wrap">
+  <div class="nav-mobile wrap" id="mobile-menu">
     <a href="#gap">The gap</a>
     <a href="#cohort">The cohort</a>
     <a href="#curriculum">Curriculum</a>
@@ -511,6 +498,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
 </nav>
 
 <!-- ══════════════ 1 · HERO ══════════════ -->
+<main>
 <header class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
     <canvas id="stars"></canvas>
@@ -521,12 +509,12 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     <h1>Build your own <span class="accent">AI product</span> in 24 weeks.</h1>
     <p class="lede">A live, weekend-led cohort built around your own project and hands-on builds. Bring your own idea to launch, or the work you want AI to run.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a>
-      <a class="btn btn-ghost" href="#curriculum">Read the full curriculum and price <span class="arw">↓</span></a>
+      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" href="#curriculum">Read the full curriculum and price <span class="arw" aria-hidden="true">↓</span></a>
     </div>
     <p class="cta-note">No coding experience required.</p>
     <div class="hero-chips">
-      <span class="chip chip--live"><span class="dot"></span>LIVE · WEEKEND CLASSES</span>
+      <span class="chip chip--live"><span class="dot" aria-hidden="true"></span>LIVE · WEEKEND CLASSES</span>
       <span class="chip">24 weeks</span>
       <span class="chip">50 builders, handpicked</span>
       <span class="chip">Cohort starts Aug 29, 2026</span>
@@ -618,7 +606,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         </div>
       </div>
     </div>
-    <div class="rv" style="text-align:center;margin-top:48px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a></div>
+    <div class="rv" style="text-align:center;margin-top:48px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
@@ -680,7 +668,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
     <div class="curr">
       <details class="rv">
-        <summary><span class="mno">Module 01</span><span class="mt">AI Fluency</span><span class="plus">+</span></summary>
+        <summary><span class="mno">Module 01</span><span class="mt">AI Fluency</span><span class="plus" aria-hidden="true">+</span></summary>
         <div class="m-body">
           <p>Stop getting average answers from AI. Learn how these models actually work and how to make them produce work you can rely on.</p>
           <span class="m-tag">Learn</span>
@@ -690,7 +678,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         </div>
       </details>
       <details class="rv">
-        <summary><span class="mno">Module 02</span><span class="mt">Generative AI &amp; Content</span><span class="plus">+</span></summary>
+        <summary><span class="mno">Module 02</span><span class="mt">Generative AI &amp; Content</span><span class="plus" aria-hidden="true">+</span></summary>
         <div class="m-body">
           <p>Go from text to full creative production. Direct AI to produce professional images, video and voice, then wire it into a content system that runs weekly.</p>
           <span class="m-tag">Learn</span>
@@ -700,7 +688,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         </div>
       </details>
       <details class="rv">
-        <summary><span class="mno">Module 03</span><span class="mt">Automation</span><span class="plus">+</span></summary>
+        <summary><span class="mno">Module 03</span><span class="mt">Automation</span><span class="plus" aria-hidden="true">+</span></summary>
         <div class="m-body">
           <p>Make your work run itself. Map real processes and turn them into multi-step automations connected across the tools you already use.</p>
           <span class="m-tag">Learn</span>
@@ -710,7 +698,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         </div>
       </details>
       <details class="rv">
-        <summary><span class="mno">Module 04</span><span class="mt">AI Agents &amp; No-Code Products</span><span class="plus">+</span></summary>
+        <summary><span class="mno">Module 04</span><span class="mt">AI Agents &amp; No-Code Products</span><span class="plus" aria-hidden="true">+</span></summary>
         <div class="m-body">
           <p>The month you cross from user to builder. Build agents that finish real jobs on their own, then wrap them into a working product without writing code.</p>
           <span class="m-tag">Learn</span>
@@ -720,7 +708,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         </div>
       </details>
       <details class="rv">
-        <summary><span class="mno">Module 05</span><span class="mt">Build Your MVP on Real Data</span><span class="m-flag">Foundations finish line · Pro entry point</span><span class="plus">+</span></summary>
+        <summary><span class="mno">Module 05</span><span class="mt">Build Your MVP on Real Data</span><span class="m-flag">Foundations finish line · Pro entry point</span><span class="plus" aria-hidden="true">+</span></summary>
         <div class="m-body">
           <p>Turn everything into one real product. Spec it, build it with AI coding tools, connect real data, launch it and put it in front of first users at Demo Day.</p>
           <span class="m-tag">Learn</span>
@@ -730,7 +718,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
         </div>
       </details>
       <details class="rv">
-        <summary><span class="mno">Module 06</span><span class="mt">Production &amp; Deployment</span><span class="plus">+</span></summary>
+        <summary><span class="mno">Module 06</span><span class="mt">Production &amp; Deployment</span><span class="plus" aria-hidden="true">+</span></summary>
         <div class="m-body">
           <p>The depth every other program skips. Take your MVP to production grade and deploy it live for real users, with the engineering to prove it works.</p>
           <span class="m-tag">Learn</span>
@@ -742,7 +730,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
     <div class="rv" style="text-align:center;margin-top:48px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-ghost" href="#" title="PDF available at launch">Download the full syllabus (PDF)</a>
-      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a>
+      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -766,6 +754,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
+<div class="hatch"></div>
 <!-- ══════════════ 7 · LEVERAGE: WHAT YOU'LL BUILD ══════════════ -->
 <section id="leverage">
   <div class="wrap">
@@ -782,7 +771,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <div class="build-card"><h3>Product &amp; Data</h3><ul><li>Your own AI app on your own data</li><li>An assistant that answers from your files, with sources</li><li>A product taken all the way to live</li></ul></div>
       <div class="build-card"><h3>Whatever you run</h3><ul><li>The same skills, pointed at your problem</li><li>Built with you by mentors who ship for a living</li><li>Yours to keep, yours to show</li></ul></div>
     </div>
-    <div class="proofstrip rv">
+    <div class="proofstrip">
       <p class="proof-lead">And you don't leave with skills on a slide. You leave holding:</p>
       <div class="proofs">
         <div class="proof"><span class="pv">~20 shipped builds</span><span class="pl">in your builder log</span></div>
@@ -793,14 +782,16 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
   <div class="wrap">
     <p class="tools-lede rv">You'll build with the tools companies actually use — until they're second nature</p>
-<div class="tool-row rv">
+    <div class="tool-row rv">
       <span class="tool-label">Use &amp; Create</span>
       <div class="marquee" aria-hidden="true"><div class="marquee-in"><span class="tico"><img src="tools section/_web/Claude.png" alt="Claude" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI.png" alt="OpenAI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini.png" alt="Google Gemini" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini-Deep-Research.png" alt="Google Gemini Deep Research" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-AI-Studio.png" alt="Google AI Studio" loading="lazy"></span><span class="tico"><img src="tools section/_web/Microsoft-Copilot.png" alt="Microsoft Copilot" loading="lazy"></span><span class="tico"><img src="tools section/_web/Mistral-AI.png" alt="Mistral AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Midjourney.png" alt="Midjourney" loading="lazy"></span><span class="tico"><img src="tools section/_web/Flux-1.png" alt="Flux 1" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stable-Diffusion-SDXL.png" alt="Stable Diffusion SDXL" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stability-AI.png" alt="Stability AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Leonardo-AI.png" alt="Leonardo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Playground-AI.png" alt="Playground AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Civitai.png" alt="Civitai" loading="lazy"></span><span class="tico"><img src="tools section/_web/ComfyUI.png" alt="ComfyUI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Runway.png" alt="Runway" loading="lazy"></span><span class="tico"><img src="tools section/_web/Kling-AI.png" alt="Kling AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hailuo-AI.png" alt="Hailuo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Luma-AI.png" alt="Luma AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/HeyGen.png" alt="HeyGen" loading="lazy"></span><span class="tico"><img src="tools section/_web/ElevenLabs.png" alt="ElevenLabs" loading="lazy"></span><span class="tico"><img src="tools section/_web/NotebookLM.png" alt="NotebookLM" loading="lazy"></span><span class="tico"><img src="tools section/_web/Gamma.png" alt="Gamma" loading="lazy"></span><span class="tico"><img src="tools section/_web/Pitch.png" alt="Pitch" loading="lazy"></span><span class="tico"><img src="tools section/_web/Claude.png" alt="Claude" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI.png" alt="OpenAI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini.png" alt="Google Gemini" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-Gemini-Deep-Research.png" alt="Google Gemini Deep Research" loading="lazy"></span><span class="tico"><img src="tools section/_web/Google-AI-Studio.png" alt="Google AI Studio" loading="lazy"></span><span class="tico"><img src="tools section/_web/Microsoft-Copilot.png" alt="Microsoft Copilot" loading="lazy"></span><span class="tico"><img src="tools section/_web/Mistral-AI.png" alt="Mistral AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Midjourney.png" alt="Midjourney" loading="lazy"></span><span class="tico"><img src="tools section/_web/Flux-1.png" alt="Flux 1" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stable-Diffusion-SDXL.png" alt="Stable Diffusion SDXL" loading="lazy"></span><span class="tico"><img src="tools section/_web/Stability-AI.png" alt="Stability AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Leonardo-AI.png" alt="Leonardo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Playground-AI.png" alt="Playground AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Civitai.png" alt="Civitai" loading="lazy"></span><span class="tico"><img src="tools section/_web/ComfyUI.png" alt="ComfyUI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Runway.png" alt="Runway" loading="lazy"></span><span class="tico"><img src="tools section/_web/Kling-AI.png" alt="Kling AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hailuo-AI.png" alt="Hailuo AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Luma-AI.png" alt="Luma AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/HeyGen.png" alt="HeyGen" loading="lazy"></span><span class="tico"><img src="tools section/_web/ElevenLabs.png" alt="ElevenLabs" loading="lazy"></span><span class="tico"><img src="tools section/_web/NotebookLM.png" alt="NotebookLM" loading="lazy"></span><span class="tico"><img src="tools section/_web/Gamma.png" alt="Gamma" loading="lazy"></span><span class="tico"><img src="tools section/_web/Pitch.png" alt="Pitch" loading="lazy"></span></div></div>
-<div class="tool-row rv">
+    </div>
+    <div class="tool-row rv">
       <span class="tool-label">Build &amp; Ship</span>
       <div class="marquee" aria-hidden="true"><div class="marquee-in rev"><span class="tico"><img src="tools section/_web/Cursor.png" alt="Cursor" loading="lazy"></span><span class="tico"><img src="tools section/_web/v0-Vercel.png" alt="v0 Vercel" loading="lazy"></span><span class="tico"><img src="tools section/_web/GPT-4-OpenAI-Playground.png" alt="GPT 4 OpenAI Playground" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI-API.png" alt="OpenAI API" loading="lazy"></span><span class="tico"><img src="tools section/_web/LangChain.png" alt="LangChain" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face.png" alt="Hugging Face" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face-Hub.png" alt="Hugging Face Hub" loading="lazy"></span><span class="tico"><img src="tools section/_web/Supabase.png" alt="Supabase" loading="lazy"></span><span class="tico"><img src="tools section/_web/n8n.png" alt="n8n" loading="lazy"></span><span class="tico"><img src="tools section/_web/Make.png" alt="Make" loading="lazy"></span><span class="tico"><img src="tools section/_web/Zapier.png" alt="Zapier" loading="lazy"></span><span class="tico"><img src="tools section/_web/Relevance-AI.png" alt="Relevance AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Vapi.png" alt="Vapi" loading="lazy"></span><span class="tico"><img src="tools section/_web/Postman.png" alt="Postman" loading="lazy"></span><span class="tico"><img src="tools section/_web/NextAuth.png" alt="NextAuth" loading="lazy"></span><span class="tico"><img src="tools section/_web/Bubble.png" alt="Bubble" loading="lazy"></span><span class="tico"><img src="tools section/_web/Fireflies.png" alt="Fireflies" loading="lazy"></span><span class="tico"><img src="tools section/_web/Humata.png" alt="Humata" loading="lazy"></span><span class="tico"><img src="tools section/_web/Frase.png" alt="Frase" loading="lazy"></span><span class="tico"><img src="tools section/_web/Surfer.png" alt="Surfer" loading="lazy"></span><span class="tico"><img src="tools section/_web/Rows.png" alt="Rows" loading="lazy"></span><span class="tico"><img src="tools section/_web/Agentive-AI.png" alt="Agentive AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Cursor.png" alt="Cursor" loading="lazy"></span><span class="tico"><img src="tools section/_web/v0-Vercel.png" alt="v0 Vercel" loading="lazy"></span><span class="tico"><img src="tools section/_web/GPT-4-OpenAI-Playground.png" alt="GPT 4 OpenAI Playground" loading="lazy"></span><span class="tico"><img src="tools section/_web/OpenAI-API.png" alt="OpenAI API" loading="lazy"></span><span class="tico"><img src="tools section/_web/LangChain.png" alt="LangChain" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face.png" alt="Hugging Face" loading="lazy"></span><span class="tico"><img src="tools section/_web/Hugging-Face-Hub.png" alt="Hugging Face Hub" loading="lazy"></span><span class="tico"><img src="tools section/_web/Supabase.png" alt="Supabase" loading="lazy"></span><span class="tico"><img src="tools section/_web/n8n.png" alt="n8n" loading="lazy"></span><span class="tico"><img src="tools section/_web/Make.png" alt="Make" loading="lazy"></span><span class="tico"><img src="tools section/_web/Zapier.png" alt="Zapier" loading="lazy"></span><span class="tico"><img src="tools section/_web/Relevance-AI.png" alt="Relevance AI" loading="lazy"></span><span class="tico"><img src="tools section/_web/Vapi.png" alt="Vapi" loading="lazy"></span><span class="tico"><img src="tools section/_web/Postman.png" alt="Postman" loading="lazy"></span><span class="tico"><img src="tools section/_web/NextAuth.png" alt="NextAuth" loading="lazy"></span><span class="tico"><img src="tools section/_web/Bubble.png" alt="Bubble" loading="lazy"></span><span class="tico"><img src="tools section/_web/Fireflies.png" alt="Fireflies" loading="lazy"></span><span class="tico"><img src="tools section/_web/Humata.png" alt="Humata" loading="lazy"></span><span class="tico"><img src="tools section/_web/Frase.png" alt="Frase" loading="lazy"></span><span class="tico"><img src="tools section/_web/Surfer.png" alt="Surfer" loading="lazy"></span><span class="tico"><img src="tools section/_web/Rows.png" alt="Rows" loading="lazy"></span><span class="tico"><img src="tools section/_web/Agentive-AI.png" alt="Agentive AI" loading="lazy"></span></div></div>
+    </div>
   </div>
-  <div class="wrap rv" style="text-align:center;margin-top:52px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a></div>
+  <div class="wrap rv" style="text-align:center;margin-top:52px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a></div>
 </section>
 
 <div class="hatch"></div>
@@ -853,7 +844,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <p class="lede"><strong style="color:var(--ink);font-weight:500">You don't graduate. You become part of the network.</strong> Every niche you'd ever need to borrow from, in one place. People shipping AI products, people running businesses, people who create for millions. Need a co-builder, an editor, a first customer or a push to an audience? Someone here does it every day.</p>
     </div>
     <figure class="media-band rv" style="margin-top:0"><img src="img/band-community.jpg" alt="A dark auditorium full of faces lit by laptop screens like a star field" loading="lazy" decoding="async" width="1584" height="672"></figure>
-    <div class="statstrip rv">
+    <div class="statstrip">
       <div class="stat-cell"><div class="num">3 lakh+</div><p>In the community</p></div>
       <div class="stat-cell"><div class="num"><span data-count="67746" data-suffix="+" data-locale="en-IN">67,746+</span></div><p>Learners</p></div>
       <div class="stat-cell"><div class="num"><span data-count="821" data-suffix="+">821+</span></div><p>Cities</p></div>
@@ -865,7 +856,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 11 · CHOOSE YOUR PATH ══════════════ -->
 <section id="paths" class="light">
   <div class="bg-el bg-beam"></div>
@@ -936,7 +926,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
     <p class="apply-dates rv">Cohort starts August 29, 2026 · Applications close August 23, 2026 · When the room is full, it's full.</p>
     <div style="margin-top:34px;text-align:center" class="rv">
-      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a>
+      <a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -952,43 +942,43 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </div>
     <div class="faq rv">
       <details>
-        <summary>I'm not technical. I've genuinely never built anything. <span class="plus">+</span></summary>
+        <summary>I'm not technical. I've genuinely never built anything. <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">That's exactly who Foundations and Mastery are for. They start at zero. If you can use ChatGPT, you can start.</p>
       </details>
       <details>
-        <summary>Is this actually live, or a recording mill? <span class="plus">+</span></summary>
+        <summary>Is this actually live, or a recording mill? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">100% live and weekend-led. Recordings exist only for catch-up. We'll never sell you a recording as “live.”</p>
       </details>
       <details>
-        <summary>How much time does it take every week? <span class="plus">+</span></summary>
+        <summary>How much time does it take every week? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">Around 8–10 hours: two live weekend sessions, optional weekday doubt clinics, and your own build time.</p>
       </details>
       <details>
-        <summary>Will this get me a job, a raise, a promotion? <span class="plus">+</span></summary>
+        <summary>Will this get me a job, a raise, a promotion? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">No promises, and we won't imply any. You leave with capability and a portfolio of real, shipped work. What you do with it is yours.</p>
       </details>
       <details>
-        <summary>Isn't all of this free on YouTube? <span class="plus">+</span></summary>
+        <summary>Isn't all of this free on YouTube? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">The information is. The structure isn't: a deadline, feedback on your actual build, and a room that expects your demo on Sunday. You're paying to actually build.</p>
       </details>
       <details>
-        <summary>₹90,000 is a lot. What if I join and it's not for me? <span class="plus">+</span></summary>
+        <summary>₹90,000 is a lot. What if I join and it's not for me? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">That's what the selection exists to prevent. We read your application and interview you before any tuition moves. If we think you won't get value, we say no and tell you why.</p>
       </details>
       <details>
-        <summary>How do I know this works? <span class="plus">+</span></summary>
+        <summary>How do I know this works? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">Everything is checkable before you apply: the curriculum, the fee, the mentors. And the output is public. Every builder demos a working MVP and a deployed product in front of the room and invited guests.</p>
       </details>
       <details>
-        <summary>Can I start with Foundations and continue later? <span class="plus">+</span></summary>
+        <summary>Can I start with Foundations and continue later? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">Yes. Pro picks up exactly where Foundations stops. Bought separately the two cost ₹1,30,000; Mastery is the same journey for ₹90,000. The saving is for deciding once.</p>
       </details>
       <details>
-        <summary>Can I pay in installments? <span class="plus">+</span></summary>
+        <summary>Can I pay in installments? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">Yes. No-cost EMI on every pathway, with the monthly amount, tenure and total shown together. Mastery also has an in-house two-part split.</p>
       </details>
       <details>
-        <summary>Is the ₹700 application fee really refundable? <span class="plus">+</span></summary>
+        <summary>Is the ₹700 application fee really refundable? <span class="plus" aria-hidden="true">+</span></summary>
         <p class="ans">Yes. Returned if we say no, credited to your tuition if you're in. It exists to filter out the casual, not to make money.</p>
       </details>
     </div>
@@ -1003,10 +993,11 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     <span class="eyebrow rv">40 seats · live for 6 months</span>
     <h2 class="rv">Enough people just use AI. Become one who can build with it.</h2>
     <div class="mega rv">Build. Automate. Launch.</div>
-    <div class="rv" style="margin-top:40px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw">→</span></a></div>
+    <div class="rv" style="margin-top:40px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
+</main>
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
   <div class="wrap">
@@ -1078,7 +1069,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     if(!reduced) raf=requestAnimationFrame(draw);
   }
   size();draw(0);
-  addEventListener('resize',()=>{size();if(reduced)draw(0);},{passive:true});
+  let lastW=W;addEventListener('resize',()=>{const w=Math.round(c.getBoundingClientRect().width*dpr);if(w!==lastW||c.width===0){size();lastW=W;draw(0);}},{passive:true});
   new IntersectionObserver(es=>{es.forEach(e=>{
     cancelAnimationFrame(raf);
     if(e.isIntersecting){if(c.width===0) size(); if(!reduced) raf=requestAnimationFrame(draw); else draw(0);}
@@ -1097,17 +1088,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     nav.classList.remove('open');
     burger.setAttribute('aria-expanded','false');
   }));
-})();
-// ---- hero glow parallax (subtle) ----
-(function(){
-  const hero=document.querySelector('.hero');
-  if(!hero||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const glows=hero.querySelectorAll('.glow');
-  hero.addEventListener('mousemove',e=>{
-    const r=hero.getBoundingClientRect();
-    const dx=(e.clientX-r.left)/r.width-.5, dy=(e.clientY-r.top)/r.height-.5;
-    glows.forEach((g,i)=>{g.style.translate=`${dx*(i+1)*14}px ${dy*(i+1)*10}px`;});
-  },{passive:true});
 })();
 // ---- stacking cards: scale/dim the card being covered (runs only while in view) ----
 (function(){
