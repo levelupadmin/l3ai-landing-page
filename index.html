@@ -72,8 +72,11 @@ em{font-style:italic}
 /* ---------- primitives ---------- */
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 section{padding:96px 0;position:relative;overflow:hidden;contain:paint}
-section:not(:first-of-type){border-top:1px solid var(--line)}
 section:not(.light){background-color:#0A0A0C;background-image:radial-gradient(120% 62% at 50% 0%,rgba(0,84,255,.06),transparent 60%)}
+/* seamless dark <-> light crossfades — no hard cut between sections */
+header.hero + section.light,section:not(.light) + section.light,section.light + section:not(.light){padding-top:154px}
+header.hero + section.light::before,section:not(.light) + section.light::before{content:"";position:absolute;left:0;right:0;top:0;height:154px;z-index:0;pointer-events:none;background:linear-gradient(180deg,#0A0A0C 0%,rgba(10,10,12,0) 100%)}
+section.light + section:not(.light)::before{content:"";position:absolute;left:0;right:0;top:0;height:154px;z-index:0;pointer-events:none;background:linear-gradient(180deg,#F9F9F7 0%,rgba(249,249,247,0) 100%)}
 section>.wrap{position:relative;z-index:1}
 section[id],header[id]{scroll-margin-top:76px}
 #who,#leverage{padding-top:64px}
@@ -294,10 +297,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 46px}
 
 /* ---------- light breather bands ---------- */
 section.light{
-  background-color:#F4F0E6;
-  background-image:radial-gradient(125% 80% at 100% 0%,rgba(0,84,255,.04),transparent 55%),url(img/paper.jpg);
-  background-size:100% 100%,540px 540px;
-  background-repeat:no-repeat,repeat;
+  background-color:#F9F9F7;
   --ink:#090909;
   --ink-70:rgba(9,9,9,.72);
   --ink-60:rgba(9,9,9,.62);
