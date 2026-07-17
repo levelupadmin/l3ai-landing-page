@@ -501,6 +501,26 @@ details .ans{margin:0 auto;text-align:center}
 .stat-cell .num{font-family:var(--serif-px);font-size:clamp(28px,3.4vw,42px);line-height:1;margin-bottom:8px;color:var(--ink)}
 .stat-cell p{font-size:12.5px;color:var(--ink-50)}
 .eco-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+/* community photo cards */
+.comm-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:32px}
+.comm-card{position:relative;margin:0;border-radius:12px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
+.comm-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease-out)}
+.comm-card:hover img{transform:scale(1.05)}
+.comm-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 13px 13px;font-family:var(--sans);font-size:12.5px;font-weight:500;line-height:1.25;color:#fff;background:linear-gradient(180deg,transparent,rgba(6,7,10,.55) 45%,rgba(6,7,10,.94));z-index:1}
+/* floating graduate avatars (top-left corner) */
+.eco-comm-head{position:relative}
+.grad-float{position:absolute;top:-10px;left:calc(50% - 560px);width:150px;height:150px;pointer-events:none;z-index:2}
+.grad-float img{position:absolute;width:48px;height:48px;border-radius:50%;border:2px solid rgba(232,239,234,.2);box-shadow:0 8px 20px rgba(0,0,0,.5);opacity:0;animation:gradIn .55s var(--ease-out) forwards,gradFloat 5.5s ease-in-out infinite;animation-delay:calc(var(--i)*.16s),calc(var(--i)*.5s)}
+.grad-float img:nth-child(1){top:8px;left:6px}
+.grad-float img:nth-child(2){top:2px;left:66px;width:40px;height:40px}
+.grad-float img:nth-child(3){top:58px;left:0}
+.grad-float img:nth-child(4){top:64px;left:60px;width:42px;height:42px}
+.grad-float img:nth-child(5){top:104px;left:24px;width:38px;height:38px}
+@keyframes gradIn{to{opacity:1}}
+@keyframes gradFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion:reduce){.grad-float img{animation:gradIn .4s forwards}}
+@media(max-width:1240px){.grad-float{left:8px}}
+@media(max-width:760px){.comm-cards{grid-template-columns:1fr 1fr}.grad-float{display:none}}
 .tier .t-tagline{font-size:14px;color:var(--ink);margin-bottom:4px}
 .tier .t-block{margin-top:14px;text-align:left}
 .tier .t-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-35);display:block;margin-bottom:4px}
@@ -988,7 +1008,8 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <div class="builder"><img class="bph" src="img/builders/siddhartha.jpg" alt="Siddhartha" loading="lazy" decoding="async"><div class="bn">Siddhartha</div><div class="br">Fashion Entrepreneur</div></div>
       <div class="builder"><img class="bph" src="img/builders/smitesh.jpg" alt="Smitesh" loading="lazy" decoding="async"><div class="bn">Smitesh</div><div class="br">Director · Global Implementation</div></div>
     </div>
-    <div class="sec-head rv" style="margin-top:96px">
+    <div class="sec-head rv eco-comm-head" style="margin-top:96px">
+      <div class="grad-float" aria-hidden="true"><img src="img/community/grad-1.png" style="--i:0"><img src="img/community/grad-2.png" style="--i:1"><img src="img/community/grad-3.png" style="--i:2"><img src="img/community/grad-4.png" style="--i:3"><img src="img/community/grad-5.png" style="--i:4"></div>
       <span class="eyebrow">The community</span>
       <h2>Your Network is Your Net Worth</h2>
       <p class="lede"><strong style="color:var(--ink);font-weight:500">You don't graduate. You become part of the network.</strong> Every niche you'd ever need to borrow from, in one place. People shipping AI products, people running businesses, people who create for millions. Need a co-builder, an editor, a first customer or a push to an audience? Someone here does it every day.</p>
@@ -1000,8 +1021,12 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <div class="stat-cell"><div class="num"><span data-count="821" data-suffix="+">821+</span></div><p>Cities</p></div>
       <div class="stat-cell"><div class="num"><span data-count="3000" data-suffix="+" data-locale="en-IN">3,000+</span></div><p>Collaborations</p></div>
     </div>
-    <div class="eco-chips rv">
-      <span class="chip">Offline Meetups</span><span class="chip">Workshops</span><span class="chip">Demo Days</span><span class="chip">Builder Collabs</span><span class="chip">Active Online Channels</span>
+    <div class="comm-cards rv">
+      <figure class="comm-card"><img src="img/community/meetups.jpg" alt="Offline meetup" loading="lazy" decoding="async"><figcaption>Offline Meetups</figcaption></figure>
+      <figure class="comm-card"><img src="img/community/workshops.jpg" alt="Workshop" loading="lazy" decoding="async"><figcaption>Workshops</figcaption></figure>
+      <figure class="comm-card"><img src="img/community/demos.jpg" alt="Demo day" loading="lazy" decoding="async"><figcaption>Demo Days</figcaption></figure>
+      <figure class="comm-card"><img src="img/community/collabs.jpg" alt="Builder collab" loading="lazy" decoding="async"><figcaption>Builder Collabs</figcaption></figure>
+      <figure class="comm-card"><img src="img/community/channels.jpg" alt="Active online channels" loading="lazy" decoding="async"><figcaption>Active Online Channels</figcaption></figure>
     </div>
   </div>
 </section>
