@@ -397,31 +397,40 @@ details .ans{margin:0 auto;text-align:center}
 .rn-t{font-family:var(--hand);font-weight:700;font-size:6.4px;fill:var(--blue)}
 .rn-arrow,.rn-head{fill:none;stroke:var(--blue);stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:760px){.rn-t{font-size:5.7px}}
-/* ---------- gap infographic (98% grid → 2% dots) ---------- */
+/* ---------- gap infographic (98% grid → 2% dots) · dark ---------- */
 .gv-dots{display:grid;gap:8px;width:max-content}
-.gv-dots i{width:7px;height:7px;border-radius:50%;background:rgba(9,9,9,.16)}
-.gv-dots--b i{background:var(--blue);box-shadow:0 0 3px rgba(0,84,255,.3)}
-.gv-num{font-family:var(--serif-px);font-size:clamp(38px,4.4vw,54px);line-height:.86;color:#0A0A0A}
-.gv-num--b{color:var(--blue)}
+.gv-dots i{width:7px;height:7px;border-radius:50%;background:rgba(232,239,234,.16)}
+.gv-dots--b i{background:var(--blue);box-shadow:0 0 3px rgba(0,84,255,.35)}
+.gv-num{font-family:var(--serif-px);font-size:clamp(38px,4.4vw,54px);line-height:.86;color:var(--ink)}
+.gv-num--b{color:#4d84ff}
 .gv-lab{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-50);line-height:1.35}
-.gv-note-t{font-family:var(--hand);font-weight:700;font-size:13px;fill:var(--blue)}
-.gv-note-a,.gv-note-h{fill:none;stroke:var(--blue);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.gv-note-t{font-family:var(--hand);font-weight:700;font-size:13px;fill:#5a8bff}
+.gv-note-a,.gv-note-h{fill:none;stroke:#5a8bff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.gv-card,.gviz-d{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid rgba(232,239,234,.1);box-shadow:0 14px 44px rgba(0,0,0,.35)}
 /* desktop layout */
-.gviz-d{display:flex;align-items:center;gap:20px;max-width:880px;margin:10px auto 0;padding:38px 44px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 20px rgba(9,9,9,.05)}
+.gviz-d{display:flex;align-items:center;gap:20px;max-width:880px;margin:10px auto 0;padding:38px 44px;border-radius:18px}
 .gv-panel{display:flex;align-items:center;gap:24px;flex:0 0 auto}
 .gv-build{position:relative}
 .gv-head{display:flex;flex-direction:column;gap:11px}
 .gv-flow{flex:1 1 auto;min-width:56px;display:flex;align-items:center;justify-content:center}
-.gv-arrowh{width:100%;max-width:160px;color:rgba(9,9,9,.28)}
+.gv-arrowh{width:100%;max-width:160px;color:rgba(232,239,234,.3)}
 .gv-arrowh path{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.gv-arrowh .shaft{stroke-dasharray:1.5 7}
+.gv-arrowh .shaft{stroke-dasharray:1.5 7;animation:gvFlow 1.4s linear infinite}
 .gv-note{position:absolute;right:-6px;top:-52px;width:132px;height:66px;overflow:visible}
 .gviz-m{display:none}
+/* subtle imagery motion */
+@keyframes gvPop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@keyframes gvPulse{0%,100%{transform:scale(1);box-shadow:0 0 3px rgba(0,84,255,.35)}50%{transform:scale(1.22);box-shadow:0 0 10px rgba(0,84,255,.65)}}
+@keyframes gvFlow{to{stroke-dashoffset:-17}}
+@keyframes gvBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.gviz.on .gv-dots:not(.gv-dots--b) i{animation:gvPop .5s var(--ease-out) both;animation-delay:calc(var(--i,0)*6ms)}
+.gv-dots--b i{animation:gvPulse 2.6s ease-in-out infinite;animation-delay:calc(var(--i,0)*-.32s)}
+@media (prefers-reduced-motion:reduce){.gv-dots--b i,.gv-arrowh .shaft,.gv-down{animation:none!important}}
 /* mobile layout — 98% funnels down to the centred 2% dots (matches reference) */
 @media(max-width:760px){
   .gviz-d{display:none}
   .gviz-m{display:block;max-width:420px;margin:6px auto 0}
-  .gv-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 6px 30px rgba(9,9,9,.06);padding:34px 26px}
+  .gv-card{border-radius:22px;padding:34px 26px}
   .gv-card.gv-use{text-align:center;padding-bottom:40px}
   .gv-head-c{display:flex;flex-direction:column;align-items:center;gap:11px;margin-bottom:28px}
   .gviz-m .gv-num{font-size:52px}
@@ -430,12 +439,12 @@ details .ans{margin:0 auto;text-align:center}
   .gviz-m .gv-dots i{width:8px;height:8px}
   /* down-arrow bridging the two cards */
   .gv-funnel{position:relative;z-index:3;height:30px;display:flex;align-items:center;justify-content:center}
-  .gv-down{width:50px;height:50px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);color:var(--blue);box-shadow:0 6px 18px rgba(9,9,9,.1)}
+  .gv-down{width:50px;height:50px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#15151a;border:1px solid rgba(232,239,234,.14);color:#5a8bff;box-shadow:0 8px 22px rgba(0,0,0,.5);animation:gvBob 2.6s ease-in-out infinite}
   .gv-down svg{width:22px;height:22px}
   /* 2% card: label top-left, funnel triangle converging onto centred dots */
   .gviz-m .gv-build{position:relative;min-height:250px;overflow:hidden;padding-top:30px}
   .gviz-m .gv-build .gv-head{display:flex;flex-direction:column;align-items:flex-start;gap:9px;position:relative;z-index:2}
-  .gviz-m .gv-build::before{content:"";position:absolute;left:50%;top:-4px;transform:translateX(-50%);width:0;height:0;border-left:86px solid transparent;border-right:86px solid transparent;border-top:158px solid rgba(0,84,255,.09);z-index:0}
+  .gviz-m .gv-build::before{content:"";position:absolute;left:50%;top:-4px;transform:translateX(-50%);width:0;height:0;border-left:86px solid transparent;border-right:86px solid transparent;border-top:158px solid rgba(0,84,255,.17);z-index:0}
   .gviz-m .gv-dots--b{position:absolute;left:50%;top:152px;transform:translateX(-50%);margin:0;z-index:2}
   .gviz-m .gv-dots--b i{width:11px;height:11px}
   .gv-note-m{position:absolute;right:-2px;top:150px;width:150px;height:64px;overflow:visible;z-index:2}
@@ -642,7 +651,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
 </header>
 
 <!-- ══════════════ 2 · THE GAP, IN DATA ══════════════ -->
-<section id="gap" class="light">
+<section id="gap">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Using AI stopped being an edge. Here's what isn't.</span>
@@ -689,7 +698,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     <p class="gap-close rv">Using AI is the most crowded skill on earth now. Building with it is one of the rarest. <strong>The entire return on the time and money you've put into AI sits with the builders.</strong></p>
     <p class="gap-lane rv">This cohort moves you to that side.</p>
   </div>
-  <script>(function(){document.querySelectorAll('#gap .gv-dots').forEach(function(d){var n=+d.dataset.dots||40,c=+d.dataset.cols||10,s='';d.style.gridTemplateColumns='repeat('+c+',1fr)';for(var i=0;i<n;i++)s+='<i></i>';d.innerHTML=s;});})();</script>
+  <script>(function(){document.querySelectorAll('#gap .gv-dots').forEach(function(d){var n=+d.dataset.dots||40,c=+d.dataset.cols||10,s='';d.style.gridTemplateColumns='repeat('+c+',1fr)';for(var i=0;i<n;i++)s+='<i style="--i:'+i+'"></i>';d.innerHTML=s;});if(!('IntersectionObserver'in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.2});document.querySelectorAll('#gap .gviz').forEach(function(v){io.observe(v);});})();</script>
 </section>
 
 <!-- ══════════════ 3 · WHAT THE COHORT IS ══════════════ -->
