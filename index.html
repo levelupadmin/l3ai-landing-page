@@ -486,13 +486,14 @@ details .ans{margin:0 auto;text-align:center}
 .proof .pl{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50);display:block;margin-top:7px}
 .mentors{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .mentor{background:var(--card);padding:22px 20px;text-align:center}
-.mentor .ph{aspect-ratio:4/5;background:repeating-linear-gradient(-45deg,transparent 0 9px,rgba(232,239,234,.06) 9px 10px),var(--surface);border:1px solid var(--line);border-radius:2px;margin-bottom:16px;display:flex;align-items:center;justify-content:center}
+.mentor .ph{aspect-ratio:4/5;width:100%;object-fit:cover;object-position:center 40%;background:var(--surface);border:1px solid var(--line);border-radius:3px;margin-bottom:16px;display:block}
 .mentor .ph span{font-family:var(--pixel);font-size:16px;color:var(--ink-35);letter-spacing:.05em}
 .mentor .cred{font-family:var(--mono);font-size:10px;letter-spacing:.07em;color:var(--ink-35);text-transform:uppercase;display:block;margin-bottom:6px;min-height:28px}
 .mentor h3{font-family:var(--sans);font-size:17px;font-weight:500;letter-spacing:-.01em;margin-bottom:3px}
 .mentor .role{font-size:12.5px;color:var(--ink-50)}
 .builders{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.builder{background:var(--card);padding:20px 18px;text-align:center}
+.builder{background:var(--card);padding:22px 18px 20px;text-align:center}
+.builder .bph{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 38%;display:block;margin:0 auto 13px;border:1px solid var(--line)}
 .builder .bn{font-family:var(--sans);font-size:15px;font-weight:500;color:var(--ink)}
 .builder .br{font-size:12px;color:var(--ink-50);margin-top:3px}
 .statstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:0}
@@ -954,14 +955,14 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <p class="lede">Every mentor is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor.</p>
     </div>
     <div class="mentors">
-      <div class="mentor"><div class="ph"><span>VAIBHAV</span></div><span class="cred">IIM A · IIT D</span><h3>Vaibhav Kejriwal</h3><p class="role">n8n Bangalore Ambassador</p></div>
-      <div class="mentor"><div class="ph"><span>KEVIN</span></div><span class="cred">LinkedIn Design Top Voice</span><h3>Kevin Adams</h3><p class="role">Artist · Founder · Creator</p></div>
-      <div class="mentor"><div class="ph"><span>SABILASHAN</span></div><span class="cred">Ambassador @ Lovable</span><h3>Sabilashan Ganeshan</h3><p class="role">Country Lead @ Perplexity</p></div>
-      <div class="mentor"><div class="ph"><span>ANKUR</span></div><span class="cred">AB InBev · O9 Solutions</span><h3>Ankur Upadhyay</h3><p class="role">Senior Product Manager</p></div>
-      <div class="mentor"><div class="ph"><span>PARTH</span></div><span class="cred">AI Staff PM · Healthcare AI</span><h3>Parth Bansal</h3><p class="role">AI Product Manager</p></div>
-      <div class="mentor"><div class="ph"><span>AKHIL</span></div><span class="cred">10,000+ Builders Taught</span><h3>Akhil Kumar Alampally</h3><p class="role">AI Instructor + Builder</p></div>
-      <div class="mentor"><div class="ph"><span>ASHWIN</span></div><span class="cred">IIT Ropar</span><h3>Ashwin Goyal</h3><p class="role">AI Product Manager</p></div>
-      <div class="mentor"><div class="ph"><span>RAHUL</span></div><span class="cred">LevelUp Learning</span><h3>Rahul Reddy</h3><p class="role">Founder · Storyteller</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/vaibhav.jpg" alt="Vaibhav" loading="lazy" decoding="async"><span class="cred">IIM A · IIT D</span><h3>Vaibhav Kejriwal</h3><p class="role">n8n Bangalore Ambassador</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/kevin.jpg" alt="Kevin" loading="lazy" decoding="async"><span class="cred">LinkedIn Design Top Voice</span><h3>Kevin Adams</h3><p class="role">Artist · Founder · Creator</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/sabilashan.jpg" alt="Sabilashan" loading="lazy" decoding="async"><span class="cred">Ambassador @ Lovable</span><h3>Sabilashan Ganeshan</h3><p class="role">Country Lead @ Perplexity</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/ankur.jpg" alt="Ankur" loading="lazy" decoding="async"><span class="cred">AB InBev · O9 Solutions</span><h3>Ankur Upadhyay</h3><p class="role">Senior Product Manager</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/parth.jpg" alt="Parth" loading="lazy" decoding="async"><span class="cred">AI Staff PM · Healthcare AI</span><h3>Parth Bansal</h3><p class="role">AI Product Manager</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/akhil.jpg" alt="Akhil" loading="lazy" decoding="async"><span class="cred">10,000+ Builders Taught</span><h3>Akhil Kumar Alampally</h3><p class="role">AI Instructor + Builder</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/ashwin.jpg" alt="Ashwin" loading="lazy" decoding="async"><span class="cred">IIT Ropar</span><h3>Ashwin Goyal</h3><p class="role">AI Product Manager</p></div>
+      <div class="mentor"><img class="ph" src="img/mentors/rahul.jpg" alt="Rahul" loading="lazy" decoding="async"><span class="cred">LevelUp Learning</span><h3>Rahul Reddy</h3><p class="role">Founder · Storyteller</p></div>
     </div>
   </div>
 </section>
@@ -974,18 +975,18 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <h2>Builders of the LevelUp Ecosystem</h2>
     </div>
     <div class="builders">
-      <div class="builder"><div class="bn">Saket</div><div class="br">CEO · 2care AI</div></div>
-      <div class="builder"><div class="bn">Tuhin</div><div class="br">Ex-Creative Head · Coinbase</div></div>
-      <div class="builder"><div class="bn">Vishal</div><div class="br">Co-Founder · REConnect Energy</div></div>
-      <div class="builder"><div class="bn">Ruhani</div><div class="br">Director · Minar Group</div></div>
-      <div class="builder"><div class="bn">Aravind</div><div class="br">Venture Capitalist</div></div>
-      <div class="builder"><div class="bn">Rahul</div><div class="br">Founder + TedX Speaker</div></div>
-      <div class="builder"><div class="bn">Joginder</div><div class="br">Founder · LeadMagnet</div></div>
-      <div class="builder"><div class="bn">Nischala</div><div class="br">Founder · Nischala Reddy Label</div></div>
-      <div class="builder"><div class="bn">Aarya</div><div class="br">Director · Naprod Life Sciences</div></div>
-      <div class="builder"><div class="bn">Vanmathi</div><div class="br">Founder · Coconut Sugar Co.</div></div>
-      <div class="builder"><div class="bn">Siddhartha</div><div class="br">Fashion Entrepreneur</div></div>
-      <div class="builder"><div class="bn">Smitesh</div><div class="br">Director · Global Implementation</div></div>
+      <div class="builder"><img class="bph" src="img/builders/saket.jpg" alt="Saket" loading="lazy" decoding="async"><div class="bn">Saket</div><div class="br">CEO · 2care AI</div></div>
+      <div class="builder"><img class="bph" src="img/builders/tuhin.jpg" alt="Tuhin" loading="lazy" decoding="async"><div class="bn">Tuhin</div><div class="br">Ex-Creative Head · Coinbase</div></div>
+      <div class="builder"><img class="bph" src="img/builders/vishal.jpg" alt="Vishal" loading="lazy" decoding="async"><div class="bn">Vishal</div><div class="br">Co-Founder · REConnect Energy</div></div>
+      <div class="builder"><img class="bph" src="img/builders/ruhani.jpg" alt="Ruhani" loading="lazy" decoding="async"><div class="bn">Ruhani</div><div class="br">Director · Minar Group</div></div>
+      <div class="builder"><img class="bph" src="img/builders/aravind.jpg" alt="Aravind" loading="lazy" decoding="async"><div class="bn">Aravind</div><div class="br">Venture Capitalist</div></div>
+      <div class="builder"><img class="bph" src="img/builders/rahul.jpg" alt="Rahul" loading="lazy" decoding="async"><div class="bn">Rahul</div><div class="br">Founder + TedX Speaker</div></div>
+      <div class="builder"><img class="bph" src="img/builders/joginder.jpg" alt="Joginder" loading="lazy" decoding="async"><div class="bn">Joginder</div><div class="br">Founder · LeadMagnet</div></div>
+      <div class="builder"><img class="bph" src="img/builders/nischala.jpg" alt="Nischala" loading="lazy" decoding="async"><div class="bn">Nischala</div><div class="br">Founder · Nischala Reddy Label</div></div>
+      <div class="builder"><img class="bph" src="img/builders/aarya.jpg" alt="Aarya" loading="lazy" decoding="async"><div class="bn">Aarya</div><div class="br">Director · Naprod Life Sciences</div></div>
+      <div class="builder"><img class="bph" src="img/builders/vanmathi.jpg" alt="Vanmathi" loading="lazy" decoding="async"><div class="bn">Vanmathi</div><div class="br">Founder · Coconut Sugar Co.</div></div>
+      <div class="builder"><img class="bph" src="img/builders/siddhartha.jpg" alt="Siddhartha" loading="lazy" decoding="async"><div class="bn">Siddhartha</div><div class="br">Fashion Entrepreneur</div></div>
+      <div class="builder"><img class="bph" src="img/builders/smitesh.jpg" alt="Smitesh" loading="lazy" decoding="async"><div class="bn">Smitesh</div><div class="br">Director · Global Implementation</div></div>
     </div>
     <div class="sec-head rv" style="margin-top:96px">
       <span class="eyebrow">The community</span>
