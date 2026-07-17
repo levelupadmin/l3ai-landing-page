@@ -399,7 +399,7 @@ details .ans{margin:0 auto;text-align:center}
 /* ---------- gap infographic (98% grid → 2% dots) ---------- */
 .gv-dots{display:grid;gap:8px;width:max-content}
 .gv-dots i{width:7px;height:7px;border-radius:50%;background:rgba(9,9,9,.16)}
-.gv-dots--b i{background:var(--blue);box-shadow:0 0 6px rgba(0,84,255,.45)}
+.gv-dots--b i{background:var(--blue);box-shadow:0 0 3px rgba(0,84,255,.3)}
 .gv-num{font-family:var(--serif-px);font-size:clamp(38px,4.4vw,54px);line-height:.86;color:#0A0A0A}
 .gv-num--b{color:var(--blue)}
 .gv-lab{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-50);line-height:1.35}
@@ -416,23 +416,29 @@ details .ans{margin:0 auto;text-align:center}
 .gv-arrowh .shaft{stroke-dasharray:1.5 7}
 .gv-note{position:absolute;right:-6px;top:-52px;width:132px;height:66px;overflow:visible}
 .gviz-m{display:none}
-/* mobile layout — completely restacked */
+/* mobile layout — 98% funnels down to the centred 2% dots (matches reference) */
 @media(max-width:760px){
   .gviz-d{display:none}
-  .gviz-m{display:block;max-width:430px;margin:6px auto 0}
-  .gv-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 20px rgba(9,9,9,.05);padding:28px 24px}
-  .gv-card.gv-use{text-align:center}
-  .gv-head-c{display:flex;flex-direction:column;align-items:center;gap:9px;margin-bottom:22px}
+  .gviz-m{display:block;max-width:420px;margin:6px auto 0}
+  .gv-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 6px 30px rgba(9,9,9,.06);padding:34px 26px}
+  .gv-card.gv-use{text-align:center;padding-bottom:40px}
+  .gv-head-c{display:flex;flex-direction:column;align-items:center;gap:11px;margin-bottom:28px}
+  .gviz-m .gv-num{font-size:52px}
+  .gviz-m .gv-lab{font-size:12px}
   .gviz-m .gv-dots{margin:0 auto}
-  .gv-funnel{position:relative;height:82px;display:flex;align-items:center;justify-content:center}
-  .gv-funnel::before{content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:88px solid transparent;border-right:88px solid transparent;border-top:66px solid rgba(0,84,255,.07)}
-  .gv-down{position:relative;z-index:1;width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);color:var(--blue);box-shadow:0 3px 10px rgba(9,9,9,.08)}
-  .gv-down svg{width:20px;height:20px}
-  .gviz-m .gv-build{position:relative;overflow:hidden}
-  .gviz-m .gv-build .gv-head{gap:8px;margin-bottom:20px}
-  .gviz-m .gv-build .gv-dots{margin:0}
-  .gv-note-m{position:absolute;right:16px;top:56px;width:126px;height:56px;overflow:visible}
-  .gv-note-m .gv-note-t{font-size:12px}
+  .gviz-m .gv-dots i{width:8px;height:8px}
+  /* down-arrow bridging the two cards */
+  .gv-funnel{position:relative;z-index:3;height:30px;display:flex;align-items:center;justify-content:center}
+  .gv-down{width:50px;height:50px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);color:var(--blue);box-shadow:0 6px 18px rgba(9,9,9,.1)}
+  .gv-down svg{width:22px;height:22px}
+  /* 2% card: label top-left, funnel triangle converging onto centred dots */
+  .gviz-m .gv-build{position:relative;min-height:250px;overflow:hidden;padding-top:30px}
+  .gviz-m .gv-build .gv-head{display:flex;flex-direction:column;align-items:flex-start;gap:9px;position:relative;z-index:2}
+  .gviz-m .gv-build::before{content:"";position:absolute;left:50%;top:-4px;transform:translateX(-50%);width:0;height:0;border-left:86px solid transparent;border-right:86px solid transparent;border-top:158px solid rgba(0,84,255,.09);z-index:0}
+  .gviz-m .gv-dots--b{position:absolute;left:50%;top:152px;transform:translateX(-50%);margin:0;z-index:2}
+  .gviz-m .gv-dots--b i{width:11px;height:11px}
+  .gv-note-m{position:absolute;right:-2px;top:150px;width:150px;height:64px;overflow:visible;z-index:2}
+  .gv-note-m .gv-note-t{font-size:12.5px}
 }
 .who-close{text-align:center;font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);margin-top:44px}
 .curr{max-width:880px;margin:0 auto}
@@ -671,10 +677,10 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <div class="gv-card gv-build">
         <div class="gv-head"><span class="gv-num gv-num--b">2%</span><span class="gv-lab">Build &amp; ship</span></div>
         <div class="gv-dots gv-dots--b" data-dots="9" data-cols="3"></div>
-        <svg class="gv-note gv-note-m" viewBox="0 0 130 58" aria-hidden="true">
-          <text class="gv-note-t" x="66" y="12">the cohort<tspan x="66" dy="15">puts you here</tspan></text>
-          <path class="gv-note-a" d="M62 21 C 48 29, 34 35, 20 41"/>
-          <path class="gv-note-h" d="M20 41 l 2 -7 M20 41 l 7.5 -1"/>
+        <svg class="gv-note gv-note-m" viewBox="0 0 150 64" aria-hidden="true">
+          <text class="gv-note-t" x="64" y="14">the cohort<tspan x="64" dy="15">puts you here</tspan></text>
+          <path class="gv-note-a" d="M60 25 C 44 34, 24 40, 6 44"/>
+          <path class="gv-note-h" d="M6 44 l 9 -1.5 M6 44 l 3.5 7.5"/>
         </svg>
       </div>
     </div>
