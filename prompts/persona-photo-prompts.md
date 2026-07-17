@@ -25,3 +25,8 @@ plastic skin, no watermark, no text."
 
 ## Flow after generation
 Download raws → q4 JPEG ≤160KB each → drop into img/who-*.jpg (same names, no HTML change) → deploy.
+
+## Generated 2026-07-17 (new account, workspace 4c919362)
+Variation A (studio): entrepreneur ba96c7ca-d49a-4825-b569-4acf6b030231 · family 66018e8c-b631-4e00-9270-85d03a63839d · professional 0961743f-c527-486b-b1d2-2ee11e8c1c5a · marketer b928e40c-feb7-4e60-87e1-f1300fe39fab
+Variation B (environmental): entrepreneur 62e7c987-2b8d-4191-beeb-a57ec26b02eb · family 64212766-5735-4857-a50f-f581b7e1a58f · professional a8e56832-a7f1-4ad4-8f63-65b986d71c37 · marketer 4e09be5c-eec2-4cd4-a70a-127d0d8fe0e0
+Raw URLs: https://d8j0ntlcm91z4.cloudfront.net/user_3G1sgX3CkLyrb0SH3O2EFMloWoI/hf_20260717_<time>_<id>.png
