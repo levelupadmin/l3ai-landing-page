@@ -349,6 +349,13 @@ details .ans{margin:0 auto;text-align:center}
 .hg-b{fill:var(--blue);filter:drop-shadow(0 0 8px rgba(0,84,255,.6))}
 .humangrid .gap-chip{top:50%;opacity:1;transform:translate(-50%,-150%)}
 .humangrid .gap-chip::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(14,14,14,.94)}
+/* bubble-cluster variation of the gap viz */
+.bubblefield{position:relative;width:min(440px,84vw);margin:10px auto 0}
+.bubblefield svg{width:100%;height:auto;display:block;overflow:visible}
+.bb{fill:rgba(232,239,234,.13)}
+.bb-b{fill:var(--blue);filter:drop-shadow(0 0 7px rgba(0,84,255,.6))}
+.bubblefield .gap-chip{top:50%;left:50%;opacity:1;transform:translate(-50%,-172%)}
+.bubblefield .gap-chip::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(14,14,14,.94)}
 .gap-chip{position:absolute;left:50%;top:56%;transform:translate(-50%,10px);opacity:0;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);background:rgba(14,14,14,.94);border:1px solid var(--line);border-radius:2px;padding:9px 16px 8px;text-align:center}
 .gapring.lit .gap-chip{opacity:1;transform:translate(-50%,0)}
 .gap-chip .gc-n{font-family:var(--serif-px);font-size:22px;line-height:1;color:var(--ink);display:block}
@@ -574,12 +581,12 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <p class="lede">You already know AI is big, so we'll skip that speech. Here's the number that matters: almost everyone is using it, and almost nobody is getting a real return from it.</p>
     </div>
     <div class="gapviz">
-      <div class="humangrid rv" role="img" aria-label="A grid of 100 people. Ninety-eight are muted — the people who only use AI. Two are highlighted in blue — the under two percent who build and ship with it.">
-        <div class="hg-cells" id="hgCells"></div>
+      <div class="bubblefield rv" role="img" aria-label="A dense cluster of bubbles representing everyone who uses AI. Two bubbles at the centre are highlighted in blue — the under two percent who build and ship with it.">
+        <svg id="bubbleSvg" viewBox="0 0 400 400" aria-hidden="true"></svg>
         <div class="gap-chip"><span class="gc-n">2%</span><span class="gc-l">Build &amp; ship</span></div>
       </div>
       <script>
-      (function(){var h=document.getElementById('hgCells');if(!h)return;var B={54:1,55:1},s='';for(var i=0;i<100;i++){s+='<svg class="hg-p'+(B[i]?' hg-b':'')+'" viewBox="0 0 24 28" aria-hidden="true"><circle cx="12" cy="7" r="4.4"/><path d="M2.8 27c0-5 4.1-8.6 9.2-8.6s9.2 3.6 9.2 8.6z"/></svg>';}h.innerHTML=s;})();
+      (function(){var svg=document.getElementById('bubbleSvg');if(!svg)return;var N=112,GA=2.399963,C=15.2,cx=200,cy=200,f='';for(var i=N-1;i>=1;i--){var r=C*Math.sqrt(i),a=i*GA,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a),rad=3.4+4.6*Math.abs(Math.sin(i*1.73+0.6));f+='<circle class="bb" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+rad.toFixed(1)+'"/>';}f+='<circle class="bb bb-b" cx="187" cy="203" r="12.5"/><circle class="bb bb-b" cx="215" cy="203" r="12.5"/>';svg.innerHTML=f;})();
       </script>
       <div class="gap-legend rv">
         <span class="gl"><span class="sw sw-use" aria-hidden="true"></span>98% stop at using AI</span>
