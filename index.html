@@ -72,6 +72,8 @@ em{font-style:italic}
 /* ---------- primitives ---------- */
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 section{padding:96px 0;position:relative;overflow:hidden;contain:paint}
+section:not(:first-of-type){border-top:1px solid var(--line)}
+section:not(.light){background-color:#0A0A0C;background-image:radial-gradient(120% 62% at 50% 0%,rgba(0,84,255,.06),transparent 60%)}
 section>.wrap{position:relative;z-index:1}
 section[id],header[id]{scroll-margin-top:76px}
 #who,#leverage{padding-top:64px}
@@ -247,7 +249,6 @@ footer{border-top:1px solid var(--line);padding:54px 0 46px}
 
 
 /* ---------- ambient blue washes (odyssey-style) ---------- */
-#gap{background:radial-gradient(70% 55% at 88% -5%,rgba(0,84,255,.13),transparent 62%),var(--bg)}
 #leverage{background:radial-gradient(60% 50% at -8% 28%,rgba(0,84,255,.11),transparent 60%),var(--bg)}
 #mentors{background:radial-gradient(80% 62% at 50% 114%,rgba(0,84,255,.16),transparent 66%),var(--bg)}
 #apply{background:radial-gradient(55% 45% at 104% 6%,rgba(0,84,255,.11),transparent 60%),var(--bg)}
@@ -293,7 +294,9 @@ footer{border-top:1px solid var(--line);padding:54px 0 46px}
 
 /* ---------- light breather bands ---------- */
 section.light{
-  background:#F7F7F4;
+  background-color:#F5F5F1;
+  background-image:radial-gradient(rgba(9,9,9,.02) 1px,transparent 1.6px),radial-gradient(125% 80% at 100% 0%,rgba(0,84,255,.035),transparent 55%),linear-gradient(180deg,rgba(255,255,255,.55),rgba(9,9,9,.012));
+  background-size:23px 23px,100% 100%,100% 100%;
   --ink:#090909;
   --ink-70:rgba(9,9,9,.72);
   --ink-60:rgba(9,9,9,.62);
@@ -393,6 +396,44 @@ details .ans{margin:0 auto;text-align:center}
 .rn-t{font-family:var(--hand);font-weight:700;font-size:6.4px;fill:var(--blue)}
 .rn-arrow,.rn-head{fill:none;stroke:var(--blue);stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:760px){.rn-t{font-size:5.7px}}
+/* ---------- gap infographic (98% grid → 2% dots) ---------- */
+.gv-dots{display:grid;gap:8px;width:max-content}
+.gv-dots i{width:7px;height:7px;border-radius:50%;background:rgba(9,9,9,.16)}
+.gv-dots--b i{background:var(--blue);box-shadow:0 0 6px rgba(0,84,255,.45)}
+.gv-num{font-family:var(--serif-px);font-size:clamp(38px,4.4vw,54px);line-height:.86;color:#0A0A0A}
+.gv-num--b{color:var(--blue)}
+.gv-lab{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-50);line-height:1.35}
+.gv-note-t{font-family:var(--hand);font-weight:700;font-size:13px;fill:var(--blue)}
+.gv-note-a,.gv-note-h{fill:none;stroke:var(--blue);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* desktop layout */
+.gviz-d{display:flex;align-items:center;gap:20px;max-width:880px;margin:10px auto 0;padding:38px 44px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 20px rgba(9,9,9,.05)}
+.gv-panel{display:flex;align-items:center;gap:24px;flex:0 0 auto}
+.gv-build{position:relative}
+.gv-head{display:flex;flex-direction:column;gap:11px}
+.gv-flow{flex:1 1 auto;min-width:56px;display:flex;align-items:center;justify-content:center}
+.gv-arrowh{width:100%;max-width:160px;color:rgba(9,9,9,.28)}
+.gv-arrowh path{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.gv-arrowh .shaft{stroke-dasharray:1.5 7}
+.gv-note{position:absolute;right:-6px;top:-52px;width:132px;height:66px;overflow:visible}
+.gviz-m{display:none}
+/* mobile layout — completely restacked */
+@media(max-width:760px){
+  .gviz-d{display:none}
+  .gviz-m{display:block;max-width:430px;margin:6px auto 0}
+  .gv-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 20px rgba(9,9,9,.05);padding:28px 24px}
+  .gv-card.gv-use{text-align:center}
+  .gv-head-c{display:flex;flex-direction:column;align-items:center;gap:9px;margin-bottom:22px}
+  .gviz-m .gv-dots{margin:0 auto}
+  .gv-funnel{position:relative;height:82px;display:flex;align-items:center;justify-content:center}
+  .gv-funnel::before{content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:88px solid transparent;border-right:88px solid transparent;border-top:66px solid rgba(0,84,255,.07)}
+  .gv-down{position:relative;z-index:1;width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);color:var(--blue);box-shadow:0 3px 10px rgba(9,9,9,.08)}
+  .gv-down svg{width:20px;height:20px}
+  .gviz-m .gv-build{position:relative;overflow:hidden}
+  .gviz-m .gv-build .gv-head{gap:8px;margin-bottom:20px}
+  .gviz-m .gv-build .gv-dots{margin:0}
+  .gv-note-m{position:absolute;right:16px;top:56px;width:126px;height:56px;overflow:visible}
+  .gv-note-m .gv-note-t{font-size:12px}
+}
 .who-close{text-align:center;font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);margin-top:44px}
 .curr{max-width:880px;margin:0 auto}
 .curr details{border-bottom:1px solid var(--line)}
@@ -593,36 +634,57 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </header>
 
-<div class="hatch"></div>
 <!-- ══════════════ 2 · THE GAP, IN DATA ══════════════ -->
-<section id="gap">
+<section id="gap" class="light">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Using AI stopped being an edge. Here's what isn't.</span>
       <h2>1.2 billion people use AI. Fewer than 2% build with it.</h2>
       <p class="lede">You already know AI is big, so we'll skip that speech. Here's the number that matters: almost everyone is using it, and almost nobody is getting a real return from it.</p>
     </div>
-    <div class="gapviz">
-      <div class="gapring rv" role="img" aria-label="A disc of about a thousand dots representing AI users; a small blue cluster at the centre — under 2 percent — represents the people who build and ship with it.">
-        <canvas id="gapCanvas"></canvas>
-        <div class="gap-chip"><span class="gc-n">2%</span><span class="gc-l">Build &amp; ship</span></div>
-        <svg class="ring-note" viewBox="0 0 100 100" aria-hidden="true">
-          <text class="rn-t" x="75" y="14">the cohort<tspan x="75" dy="8.6">puts you here</tspan></text>
-          <path class="rn-arrow" d="M73 18 C 65 25, 59 34, 54 45"/>
-          <path class="rn-head" d="M54 45 l 0.4 -6.2 M54 45 l 6.2 -1.4"/>
+
+    <!-- desktop infographic -->
+    <div class="gviz gviz-d rv" role="img" aria-label="98 percent stop at using AI; fewer than 2 percent build and ship with it — where the return lives.">
+      <div class="gv-panel gv-use">
+        <div class="gv-head"><span class="gv-num">98%</span><span class="gv-lab">Stop at<br>using AI</span></div>
+        <div class="gv-dots" data-dots="50" data-cols="10"></div>
+      </div>
+      <div class="gv-flow"><svg class="gv-arrowh" viewBox="0 0 132 24" aria-hidden="true"><path class="shaft" d="M2 12 H120"/><path d="M112 6 L123 12 L112 18"/></svg></div>
+      <div class="gv-panel gv-build">
+        <div class="gv-dots gv-dots--b" data-dots="6" data-cols="2"></div>
+        <div class="gv-head"><span class="gv-num gv-num--b">2%</span><span class="gv-lab">Build &amp;<br>ship</span></div>
+        <svg class="gv-note" viewBox="0 0 132 66" aria-hidden="true">
+          <text class="gv-note-t" x="60" y="12">the cohort<tspan x="60" dy="15">puts you here</tspan></text>
+          <path class="gv-note-a" d="M56 20 C 40 30, 24 40, 10 51"/>
+          <path class="gv-note-h" d="M10 51 l 1.5 -7.5 M10 51 l 7.5 -2"/>
         </svg>
       </div>
-      <div class="gap-legend rv">
-        <span class="gl"><span class="sw sw-use" aria-hidden="true"></span>98% stop at using AI</span>
-        <span class="gl"><span class="sw sw-build" aria-hidden="true"></span>Under 2% build &amp; ship — where the return lives</span>
-      </div>
-      <p class="gap-close rv">Using AI is the most crowded skill on earth now. Building with it is one of the rarest. The entire return on the time and money you've put into AI sits with the builders.</p>
-      <p class="gap-lane rv">This cohort moves you to that side.</p>
     </div>
+
+    <!-- mobile infographic (distinct stacked layout) -->
+    <div class="gviz gviz-m rv" aria-hidden="true">
+      <div class="gv-card gv-use">
+        <div class="gv-head-c"><span class="gv-num">98%</span><span class="gv-lab">Stop at using AI</span></div>
+        <div class="gv-dots" data-dots="65" data-cols="13"></div>
+      </div>
+      <div class="gv-funnel"><span class="gv-down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 12.5l6 6 6-6"/></svg></span></div>
+      <div class="gv-card gv-build">
+        <div class="gv-head"><span class="gv-num gv-num--b">2%</span><span class="gv-lab">Build &amp; ship</span></div>
+        <div class="gv-dots gv-dots--b" data-dots="9" data-cols="3"></div>
+        <svg class="gv-note gv-note-m" viewBox="0 0 130 58" aria-hidden="true">
+          <text class="gv-note-t" x="66" y="12">the cohort<tspan x="66" dy="15">puts you here</tspan></text>
+          <path class="gv-note-a" d="M62 21 C 48 29, 34 35, 20 41"/>
+          <path class="gv-note-h" d="M20 41 l 2 -7 M20 41 l 7.5 -1"/>
+        </svg>
+      </div>
+    </div>
+
+    <p class="gap-close rv">Using AI is the most crowded skill on earth now. Building with it is one of the rarest. <strong>The entire return on the time and money you've put into AI sits with the builders.</strong></p>
+    <p class="gap-lane rv">This cohort moves you to that side.</p>
   </div>
+  <script>(function(){document.querySelectorAll('#gap .gv-dots').forEach(function(d){var n=+d.dataset.dots||40,c=+d.dataset.cols||10,s='';d.style.gridTemplateColumns='repeat('+c+',1fr)';for(var i=0;i<n;i++)s+='<i></i>';d.innerHTML=s;});})();</script>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 3 · WHAT THE COHORT IS ══════════════ -->
 <section id="cohort" class="light">
   <div class="bg-el bg-scan"></div>
@@ -716,7 +778,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 5 · THE CURRICULUM ══════════════ -->
 <section id="curriculum">
   <div class="bg-el bg-grid"></div>
@@ -795,7 +856,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 6 · THE BUILDER'S LOOP ══════════════ -->
 <section id="loop" class="light">
   <div class="wrap">
@@ -814,7 +874,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 7 · LEVERAGE: WHAT YOU'LL BUILD ══════════════ -->
 <section id="leverage">
   <div class="wrap">
@@ -854,7 +913,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   <div class="wrap rv" style="text-align:center;margin-top:52px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a></div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 8 · MENTORS ══════════════ -->
 <section id="mentors">
   <div class="wrap">
@@ -876,7 +934,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 9 · THE ECOSYSTEM ══════════════ -->
 <section id="ecosystem" class="light">
   <div class="wrap">
@@ -964,7 +1021,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 12 · HOW TO APPLY ══════════════ -->
 <section id="apply" class="has-glow">
   <div class="bg-clip">
@@ -991,7 +1047,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 13 · FAQ ══════════════ -->
 <section id="faq">
   <div class="bg-el bg-scan" style="animation-duration:17s"></div>
@@ -1045,7 +1100,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<div class="hatch"></div>
 <!-- ══════════════ 14 · FINAL CTA ══════════════ -->
 <section class="final has-glow">
   <div class="final-bg"><img src="img/bg-final-cta.jpg" alt="" loading="lazy" width="2400" height="1030"></div>
