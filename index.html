@@ -342,6 +342,13 @@ details .ans{margin:0 auto;text-align:center}
 .cta-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-70);margin:-24px 0 34px;text-shadow:0 1px 12px rgba(9,9,9,.95)}
 .gapring{position:relative;width:min(520px,86vw);aspect-ratio:1;margin:8px auto 0}
 #gapCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* human-grid variation of the gap viz */
+.humangrid{position:relative;width:min(460px,84vw);margin:14px auto 0}
+.hg-cells{display:grid;grid-template-columns:repeat(10,1fr);gap:min(1.5vw,11px)}
+.hg-p{width:100%;aspect-ratio:24/28;fill:rgba(232,239,234,.15);transition:fill .6s var(--ease-out)}
+.hg-b{fill:var(--blue);filter:drop-shadow(0 0 8px rgba(0,84,255,.6))}
+.humangrid .gap-chip{top:50%;opacity:1;transform:translate(-50%,-150%)}
+.humangrid .gap-chip::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(14,14,14,.94)}
 .gap-chip{position:absolute;left:50%;top:56%;transform:translate(-50%,10px);opacity:0;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);background:rgba(14,14,14,.94);border:1px solid var(--line);border-radius:2px;padding:9px 16px 8px;text-align:center}
 .gapring.lit .gap-chip{opacity:1;transform:translate(-50%,0)}
 .gap-chip .gc-n{font-family:var(--serif-px);font-size:22px;line-height:1;color:var(--ink);display:block}
@@ -567,10 +574,13 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <p class="lede">You already know AI is big, so we'll skip that speech. Here's the number that matters: almost everyone is using it, and almost nobody is getting a real return from it.</p>
     </div>
     <div class="gapviz">
-      <div class="gapring rv" role="img" aria-label="A disc of about a thousand dots representing AI users; a small blue cluster at the center — under 2 percent — represents the people who build and ship with it.">
-        <canvas id="gapCanvas"></canvas>
+      <div class="humangrid rv" role="img" aria-label="A grid of 100 people. Ninety-eight are muted — the people who only use AI. Two are highlighted in blue — the under two percent who build and ship with it.">
+        <div class="hg-cells" id="hgCells"></div>
         <div class="gap-chip"><span class="gc-n">2%</span><span class="gc-l">Build &amp; ship</span></div>
       </div>
+      <script>
+      (function(){var h=document.getElementById('hgCells');if(!h)return;var B={54:1,55:1},s='';for(var i=0;i<100;i++){s+='<svg class="hg-p'+(B[i]?' hg-b':'')+'" viewBox="0 0 24 28" aria-hidden="true"><circle cx="12" cy="7" r="4.4"/><path d="M2.8 27c0-5 4.1-8.6 9.2-8.6s9.2 3.6 9.2 8.6z"/></svg>';}h.innerHTML=s;})();
+      </script>
       <div class="gap-legend rv">
         <span class="gl"><span class="sw sw-use" aria-hidden="true"></span>98% stop at using AI</span>
         <span class="gl"><span class="sw sw-build" aria-hidden="true"></span>Under 2% build &amp; ship — where the return lives</span>
