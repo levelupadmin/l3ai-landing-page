@@ -117,10 +117,13 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 .nav-mobile a:active,.nav-mobile a:hover{color:var(--ink)}
 
 /* ---------- hero ---------- */
-.hero{padding:clamp(80px,13vh,150px) 0 clamp(72px,11vh,130px);text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center;background:#000;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0}
+/* hero + gap share one continuous starfield background */
+#topband{position:relative;background:#060608;overflow:hidden}
+.tb-bg{position:absolute;inset:0;z-index:0}
 #stars{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(92% 45% at 50% 108%,rgba(0,84,255,.28),rgba(0,84,255,.09) 45%,transparent 72%),linear-gradient(180deg,rgba(9,9,9,.55) 0%,rgba(9,9,9,0) 28%,rgba(9,9,9,0) 86%,var(--bg) 100%)}
+.tb-scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(78% 34% at 50% 56%,rgba(0,84,255,.15),transparent 72%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 100%)}
+#topband>.hero,#topband>#gap{position:relative;z-index:1;background:transparent}
+.hero{padding:clamp(80px,13vh,150px) 0 clamp(72px,11vh,130px);text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center}
 .hero>.wrap{position:relative;z-index:1}
 .hero h1{text-shadow:0 2px 24px rgba(9,9,9,.85)}
 .hero .lede{text-shadow:0 1px 16px rgba(9,9,9,.9)}
@@ -402,7 +405,7 @@ details .ans{margin:0 auto;text-align:center}
 .gv-lab{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-50);line-height:1.35}
 .gv-note-t{font-family:var(--hand);font-weight:700;font-size:13px;fill:#5a8bff}
 .gv-note-a,.gv-note-h{fill:none;stroke:#5a8bff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.gv-card,.gviz-d{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid rgba(232,239,234,.1);box-shadow:0 14px 44px rgba(0,0,0,.35)}
+.gv-card,.gviz-d{background:linear-gradient(180deg,rgba(26,28,35,.78),rgba(15,16,21,.82));border:1px solid rgba(232,239,234,.1);box-shadow:0 14px 44px rgba(0,0,0,.4)}
 /* desktop layout */
 .gviz-d{display:flex;align-items:center;gap:20px;max-width:880px;margin:10px auto 0;padding:38px 44px;border-radius:18px}
 .gv-panel{display:flex;align-items:center;gap:24px;flex:0 0 auto}
@@ -633,11 +636,12 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
 
 <!-- ══════════════ 1 · HERO ══════════════ -->
 <main>
-<header class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true">
+<div id="topband">
+  <div class="tb-bg" aria-hidden="true">
     <canvas id="stars"></canvas>
-    <div class="hero-scrim"></div>
+    <div class="tb-scrim"></div>
   </div>
+<header class="hero" id="top">
   <div class="wrap">
     <span class="eyebrow">The LevelUp AI Builder Cohort</span>
     <h1>Build your own <span class="accent">AI product</span> in 24 weeks.</h1>
@@ -705,6 +709,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
   <script>(function(){document.querySelectorAll('#gap .gv-dots').forEach(function(d){var n=+d.dataset.dots||40,c=+d.dataset.cols||10,s='';d.style.gridTemplateColumns='repeat('+c+',1fr)';for(var i=0;i<n;i++)s+='<i style="--i:'+i+'"></i>';d.innerHTML=s;});if(!('IntersectionObserver'in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.2});document.querySelectorAll('#gap .gviz').forEach(function(v){io.observe(v);});})();</script>
 </section>
+</div><!-- /#topband -->
 
 <!-- ══════════════ 3 · WHAT THE COHORT IS ══════════════ -->
 <section id="cohort" class="light">
@@ -1183,7 +1188,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     const r=c.getBoundingClientRect();
     W=c.width=Math.round(r.width*dpr);
     H=c.height=Math.round(r.height*dpr);
-    const n=Math.min(220,Math.round(W*H/(26000*dpr)));
+    const n=Math.min(340,Math.round(W*H/(24000*dpr)));
     stars=Array.from({length:n},()=>({
       x:Math.random()*W, y:Math.random()*H,
       r:(Math.random()*1.3+.4)*dpr,
