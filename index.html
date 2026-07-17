@@ -427,13 +427,19 @@ section.light .b-light p{color:rgba(9,9,9,.7)}
 .b-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
 .b-card p{font-size:14px;line-height:1.5;margin:0}
 .b-hr{border:0;border-top:1px solid;margin:16px 0}
-.b-img{flex:1;min-height:220px;position:relative}
+.b-img{flex:1;min-height:220px;position:relative;background-repeat:no-repeat}
 .b-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
-.b-dark .b-img::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#0E0E0E 0%,rgba(14,14,14,.85) 10%,rgba(14,14,14,.45) 25%,rgba(14,14,14,.15) 38%,rgba(14,14,14,0) 52%)}
 .b2 .b-img{min-height:240px;flex:0 0 44%}
+/* dark cards = full-bleed photo with text overlaid on a left→right scrim (reference layout) */
+.b1,.b4{position:relative;min-height:360px}
+.b-dark .b-img{position:absolute;inset:0;flex:none;z-index:0;background-size:cover;background-position:center 24%}
+.b1 .b-img{background-image:url(img/who-entrepreneur.jpg);background-size:172% auto;background-position:0% 28%}
+.b4 .b-img{background-image:url(img/who-marketer.jpg);background-size:150% auto;background-position:8% 26%}
+.b-dark .b-img::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,#0E0E0E 0%,#0E0E0E 18%,rgba(14,14,14,.9) 30%,rgba(14,14,14,.5) 43%,rgba(14,14,14,.12) 54%,rgba(14,14,14,0) 64%)}
+.b-dark .b-text{position:relative;z-index:2;flex:none;width:50%;max-width:330px}
 .who-check{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:34px;font-size:15px;font-weight:500;color:var(--ink)}
 .who-check .chk{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
-@media(max-width:760px){.b-dark .b-img::after{background:linear-gradient(180deg,#0E0E0E 0%,rgba(14,14,14,.8) 12%,rgba(14,14,14,.3) 30%,rgba(14,14,14,0) 48%)}.b1,.b2,.b3,.b4{grid-column:span 12}.b1,.b4{flex-direction:column}.b3{flex-direction:column}.b-img{min-height:260px}.b2 .b-img{flex:none}}
+@media(max-width:760px){.b1,.b2,.b3,.b4{grid-column:span 12}.b1,.b4{flex-direction:column;min-height:0}.b3{flex-direction:column}.b-img{min-height:260px}.b2 .b-img{flex:none}.b-dark .b-img{position:relative;inset:auto;order:-1;height:260px;background-size:cover;background-position:center 20%}.b-dark .b-text{width:auto;max-width:none}.b-dark .b-img::after{display:none}}
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(14px);transition:opacity var(--dur-3) var(--ease-out) var(--rvd,0s),transform var(--dur-3) var(--ease-out) var(--rvd,0s)}
 .rv.in{opacity:1;transform:none}
@@ -658,7 +664,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
           <span class="b-k">Before</span><p>Ideas waiting on developers, agencies and budgets you don't have.</p>
           <hr class="b-hr"><span class="b-k b-after">After</span><p>You build and test the MVP yourself, the same month you think of it.</p>
         </div>
-        <div class="b-img"><img src="img/who-entrepreneur.jpg" alt="Placeholder — entrepreneur portrait" loading="lazy"></div>
+        <div class="b-img" role="img" aria-label="Entrepreneur portrait"></div>
       </div>
       <div class="b-card b-light b2">
         <div class="b-img"><img src="img/who-family.jpg" alt="Placeholder — family business owner" loading="lazy"></div>
@@ -682,7 +688,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
           <span class="b-k">Before</span><p>Content, reports and campaigns produced by hand, one at a time.</p>
           <hr class="b-hr"><span class="b-k b-after">After</span><p>A content engine and automations you built do the repeating, you do the thinking.</p>
         </div>
-        <div class="b-img"><img src="img/who-marketer.jpg" alt="Placeholder — marketer at work" loading="lazy"></div>
+        <div class="b-img" role="img" aria-label="Marketer at work"></div>
       </div>
     </div>
     <p class="who-check rv"><span class="chk" aria-hidden="true">✓</span>Zero coding experience needed.</p>
