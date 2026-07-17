@@ -158,16 +158,29 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
 /* cohort — compact icon-tile grid + scroll-highlight lede */
 .cohort-lede .lw{color:rgba(9,9,9,.17);transition:color .35s var(--ease-out)}
 .cohort-lede .lw.on{color:#0A0A0A}
-.cohort-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px}
-.cg-card{position:relative;padding:28px 28px 26px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 1px 2px rgba(9,9,9,.04);overflow:hidden;transition:border-color .35s var(--ease-out),transform .35s var(--ease-out),box-shadow .35s var(--ease-out)}
-.cg-card::before{content:"";position:absolute;inset:0;background:radial-gradient(130% 90% at 0% 0%,rgba(0,84,255,.08),transparent 58%);opacity:.6;pointer-events:none;transition:opacity .35s var(--ease-out)}
-.cg-card:hover{border-color:var(--blue-line);transform:translateY(-3px);box-shadow:0 12px 28px rgba(9,9,9,.09)}
-.cg-card:hover::before{opacity:1}
-.cg-ic{position:relative;display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;border-radius:13px;background:linear-gradient(155deg,rgba(0,84,255,.17),rgba(0,84,255,.04));border:1px solid var(--blue-line);color:var(--blue);margin-bottom:22px;box-shadow:0 6px 16px rgba(0,84,255,.13)}
-.cg-ic svg{width:24px;height:24px}
-.cg-no{position:absolute;top:26px;right:28px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-35)}
-.cg-t{font-size:clamp(19px,2vw,23px);margin-bottom:9px}
-.cg-card p{position:relative;font-size:14px;line-height:1.5;color:var(--ink-60)}
+/* cohort bento — light cards with dark "imagery" visual panels (inverted) */
+.cohort-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.cg-card{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 1px 2px rgba(9,9,9,.04);transition:transform .4s var(--ease-out),box-shadow .4s var(--ease-out),border-color .4s}
+.cg-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(9,9,9,.12);border-color:var(--blue-line)}
+.cg-vis{position:relative;flex:1;min-height:132px;display:flex;align-items:center;justify-content:center;background:radial-gradient(130% 120% at 28% 16%,rgba(0,84,255,.22),transparent 58%),linear-gradient(160deg,#17181e,#0a0a0d)}
+.cg-no{position:absolute;top:14px;left:16px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(232,239,234,.42)}
+.cg-ic{display:inline-flex;width:56px;height:56px;align-items:center;justify-content:center;border-radius:15px;background:linear-gradient(155deg,rgba(0,84,255,.3),rgba(0,84,255,.08));border:1px solid rgba(90,139,255,.45);color:#9dbcff;box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.cg-ic svg{width:28px;height:28px}
+.cg-info{padding:17px 20px 19px}
+.cg-t{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px;color:#0A0A0A}
+.cg-card p{font-size:13.5px;line-height:1.46;color:var(--ink-60)}
+@media(min-width:761px){
+  .cohort-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:184px;gap:16px}
+  .cg-vis{min-height:60px}
+  .cg-card:nth-child(1){grid-column:1;grid-row:1/3}
+  .cg-card:nth-child(2){grid-column:2;grid-row:1/2}
+  .cg-card:nth-child(3){grid-column:3;grid-row:1/2}
+  .cg-card:nth-child(4){grid-column:2;grid-row:2/4}
+  .cg-card:nth-child(5){grid-column:3;grid-row:2/4}
+  .cg-card:nth-child(6){grid-column:1;grid-row:3/4}
+  .cg-card:nth-child(1) .cg-ic,.cg-card:nth-child(4) .cg-ic,.cg-card:nth-child(5) .cg-ic{width:66px;height:66px;border-radius:18px}
+  .cg-card:nth-child(1) .cg-ic svg,.cg-card:nth-child(4) .cg-ic svg,.cg-card:nth-child(5) .cg-ic svg{width:32px;height:32px}
+}
 
 /* ---------- personas ---------- */
 .personas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -536,6 +549,8 @@ section.light .b-light p{color:rgba(9,9,9,.7)}
 .b4 .b-img{background-image:url(img/who-marketer.jpg);background-size:120% auto;background-position:30% 16%}
 .b-dark .b-img::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,#0E0E0E 0%,#0E0E0E 20%,rgba(14,14,14,.92) 33%,rgba(14,14,14,.5) 47%,rgba(14,14,14,.12) 59%,rgba(14,14,14,0) 70%)}
 .b-dark .b-text{position:relative;z-index:2;flex:none;width:46%;max-width:340px}
+.logo-band{background:#08080A;text-align:center;padding:clamp(56px,8vh,92px) 0;background-image:radial-gradient(90% 120% at 50% 0%,rgba(0,84,255,.08),transparent 60%)}
+.logo-band img{height:clamp(34px,4vw,50px);width:auto;opacity:.96}
 .who-check{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:40px;font-size:15px;font-weight:500;color:var(--ink)}
 .who-check .chk{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
 @media(max-width:760px){.b1,.b2,.b3,.b4{grid-column:span 12}.b1,.b4{flex-direction:column;min-height:0}.b3{flex-direction:column}.b-img{min-height:260px}.b2 .b-img{flex:none}.b3 .b-img{flex:none;height:230px}.b-dark .b-img{position:relative;inset:auto;order:-1;height:260px;background-size:cover;background-position:center 20%}.b-dark .b-text{width:auto;max-width:none}.b-dark .b-img::after{display:none}.b-text,.b-light .b-text{padding:28px 24px}}
@@ -552,7 +567,6 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   .stats{grid-template-columns:1fr}
   .pillar{grid-template-columns:1fr;gap:22px}
   .pillar:nth-child(even) .pillar-media{order:0}
-  .cohort-grid{grid-template-columns:1fr;gap:14px}
   .personas{grid-template-columns:1fr}
   .build-grid{grid-template-columns:1fr 1fr}
   .mentors{grid-template-columns:1fr 1fr}
@@ -720,35 +734,29 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
       <p class="lede cohort-lede">A live, weekend-led cohort built on one rule: you learn AI by building with it, not by watching it. Mentors work with you hands-on, weekend after weekend, as you go from everyday AI user to someone who ships real, working AI products. Come to build your edge at work or an idea of your own. Both roads run through building.</p>
     </div>
     <div class="cohort-grid rv">
-      <div class="cg-card"><span class="cg-no">01</span>
-        <span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.2a2 2 0 01-2 2h-6l-4.3 3v-3H6a2 2 0 01-2-2v-6a2 2 0 012-2h7.4"/><path d="M18.2 3l.85 2.25L21.3 6.1l-2.25.85L18.2 9.2l-.85-2.25L15.1 6.1l2.25-.85z"/></svg></span>
-        <h3 class="cg-t">Go beyond chatting</h3>
-        <p>Master the fundamentals: prompts and AI work systems that hold up at your actual job.</p>
+      <div class="cg-card">
+        <div class="cg-vis"><span class="cg-no">01</span><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.2a2 2 0 01-2 2h-6l-4.3 3v-3H6a2 2 0 01-2-2v-6a2 2 0 012-2h7.4"/><path d="M18.2 3l.85 2.25L21.3 6.1l-2.25.85L18.2 9.2l-.85-2.25L15.1 6.1l2.25-.85z"/></svg></span></div>
+        <div class="cg-info"><h3 class="cg-t">Go beyond chatting</h3><p>Master the fundamentals: prompts and AI work systems that hold up at your actual job.</p></div>
       </div>
-      <div class="cg-card"><span class="cg-no">02</span>
-        <span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l9.5-9.5"/><path d="M13 5.9l2.1-2.1"/><path d="M17.6 3l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/><path d="M5.4 4l.55 1.45L7.4 6l-1.45.55L5.4 8l-.55-1.45L3.4 6l1.45-.55z"/></svg></span>
-        <h3 class="cg-t">Create with AI</h3>
-        <p>Produce professional images, video and voice, and build a content engine that turns one idea into a week of output.</p>
+      <div class="cg-card">
+        <div class="cg-vis"><span class="cg-no">02</span><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l9.5-9.5"/><path d="M13 5.9l2.1-2.1"/><path d="M17.6 3l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/><path d="M5.4 4l.55 1.45L7.4 6l-1.45.55L5.4 8l-.55-1.45L3.4 6l1.45-.55z"/></svg></span></div>
+        <div class="cg-info"><h3 class="cg-t">Create with AI</h3><p>Produce professional images, video and voice, and build a content engine that turns one idea into a week of output.</p></div>
       </div>
-      <div class="cg-card"><span class="cg-no">03</span>
-        <span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0113-5.1"/><path d="M17.8 3.4v3.7h-3.7"/><path d="M19.5 12a7.5 7.5 0 01-13 5.1"/><path d="M6.2 20.6v-3.7h3.7"/></svg></span>
-        <h3 class="cg-t">Automate what repeats</h3>
-        <p>Connect AI to the tools you already use, so the work you do every week starts running itself.</p>
+      <div class="cg-card">
+        <div class="cg-vis"><span class="cg-no">03</span><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0113-5.1"/><path d="M17.8 3.4v3.7h-3.7"/><path d="M19.5 12a7.5 7.5 0 01-13 5.1"/><path d="M6.2 20.6v-3.7h3.7"/></svg></span></div>
+        <div class="cg-info"><h3 class="cg-t">Automate what repeats</h3><p>Connect AI to the tools you already use, so the work you do every week starts running itself.</p></div>
       </div>
-      <div class="cg-card"><span class="cg-no">04</span>
-        <span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="8.5" width="15" height="9.5" rx="3"/><path d="M12 8.5V5.4"/><circle cx="12" cy="4" r="1.35"/><path d="M9.6 12.9v1.5M14.4 12.9v1.5"/><path d="M2.7 12.3v2.4M21.3 12.3v2.4"/></svg></span>
-        <h3 class="cg-t">Build AI agents</h3>
-        <p>Build agents that plan, act and finish real jobs on their own, and assistants that answer from real documents instead of guessing.</p>
+      <div class="cg-card">
+        <div class="cg-vis"><span class="cg-no">04</span><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="8.5" width="15" height="9.5" rx="3"/><path d="M12 8.5V5.4"/><circle cx="12" cy="4" r="1.35"/><path d="M9.6 12.9v1.5M14.4 12.9v1.5"/><path d="M2.7 12.3v2.4M21.3 12.3v2.4"/></svg></span></div>
+        <div class="cg-info"><h3 class="cg-t">Build AI agents</h3><p>Build agents that plan, act and finish real jobs on their own, and assistants that answer from real documents instead of guessing.</p></div>
       </div>
-      <div class="cg-card"><span class="cg-no">05</span>
-        <span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8.5 4.2L12 11.4 3.5 7.2z"/><path d="M3.5 12l8.5 4.2 8.5-4.2"/><path d="M3.5 16.8l8.5 4.2 8.5-4.2"/></svg></span>
-        <h3 class="cg-t">Build real products</h3>
-        <p>Put it all together into working AI products, built end to end and demoed live to the room.</p>
+      <div class="cg-card">
+        <div class="cg-vis"><span class="cg-no">05</span><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8.5 4.2L12 11.4 3.5 7.2z"/><path d="M3.5 12l8.5 4.2 8.5-4.2"/><path d="M3.5 16.8l8.5 4.2 8.5-4.2"/></svg></span></div>
+        <div class="cg-info"><h3 class="cg-t">Build real products</h3><p>Put it all together into working AI products, built end to end and demoed live to the room.</p></div>
       </div>
-      <div class="cg-card"><span class="cg-no">06</span>
-        <span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3.2L3.6 10.3c-.7.3-.6 1.3.1 1.5l6.5 1.9 1.9 6.5c.2.7 1.2.8 1.5.1z"/><path d="M21 3.2l-10.8 8.5"/></svg></span>
-        <h3 class="cg-t">Ship it to the world</h3>
-        <p>Make it production-grade: tested, guarded, deployed on the internet with a link anyone can open.</p>
+      <div class="cg-card">
+        <div class="cg-vis"><span class="cg-no">06</span><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3.2L3.6 10.3c-.7.3-.6 1.3.1 1.5l6.5 1.9 1.9 6.5c.2.7 1.2.8 1.5.1z"/><path d="M21 3.2l-10.8 8.5"/></svg></span></div>
+        <div class="cg-info"><h3 class="cg-t">Ship it to the world</h3><p>Make it production-grade: tested, guarded, deployed on the internet with a link anyone can open.</p></div>
       </div>
     </div>
     <script>
@@ -756,6 +764,11 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     </script>
     <div class="rv" style="text-align:center;margin-top:48px"><a class="btn btn-primary" href="#apply">Request Invite <span class="arw" aria-hidden="true">→</span></a></div>
   </div>
+</section>
+
+<!-- ══════════════ logo interstitial ══════════════ -->
+<section class="logo-band" aria-label="LevelUp">
+  <div class="wrap rv"><img src="levelup-logo-white-trimmed.png" alt="LevelUp Learning"></div>
 </section>
 
 <!-- ══════════════ 4 · WHO THIS IS FOR ══════════════ -->
