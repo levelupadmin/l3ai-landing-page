@@ -254,6 +254,45 @@ nav.open .nav-mobile{display:flex;flex-direction:column;border-top:1px solid var
   .tr-play svg{width:20px;height:20px;margin-left:3px}
 }
 
+/* ---------- brochure ---------- */
+.broch{display:grid;grid-template-columns:340px 1fr;gap:52px;align-items:center;max-width:1000px;margin:0 auto}
+.broch-cover{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.9);background:var(--card);cursor:pointer;
+  transition:transform .5s var(--ease-out),box-shadow .5s var(--ease-out)}
+.broch-cover:hover{transform:translateY(-6px);box-shadow:0 50px 110px -40px rgba(0,0,0,.95)}
+.broch-cover img{width:100%;height:auto;display:block}
+.broch-pages{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:#fff;background:rgba(9,9,9,.72);border:1px solid rgba(255,255,255,.16);
+  padding:6px 11px;border-radius:100px;backdrop-filter:blur(6px)}
+.broch-body h3{font-family:var(--serif-px);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;
+  letter-spacing:-.02em;color:var(--ink);margin:0 0 14px}
+.broch-body p{font-size:17px;line-height:1.6;color:var(--ink-60);margin:0 0 12px}
+.broch-list{list-style:none;padding:0;margin:18px 0 26px;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+.broch-list li{position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:var(--ink-60)}
+.broch-list li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.broch-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.broch-note{margin-top:16px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink-35)}
+.broch-note a{color:var(--ink-50);text-decoration:underline;text-underline-offset:3px}
+/* lightbox */
+.bx{position:fixed;inset:0;z-index:9998;display:none;background:rgba(4,4,6,.93);backdrop-filter:blur(8px)}
+.bx.on{display:flex;flex-direction:column}
+.bx-top{flex:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;
+  border-bottom:1px solid rgba(232,239,234,.12)}
+.bx-ttl{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,239,234,.62)}
+.bx-act{display:flex;align-items:center;gap:10px}
+.bx-x{appearance:none;border:1px solid rgba(232,239,234,.2);background:transparent;color:#E8EFEA;cursor:pointer;
+  width:38px;height:38px;border-radius:50%;font-size:20px;line-height:1;font-family:var(--sans)}
+.bx-x:hover{background:rgba(232,239,234,.1)}
+.bx-frame{flex:1;min-height:0;border:0;width:100%;background:#111}
+@media(max-width:900px){
+  .broch{grid-template-columns:1fr;gap:30px;max-width:520px}
+  .broch-cover{max-width:300px;margin:0 auto}
+  .broch-list{grid-template-columns:1fr}
+  .broch-cta{justify-content:center}
+  .broch-body{text-align:center}
+  .bx-ttl{display:none}
+}
+
 /* ---------- personas ---------- */
 .personas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
 .persona{background:var(--card);padding:36px 32px}
@@ -851,10 +890,10 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
     <a href="#top" class="nav-logo"><img src="https://cdn.leveluplearning.in/l3ai/assets/levelup-logo-white-trimmed.png" alt="LevelUp Learning"></a>
     <div class="nav-links">
       <a href="#cohort">The cohort</a>
-      <a href="#gap">The gap</a>
       <a href="#curriculum">Curriculum</a>
       <a href="#mentors">Mentors</a>
       <a href="#paths">Pathways</a>
+      <a href="#brochure">Brochure</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
@@ -864,10 +903,10 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
   <div class="nav-mobile wrap" id="mobile-menu">
     <a href="#cohort">The cohort</a>
-    <a href="#gap">The gap</a>
     <a href="#curriculum">Curriculum</a>
     <a href="#mentors">Mentors</a>
     <a href="#paths">Pathways</a>
+    <a href="#brochure">Brochure</a>
     <a href="#faq">FAQ</a>
   </div>
 </nav>
@@ -1430,7 +1469,76 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<!-- ══════════════ 12 · HOW TO APPLY ══════════════ -->
+<!-- ══════════════ 12 · THE BROCHURE ══════════════ -->
+<section id="brochure" class="light">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Everything, in one document</span>
+      <h2>The full brochure.</h2>
+    </div>
+    <div class="broch rv">
+      <div class="broch-cover" data-broch role="button" tabindex="0" aria-label="Open the brochure">
+        <img src="https://cdn.leveluplearning.in/l3ai/assets/brochure-cover.jpg" alt="Cover of the LevelUp AI Builder Cohort brochure" width="1191" height="1684" loading="lazy" decoding="async">
+        <span class="broch-pages">26 pages · PDF</span>
+      </div>
+      <div class="broch-body">
+        <h3>Read it before you apply.</h3>
+        <p>The whole cohort on paper: the case for building, the six-move journey, the week-by-week curriculum, the tool stack, the three pathways, fees and the admission process.</p>
+        <ul class="broch-list">
+          <li>Week-by-week curriculum</li>
+          <li>All 45+ tools you'll use</li>
+          <li>The three pathways compared</li>
+          <li>Fees and payment plans</li>
+          <li>How a week actually runs</li>
+          <li>Admission and interview</li>
+        </ul>
+        <div class="broch-cta">
+          <button class="btn btn-primary" type="button" data-broch>Read the brochure <span class="arw" aria-hidden="true">→</span></button>
+          <a class="btn btn-ghost" href="https://cdn.leveluplearning.in/l3ai/assets/brochure-final.pdf" download="The-LevelUp-AI-Builder-Cohort-Brochure.pdf">Download PDF</a>
+        </div>
+        <p class="broch-note">3 MB · opens in this page · <a href="https://drive.google.com/file/d/1D4M4LyyHaCH_MlJe60ILsoYEzFFeBmre/view" target="_blank" rel="noopener">or open in Google Drive</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bx" id="broch-box" role="dialog" aria-modal="true" aria-label="The LevelUp AI Builder Cohort brochure">
+    <div class="bx-top">
+      <span class="bx-ttl">The LevelUp AI Builder Cohort · Brochure</span>
+      <span class="bx-act">
+        <a class="btn btn-ghost" href="https://cdn.leveluplearning.in/l3ai/assets/brochure-final.pdf" download="The-LevelUp-AI-Builder-Cohort-Brochure.pdf">Download</a>
+        <button class="bx-x" type="button" data-broch-close aria-label="Close">&times;</button>
+      </span>
+    </div>
+    <iframe class="bx-frame" title="Brochure" data-src="https://cdn.leveluplearning.in/l3ai/assets/brochure-final.pdf#view=FitH"></iframe>
+  </div>
+
+  <script>
+  (function(){
+    var box=document.getElementById('broch-box'); if(!box)return;
+    var frame=box.querySelector('.bx-frame'), opener=null;
+    function open(e){
+      opener=e&&e.currentTarget;
+      if(!frame.src) frame.src=frame.dataset.src;   // only fetch the PDF once, on demand
+      box.classList.add('on'); document.body.style.overflow='hidden';
+      box.querySelector('[data-broch-close]').focus();
+    }
+    function close(){
+      box.classList.remove('on'); document.body.style.overflow='';
+      if(opener&&opener.focus)opener.focus();
+    }
+    [].forEach.call(document.querySelectorAll('[data-broch]'),function(el){
+      el.addEventListener('click',open);
+      el.addEventListener('keydown',function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();open(ev);}
+      });
+    });
+    box.querySelector('[data-broch-close]').addEventListener('click',close);
+    box.addEventListener('click',function(ev){ if(ev.target===box) close(); });
+    addEventListener('keydown',function(ev){ if(ev.key==='Escape'&&box.classList.contains('on')) close(); });
+  })();
+  </script>
+</section>
+<!-- ══════════════ 13 · HOW TO APPLY ══════════════ -->
 <section id="apply" class="has-glow">
   <div class="bg-clip">
     <div class="glow g3" style="top:6%;right:-160px"></div>
@@ -1455,7 +1563,7 @@ nav.scrolled{box-shadow:0 1px 0 var(--line)}
   </div>
 </section>
 
-<!-- ══════════════ 13 · FAQ ══════════════ -->
+<!-- ══════════════ 14 · FAQ ══════════════ -->
 <section id="faq">
   <div class="bg-el bg-scan" style="animation-duration:17s"></div>
   <div class="wrap">
