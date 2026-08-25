@@ -14,41 +14,40 @@
 html,body{width:1280px;height:720px;overflow:hidden;background:#06060A}
 .card{position:relative;width:1280px;height:720px;overflow:hidden;background:#06060A;font-family:var(--sans)}
 /* ---------- key art: the live cohort call ---------- */
-.art{position:absolute;inset:0;background:url("trailer-keyart.jpg") center/cover no-repeat;filter:brightness(.72) saturate(.95)}
+.art{position:absolute;inset:0;background:url("trailer-keyart.jpg") center/cover no-repeat;filter:brightness(.80) saturate(1.02) contrast(1.04)}
 /* darkest behind the copy, clearest through the middle band where the play button sits */
 .s1{position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(6,6,10,.94) 0%,rgba(6,6,10,.90) 30%,rgba(6,6,10,.26) 46%,rgba(6,6,10,.22) 58%,rgba(6,6,10,.80) 74%,rgba(6,6,10,.95) 100%)}
-.s2{position:absolute;inset:0;background:radial-gradient(ellipse 78% 62% at 50% 50%,rgba(6,6,10,0) 30%,rgba(6,6,10,.62) 100%)}
-.glow{position:absolute;width:900px;height:520px;left:50%;top:34%;transform:translate(-50%,-50%);border-radius:50%;
-  filter:blur(120px);background:radial-gradient(ellipse,rgba(0,84,255,.30),transparent 68%)}
+  linear-gradient(90deg,rgba(5,5,9,.97) 0%,rgba(5,5,9,.95) 34%,rgba(5,5,9,.72) 50%,rgba(5,5,9,.30) 66%,rgba(5,5,9,.16) 100%)}
+.s2{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(5,5,9,.86) 0%,rgba(5,5,9,.10) 30%,rgba(5,5,9,.10) 64%,rgba(5,5,9,.86) 100%)}
+.glow{position:absolute;width:820px;height:560px;left:20%;top:44%;transform:translate(-50%,-50%);border-radius:50%;
+  filter:blur(120px);background:radial-gradient(ellipse,rgba(0,84,255,.34),transparent 70%)}
 .grain{position:absolute;inset:0;pointer-events:none;opacity:.07;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* ---------- content ---------- */
-.in{position:absolute;inset:0;z-index:5;text-align:center}
-.logo{position:absolute;left:50%;top:38px;transform:translateX(-50%);height:40px;width:auto}
-.head{position:absolute;left:0;right:0;top:78px}
-h1{font-family:var(--serif);font-weight:700;font-size:98px;line-height:.94;letter-spacing:-.035em;
+.in{position:absolute;inset:0;z-index:5;text-align:left}
+.logo{position:absolute;left:58px;top:40px;height:46px;width:auto}
+.head{position:absolute;left:58px;right:auto;top:150px}
+h1{font-family:var(--serif);font-weight:700;font-size:112px;line-height:.92;letter-spacing:-.035em;
   color:var(--ink);text-shadow:0 6px 50px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.8)}
 h1 .u{position:relative;white-space:nowrap}
 h1 .u::after{content:"";position:absolute;left:0;right:.06em;bottom:.085em;height:9px;border-radius:5px;
   background:linear-gradient(90deg,var(--blue) 0%,var(--blue-lt) 100%);box-shadow:0 0 30px rgba(0,84,255,.85)}
 /* everything below the clear middle band */
-.lower{position:absolute;left:0;right:0;bottom:112px;display:flex;flex-direction:column;align-items:center;gap:22px}
-.sub{font-size:22px;line-height:1.4;color:var(--ink-60);max-width:720px;text-shadow:0 2px 18px rgba(0,0,0,.95)}
-.sub b{color:var(--ink);font-weight:600}
-.logos{display:flex;align-items:center;justify-content:center;gap:30px}
-.logos img{height:26px;width:auto;max-width:92px;object-fit:contain;display:block;opacity:.95;
+.lower{position:absolute;left:58px;bottom:150px}
+.sub{font-family:var(--mono);font-size:22px;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,239,234,.82);text-shadow:0 2px 18px rgba(0,0,0,.95)}
+.sub b{color:#fff;font-weight:400}
+.logos{position:absolute;right:58px;bottom:52px;display:flex;align-items:center;gap:28px}
+.logos img{height:29px;width:auto;max-width:92px;object-fit:contain;display:block;opacity:.95;
   filter:drop-shadow(0 2px 8px rgba(0,0,0,.9))}
 /* ---------- bottom bar ---------- */
-.bar{position:absolute;left:56px;right:56px;bottom:38px;display:flex;align-items:flex-end;justify-content:space-between}
+.bar{position:absolute;left:58px;bottom:44px}
 .tag{display:flex;align-items:center;gap:14px;text-align:left}
-.tag .rule{width:6px;height:50px;background:var(--red);border-radius:2px;box-shadow:0 0 20px rgba(255,53,53,.8)}
-.tag .t1{font-weight:700;font-size:26px;color:#fff;display:flex;align-items:center;gap:10px;
+.tag .rule{width:8px;height:62px;background:var(--red);border-radius:2px;box-shadow:0 0 20px rgba(255,53,53,.8)}
+.tag .t1{font-weight:700;font-size:38px;color:#fff;display:flex;align-items:center;gap:10px;
   text-shadow:0 2px 14px rgba(0,0,0,.95)}
-.tag .t1 svg{width:18px;height:18px;fill:var(--red)}
-.tag .t2{margin-top:5px;font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#FF6B6B}
-.kick{font-family:var(--mono);font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-40);
-  text-shadow:0 2px 12px rgba(0,0,0,.95);padding-bottom:4px}
+.tag .t1 svg{width:25px;height:25px;fill:var(--red)}
+.tag .t2{margin-top:7px;font-family:var(--mono);font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:#FF6B6B}
 </style></head><body>
 <div class="card">
   <div class="art"></div><div class="s1"></div><div class="s2"></div><div class="glow"></div>
@@ -60,7 +59,9 @@ h1 .u::after{content:"";position:absolute;left:0;right:.06em;bottom:.085em;heigh
     </div>
 
     <div class="lower">
-      <p class="sub"><b>Build real AI products, agents and automations</b> — live, with mentors. No coding required.</p>
+      <p class="sub">Live weekends &nbsp;·&nbsp; <b>Build real AI products</b> &nbsp;·&nbsp; No code</p>
+    </div>
+
       <div class="logos">
         <img src="https://cdn.leveluplearning.in/l3ai/assets/tools/Claude.png">
         <img src="https://cdn.leveluplearning.in/l3ai/assets/tools/OpenAI.png">
@@ -70,8 +71,6 @@ h1 .u::after{content:"";position:absolute;left:0;right:.06em;bottom:.085em;heigh
         <img src="https://cdn.leveluplearning.in/l3ai/assets/tools/Runway.png">
         <img src="https://cdn.leveluplearning.in/l3ai/assets/tools/NotebookLM.png">
       </div>
-    </div>
-
     <div class="bar">
       <span class="tag">
         <span class="rule"></span>
@@ -80,7 +79,6 @@ h1 .u::after{content:"";position:absolute;left:0;right:.06em;bottom:.085em;heigh
           <span class="t2">See what you'll build in 24 weeks</span>
         </span>
       </span>
-      <span class="kick">24 Weeks &nbsp;·&nbsp; Live Online &nbsp;·&nbsp; 50 Builders</span>
     </div>
   </div>
   <div class="grain"></div>
